@@ -1,13 +1,56 @@
 <ion-header [translucent]="true">
   <ion-toolbar>
-    <ion-title>profil</ion-title>
+    <ion-title>Compte</ion-title>
   </ion-toolbar>
 </ion-header>
 
 <ion-content [fullscreen]="true">
-  <ion-header collapse="condense">
-    <ion-toolbar>
-      <ion-title size="large">profil</ion-title>
-    </ion-toolbar>
-  </ion-header>
+  <div class="page-compte">
+    <ion-avatar>
+      <img src="../../assets/3.jpg" alt="Photo de profil">
+    </ion-avatar>
+
+    <div class="user-info">
+      <h2>Adama SERMIN</h2>
+      <p>ID : 56456941</p>
+    </div>
+
+    <ul class="settings-list">
+      <li class="setting-item">
+        <ion-icon name="settings-outline"></ion-icon>
+        <div class="setting-text">
+          <h3>Préférences</h3>
+        </div>
+        <ion-icon name="chevron-forward-outline"></ion-icon>
+      </li>
+
+      <li class="setting-item">
+        <ion-icon name="lock-closed-outline"></ion-icon>
+        <div class="setting-text">
+          <h3>Sécurité du compte</h3>
+          <div class="security-progress">
+            <div class="progress-bar"></div>
+            <p class="progress-text">Intermédiaire</p>
+          </div>
+        </div>
+        <ion-icon name="chevron-forward-outline"></ion-icon>
+      </li>
+
+      <li class="setting-item">
+        <ion-icon name="help-circle-outline"></ion-icon>
+        <div class="setting-text">
+          <h3>Aide</h3>
+        </div>
+        <ion-icon name="chevron-forward-outline"></ion-icon>
+      </li>
+
+      <li class="setting-item">
+        <ion-icon name="log-out-outline"></ion-icon>
+        <div class="setting-text">
+          <h3>Se déconnecter</h3>
+        </div>
+        <ion-icon name="chevron-forward-outline"></ion-icon>
+      </li>
+    </ul>
+  </div>
 </ion-content>
