@@ -5,13 +5,14 @@ import { IonContent, IonHeader, IonTitle, IonToolbar, IonTabs, IonIcon, IonTabBu
 import { airplane, home, library, notifications, person, personOutline, playCircle, radio, search } from 'ionicons/icons';
 
 import { addIcons } from 'ionicons'
+import { RouterLink } from '@angular/router';
 
 @Component({
   selector: 'app-accueil',
   templateUrl: './accueil.page.html',
   styleUrls: ['./accueil.page.scss'],
   standalone: true,
-  imports: [IonTabBar, IonTabButton, IonIcon, IonTabs, IonContent, IonHeader, IonTitle, IonToolbar, CommonModule, FormsModule]
+  imports: [IonTabBar, IonTabButton, IonIcon, IonTabs, IonContent, IonHeader, IonTitle, IonToolbar, CommonModule, FormsModule,RouterLink]
 })
 export class AccueilPage implements OnInit {
  
