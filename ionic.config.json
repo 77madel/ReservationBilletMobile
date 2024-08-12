@@ -1,0 +1,7 @@
+{
+  "name": "ReservationBilletMobile",
+  "integrations": {
+    "capacitor": {}
+  },
+  "type": "angular-standalone"
+}
