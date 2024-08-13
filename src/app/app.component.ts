@@ -1,5 +1,5 @@
 import { Component } from '@angular/core';
-import { IonApp, IonRouterOutlet, IonTabButton, IonTabBar, IonIcon, IonTabs } from '@ionic/angular/standalone';
+import { IonApp, IonRouterOutlet, IonTabButton, IonTabBar, IonIcon, IonTabs, IonItem } from '@ionic/angular/standalone';
 import { AccueilPage } from "./pages/accueil/accueil.page";
 import { airplane, home, library, notifications, person, personOutline, playCircle, radio, search } from 'ionicons/icons';
 
@@ -10,7 +10,7 @@ import { RouterLink } from '@angular/router';
   selector: 'app-root',
   templateUrl: 'app.component.html',
   standalone: true,
-  imports: [IonTabs, IonIcon, IonTabBar, IonTabButton, IonApp, IonRouterOutlet, AccueilPage,RouterLink],
+  imports: [IonTabs, IonIcon, IonTabBar, IonTabButton, IonApp, IonRouterOutlet, AccueilPage,RouterLink, IonItem],
 })
 export class AppComponent {
   constructor() {
