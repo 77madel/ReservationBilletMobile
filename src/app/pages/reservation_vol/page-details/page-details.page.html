@@ -1,0 +1,18 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-title>Détails du Vol</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+  <div class="details-container">
+    <h2>Détails du Vol</h2>
+    <div class="details">
+      <p><strong>Heure de Départ:</strong> {{ details?.time }}</p>
+      <p><strong>Origine:</strong> {{ details?.origin }}</p>
+      <p><strong>Destination:</strong> {{ details?.destination }}</p>
+      <p><strong>Compagnie:</strong> {{ details?.airline }}</p>
+    </div>
+    <ion-button (click)="goBack()">Retour</ion-button>
+  </div>
+</ion-content>
