@@ -1,0 +1,97 @@
+<div class="Body-page">
+  <nav class="nav-bar">
+    <div>
+      <i class="fa-solid fa-bars"></i>
+    </div>
+    <div>
+      <i class="fa-solid fa-bell"></i>
+    </div>
+  </nav>
+  <div class="container-wrapper">
+    <div class="container" (click)="handleContainerClick($event, 'page-details', { time: '18:30 AM', origin: 'CIE', destination: 'KLR', airline: 'AIR INDIA' })">
+      <div class="heure-time">
+        <div>
+          <h5>08:30 AM</h5>
+          <h6>CHE</h6>
+        </div>
+        <h4>AIR INDIA</h4>
+        <div>
+          <h5>09:30 AM</h5>
+          <h6>BLR</h6>
+        </div>
+      </div>
+      <div class="two-box">
+        <div class="cutout cutout-left"></div>
+        <div class="cutout cutout-right"></div>
+      </div>
+      <div class="box-footer">
+        <button>Annuler</button>
+        <h6>Voir détails</h6>
+      </div>
+    </div>
+    <div class="container" (click)="handleContainerClick($event, 'page-details', { time: '08:30 AM', origin: 'CHE', destination: 'BLR', airline: 'AIR France' })">
+      <div class="heure-time">
+        <div>
+          <h5>08:30 AM</h5>
+          <h6>CHE</h6>
+        </div>
+        <h4>AIR France</h4>
+        <div>
+          <h5>09:30 AM</h5>
+          <h6>BLR</h6>
+        </div>
+      </div>
+      <div class="two-box">
+        <div class="cutout cutout-left"></div>
+        <div class="cutout cutout-right"></div>
+      </div>
+      <div class="box-footer">
+        <button>Annuler</button>
+        <h6>Voir détails</h6>
+      </div>
+    </div>
+    <div class="container" (click)="handleContainerClick($event, 'page-details', { time: '06:30 AM', origin: 'YKE', destination: 'JIR', airline: 'AIR Mali' })">
+      <div class="heure-time">
+        <div>
+          <h5>06:30 AM</h5>
+          <h6>YKE</h6>
+        </div>
+        <h4>AIR Mali</h4>
+        <div>
+          <h5>09:30 AM</h5>
+          <h6>BLR</h6>
+        </div>
+      </div>
+      <div class="two-box">
+        <div class="cutout cutout-left"></div>
+        <div class="cutout cutout-right"></div>
+      </div>
+      <div class="box-footer">
+        <button>Annuler</button>
+        <h6>Voir détails</h6>
+      </div>
+    </div>
+    <div class="container" (click)="handleContainerClick($event, 'page-details', { time: '20:10 AM', origin: 'UHE', destination: 'BLR', airline: 'AIR Maroc' })">
+      <div class="heure-time">
+        <div>
+          <h5>20:10 AM</h5>
+          <h6>UHE</h6>
+        </div>
+        <h4>AIR Maroc</h4>
+        <div>
+          <h5>09:30 AM</h5>
+          <h6>BLR</h6>
+        </div>
+      </div>
+      <div class="two-box">
+        <div class="cutout cutout-left"></div>
+        <div class="cutout cutout-right"></div>
+      </div>
+      <div class="box-footer">
+        <button>Annuler</button>
+        <h6>Voir détails</h6>
+      </div>
+    </div>
+    <!-- Ajoutez d'autres conteneurs ici -->
+  </div>
+</div>
