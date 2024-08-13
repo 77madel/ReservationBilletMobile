@@ -18,7 +18,15 @@ export const routes: Routes = [
   {
     path: 'profil',
     loadComponent: () => import('./pages/profil/profil.page').then( m => m.ProfilPage)
+  },  {
+    path: 'connection',
+    loadComponent: () => import('./pages/connection/connection.page').then( m => m.ConnectionPage)
   },
+  {
+    path: 'inscription',
+    loadComponent: () => import('./pages/inscription/inscription.page').then( m => m.InscriptionPage)
+  },
+
 
 
 ];
