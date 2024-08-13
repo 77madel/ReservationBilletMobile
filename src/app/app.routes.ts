@@ -26,6 +26,10 @@ export const routes: Routes = [
     path: 'inscription',
     loadComponent: () => import('./pages/inscription/inscription.page').then( m => m.InscriptionPage)
   },
+  {
+    path: 'verification',
+    loadComponent: () => import('./verification/verification.page').then( m => m.VerificationPage)
+  },
 
 
 
