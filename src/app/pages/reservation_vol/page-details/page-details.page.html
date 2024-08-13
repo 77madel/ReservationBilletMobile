@@ -1,18 +1,33 @@
-<ion-header>
-  <ion-toolbar>
-    <ion-title>Détails du Vol</ion-title>
-  </ion-toolbar>
-</ion-header>
-
-<ion-content>
-  <div class="details-container">
-    <h2>Détails du Vol</h2>
-    <div class="details">
-      <p><strong>Heure de Départ:</strong> {{ details?.time }}</p>
-      <p><strong>Origine:</strong> {{ details?.origin }}</p>
-      <p><strong>Destination:</strong> {{ details?.destination }}</p>
-      <p><strong>Compagnie:</strong> {{ details?.airline }}</p>
+<div class="Body-page">
+  <nav class="nav-bar">
+    <div>
+      <i class="fa-solid fa-arrow-left"  (click)="goBack()"></i>
     </div>
-    <ion-button (click)="goBack()">Retour</ion-button>
+    <div>
+      <h2>Détails du Vol</h2>
+    </div>
+  </nav>
+  <div class="container-wrapper">
+    <div class="container">
+      <div class="heure-time">
+        <div>
+          <h5>{{ details?.time }}</h5>
+          <h6>{{ details?.origin }}</h6>
+        </div>
+        <h4>{{ details.airline }}</h4>
+        <div>
+          <h5>{{ details?.time}}</h5>
+          <h6>{{ details.destination }}</h6>
+        </div>
+      </div>
+      <div class="two-box">
+        <div class="cutout cutout-left"></div>
+        <div class="cutout cutout-right"></div>
+      </div>
+      <div class="box-footer">
+        <button>Annuler</button>
+        <h6>Voir détails</h6>
+      </div>
+    </div>
   </div>
-</ion-content>
+</div>

@@ -1,34 +1,31 @@
-import { Component, OnInit } from '@angular/core';
+import { Component } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { FormsModule } from '@angular/forms';
-import { IonContent, IonHeader, IonTitle, IonToolbar } from '@ionic/angular/standalone';
+import { IonContent, IonHeader, IonTitle, IonToolbar, IonButton } from '@ionic/angular/standalone';
 import { Router } from '@angular/router';
-import { PageDetailsPage } from '../page-details/page-details.page';
 
 @Component({
-  selector: 'app-reservationvol',
+  selector: 'app-reservation-vol',
   templateUrl: './reservationvol.page.html',
   styleUrls: ['./reservationvol.page.scss'],
   standalone: true,
-  imports: [IonContent, IonHeader, IonTitle, IonToolbar, CommonModule, FormsModule,
-    PageDetailsPage
-  ]
+  imports: [IonContent, IonHeader, IonTitle, IonToolbar, IonButton, CommonModule, FormsModule]
 })
-export class ReservationvolPage{
+export class ReservationvolPage {
+  public flights: Array<{ time: string, origin: string, destination: string, airline: string, depart: string }> = [
+    { time: '08:30 AM', origin: 'CHE', destination: 'BLR', airline: 'Maroc', depart: '08:30 AM' },
+    { time: '09:00 AM', origin: 'DEL', destination: 'BOM', airline: 'Gabon', depart: '09:00 AM' },
+    { time: '11:00 AM', origin: 'HGR', destination: 'YTU', airline: 'Mali', depart: '11:00 AM' },
+    { time: '12:00 AM', origin: 'KIU', destination: 'FDS', airline: 'Ivoire', depart: '12:00 AM' },
+    { time: '16:00 AM', origin: 'BNV', destination: 'MLP', airline: 'Senegale', depart: '16:00 AM' }
+  ];
 
-  // Injecter le Router dans le constructeur de votre composant
+  selectedFlight: any = null;
+
   constructor(private router: Router) { }
 
-  handleContainerClick(event: MouseEvent, route: string, details: any) {
-    const target = event.target as HTMLElement;
-    if (target && target instanceof HTMLElement) {
-      target.style.backgroundColor = 'white';
-
-      setTimeout(() => {
-        this.router.navigate([route], { state: { containerDetails: details } });
-      }, 300);
-    }
+  handleContainerClick(flight: { time: string, origin: string, destination: string, airline: string, depart: string }) {
+    this.selectedFlight = flight;
+    this.router.navigate(['page-details'], { state: { containerDetails: flight } });
   }
-
-
 }
