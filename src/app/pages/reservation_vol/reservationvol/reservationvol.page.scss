@@ -44,6 +44,11 @@
   transition: background-color 0.3s ease;
 }
 
+.container.selected {
+  background-color: white; /* Couleur de fond pour le conteneur sélectionné */
+  /* Vous pouvez ajouter d'autres styles ici pour mettre en évidence le conteneur */
+}
+
 .two-box {
   border-top: 3px dashed black;
 }

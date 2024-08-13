@@ -20,8 +20,11 @@ export class PageDetailsPage implements OnInit {
     const navigation = this.router.getCurrentNavigation();
     if (navigation && navigation.extras.state) {
       this.details = navigation.extras.state['containerDetails'];
+      console.log('Details:', this.details); // Déboguer pour vérifier les détails
     }
   }
+
+
 
   goBack() {
     this.router.navigate(['']);
