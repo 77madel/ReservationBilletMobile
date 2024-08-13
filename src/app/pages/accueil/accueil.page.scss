@@ -1,0 +1,18 @@
+ 
+ion-tab-button:hover{
+    background-color: aqua;
+
+}
+ion-tab-bar {
+    background-color: #A5A7AC; /* Couleur de fond de la barre d'onglets */
+    border-top: 1px solid #e0e0e0; /* Bordure supérieure de la barre d'onglets */
+  }
+  ion-tab-button {
+    color: #A5A7AC; /* Couleur du texte et des icônes par défaut */
+    
+    &.tab-selected {
+      background-color: #04BBC7; /* Couleur du texte et des icônes lorsque l'onglet est sélectionné */
+    }
+  
+    
+  }
