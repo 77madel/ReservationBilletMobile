@@ -10,7 +10,7 @@ import { RouterLink } from '@angular/router';
   selector: 'app-root',
   templateUrl: 'app.component.html',
   standalone: true,
-  imports: [IonTabs, IonIcon, IonTabBar, IonTabButton, IonApp, IonRouterOutlet, AccueilPage,RouterLink, IonItem],
+  imports: [IonTabs, IonIcon, IonTabBar, IonTabButton, IonApp, IonRouterOutlet, AccueilPage,RouterLink],
 })
 export class AppComponent {
   constructor() {
