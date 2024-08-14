@@ -1,0 +1,25 @@
+.container{
+    display: flex;
+    justify-content: center;
+    text-align: center;
+    flex-direction: column;
+    margin-top: 20%;
+    margin: 30px;
+}
+
+.btn-code{
+    width: 183px;
+    height: 60px;
+    background-color: #04BBC7;
+    color: white;
+
+    margin-top: 50% ;
+    border-radius: 5px;
+    font-size: 20px;
+}
+
+.cont{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}

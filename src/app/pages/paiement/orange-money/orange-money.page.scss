@@ -1,0 +1,47 @@
+.saisie-zone{
+    display: flex;
+    margin-top: 0%;
+    height: 40%;
+}
+
+ion-img src{
+    width: 100px;
+}
+.conteneur{
+    width: 60%;
+    align-content: center;
+    display: flex;
+    flex-flow: column nowrap;
+    justify-content: center;
+    align-items: center;
+}
+
+.saisie-zone input{
+    margin-left: 2%;
+    border: 2px solid;
+    border-radius: 10%;
+}
+
+ion-content{
+    width: 100vh;
+    display: flex;
+    flex-flow: column nowrap;
+    justify-content: center;
+    align-items: center;
+}
+
+.btn-cont{
+    margin-top: 20%;
+}
+
+.retour{
+    margin-right: 2rem;
+}
+
+.zone-num{
+    border:2px solid;
+}
+#code-pays{
+    border-top-left-radius: 20%;
+    border-bottom-left-radius: 20%;
+}
