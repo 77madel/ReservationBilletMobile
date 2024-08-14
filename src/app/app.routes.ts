@@ -5,7 +5,7 @@ export const routes: Routes = [
     path: 'home',
     loadComponent: () => import('./home/home.page').then((m) => m.HomePage),
   },
-  
+
   {
     path: 'accueil',
     loadComponent: () => import('./pages/accueil/accueil.page').then( m => m.AccueilPage)
@@ -26,8 +26,6 @@ export const routes: Routes = [
   {
     path: 'payement-refuser',
     loadComponent: () => import('./pages/paiement/payement-refuser/payement-refuser.page').then( m => m.PayementRefuserPage)
-  },
-
   },
   {
     path: 'connection',
@@ -54,6 +52,11 @@ export const routes: Routes = [
     path: 'page-details',
     loadComponent: () => import('./pages/reservation_vol/page-details/page-details.page').then( m => m.PageDetailsPage)
   },
+  {
+    path: 'liste-des-vols',
+    loadComponent: () => import('./pages/liste-des-vols/liste-des-vols.page').then( m => m.ListeDesVolsPage)
+  },
+
 
 
 ];
