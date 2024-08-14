@@ -10,6 +10,7 @@
   width: 100vw;
   display: flex;
   flex-direction: column;
+  overflow-y: scroll;
 }
 
 .nav-bar {
@@ -22,14 +23,14 @@
 }
 
 .nav-bar i {
-  font-size: 30px;
+  font-size: 20px;
 }
 
-.container-wrapper {
-  overflow-y: auto;
-  flex-grow: 1;
-  padding: 20px;
-}
+// .container-wrapper {
+//   overflow-y: auto;
+//   flex-grow: 1;
+//   padding: 20px;
+// }
 
 .container {
   width: 100%;
@@ -102,11 +103,141 @@ button {
 .heure-time h4 {
   color: #CF2530;
 }
+//Cette partie le grand conteneur
+.flight-content{
+margin-bottom: 20px;
+}
+.flight-container {
+  width: 90%;
+  padding: 16px;
+  background-color: white;
+  border-radius: 15px;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  margin-left: 5%;
+  .header-image {
+    object-fit: cover;
+    border-radius: 8px;
+    text-align: center;
+  }
+  .center-image-entete{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  }
+
+  .full-width-line {
+    width: 100%;
+    border-top: 2px solid #ccc;
+    margin: 8px 0;
+  }
+
+  .flight-details {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin: 16px 0;
+
+    .departure, .arrival {
+      text-align: center;
+      background-color: white;
+      border-radius: 50px;
+      padding: 15px 10px 15px 10px;
+      font-weight: 800;
+      box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+      p {
+        margin: 0;
+        font-size: 15px;
+        color: #CF2530;
+      }
+    }
+
+    .airplane-icon {
+      font-size: 24px;
+      color: #007bff;
+    }
+    .text2{
+    text-align: right;
+    }
+  }
+
+  .dotted-line-container {
+    position: relative;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 120px; /* Ajustez selon la courbure souhaitée */
+  }
+
+  .dotted-curve {
+    position: relative;
+    border: none;
+    border-top: 2px dotted black;
+    width: 200px; /* Largeur de la courbe */
+    height: 100px; /* Hauteur de la courbe */
+    border-radius: 100px 100px 0 0; /* Crée un demi-cercle */
+    background: transparent;
+  }
+
+  .airplane-dotted-icon {
+    position: absolute;
+    left: 50%;
+    top: -20px; /* Ajustez la position de l'icône */
+    transform: translateX(-50%);
+    font-size: 24px; /* Taille de l'icône */
+  }
+
+  .start-point, .end-point {
+    position: absolute;
+    width: 10px;
+    height: 10px;
+    background-color: black;
+    border-radius: 50%;
+    top: -5px; /* Positionne les points en haut de la courbe */
+  }
+
+  .start-point {
+    left: 0;
+  }
+
+  .end-point {
+    right: 0;
+  }
+  .datetime-container {
+    display: flex;
+    justify-content: space-between;
+    margin: 16px 0;
+
+    ion-item {
+      flex: 1;
+      margin: 0 8px;
+      box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+
+      ion-label {
+        font-size: 16px;
+      }
+
+      ion-input {
+        font-size: 16px;
+      }
+    }
+  }
+
+  .price-container {
+    text-align: center;
+    margin: 16px 0;
+
+    p {
+      font-size: 18px;
+      font-weight: bold;
+      color: #333;
+    }
+  }
+}
 
 /* Responsiveness */
 @media screen and (min-width: 600px) {
   .container-wrapper {
-    display: flex;
+    // display: flex;
     flex-wrap: wrap;
     justify-content: space-between;
   }
