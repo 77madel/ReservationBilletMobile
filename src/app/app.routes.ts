@@ -20,6 +20,16 @@ export const routes: Routes = [
     loadComponent: () => import('./pages/profil/profil.page').then( m => m.ProfilPage)
   },
   {
+    path: 'orange-money',
+    loadComponent: () => import('./pages/paiement/orange-money/orange-money.page').then( m => m.OrangeMoneyPage)
+  },
+  {
+    path: 'payement-refuser',
+    loadComponent: () => import('./pages/paiement/payement-refuser/payement-refuser.page').then( m => m.PayementRefuserPage)
+  },
+
+  },
+  {
     path: 'connection',
     loadComponent: () => import('./pages/connection/connection.page').then( m => m.ConnectionPage)
   },
