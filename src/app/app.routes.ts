@@ -18,7 +18,15 @@ export const routes: Routes = [
   {
     path: 'profil',
     loadComponent: () => import('./pages/profil/profil.page').then( m => m.ProfilPage)
+  },  {
+    path: 'orange-money',
+    loadComponent: () => import('./pages/paiement/orange-money/orange-money.page').then( m => m.OrangeMoneyPage)
   },
+  {
+    path: 'payement-refuser',
+    loadComponent: () => import('./pages/paiement/payement-refuser/payement-refuser.page').then( m => m.PayementRefuserPage)
+  },
+
 
 
 ];

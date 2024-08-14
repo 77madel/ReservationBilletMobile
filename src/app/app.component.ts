@@ -5,12 +5,13 @@ import { airplane, home, library, notifications, person, personOutline, playCirc
 
 import { addIcons } from 'ionicons'
 import { RouterLink } from '@angular/router';
+import { OrangeMoneyPage } from './pages/paiement/orange-money/orange-money.page';
 
 @Component({
   selector: 'app-root',
   templateUrl: 'app.component.html',
   standalone: true,
-  imports: [IonTabs, IonIcon, IonTabBar, IonTabButton, IonApp, IonRouterOutlet, AccueilPage,RouterLink],
+  imports: [IonTabs, IonIcon, IonTabBar, IonTabButton, IonApp, IonRouterOutlet, AccueilPage,RouterLink,OrangeMoneyPage],
 })
 export class AppComponent {
   constructor() {
