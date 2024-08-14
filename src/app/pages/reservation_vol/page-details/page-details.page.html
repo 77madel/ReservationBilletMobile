@@ -1,0 +1,33 @@
+<div class="Body-page">
+  <nav class="nav-bar">
+    <div>
+      <i class="fa-solid fa-arrow-left"  (click)="goBack()"></i>
+    </div>
+    <div>
+      <h2>Détails du Vol</h2>
+    </div>
+  </nav>
+  <div class="container-wrapper">
+    <div class="container">
+      <div class="heure-time">
+        <div>
+          <h5>{{ details?.time }}</h5>
+          <h6>{{ details?.origin }}</h6>
+        </div>
+        <h4>{{ details.airline }}</h4>
+        <div>
+          <h5>{{ details?.time}}</h5>
+          <h6>{{ details.destination }}</h6>
+        </div>
+      </div>
+      <div class="two-box">
+        <div class="cutout cutout-left"></div>
+        <div class="cutout cutout-right"></div>
+      </div>
+      <div class="box-footer">
+        <button>Annuler</button>
+        <h6>Voir détails</h6>
+      </div>
+    </div>
+  </div>
+</div>
