@@ -1,14 +1,15 @@
-@for (notification of notif; track notification.id) {
-  <ion-card>
+<div class="scroll">
+  <div class="list">
+  @for (notification of notif; track notification.id) {
 
-    <ion-card-header>
-      <ion-card-title>{{notification.date}}  {{notification.heure}}</ion-card-title>
-      <ion-card-subtitle>{{notification.contenu}}</ion-card-subtitle>
-    </ion-card-header>
-
-    <ion-card-content>
-      Here's a small text description for the card content. Nothing more, nothing less.
-    </ion-card-content>
-  </ion-card>
-}
-
+    <div class="notif">
+      {{ notification.date}}  {{notification.heure}}
+      <div class="notif-content">
+        {{
+          notification.objet
+        }}
+      </div>
+    </div>
+  }
+  </div>
+</div>
