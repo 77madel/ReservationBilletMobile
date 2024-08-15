@@ -1,10 +1,14 @@
 
 import { Routes } from '@angular/router';
-import {InscriptionReussiePage} from "./pages/inscription-reussie/inscription-reussie.page";
-import {NotificationPage} from "./pages/notification/notification.page";
-import {MotPasseOubliePage} from "./pages/mot-passe-oublie/mot-passe-oublie.page";
 
 export const routes: Routes = [
+
+  {
+    path: '',
+    redirectTo: 'home%',
+    pathMatch: 'full',
+  },
+
   {
     path: 'splash-screen',
     loadComponent: () => import('./splash-screen/splash-screen.page').then( m => m.SplashScreenPage)
@@ -38,6 +42,7 @@ export const routes: Routes = [
   {
     path: 'ticket',
     loadComponent: () => import('./pages/Tickets/ticket/ticket.page').then( m => m.TicketPage)
+
   },
   {
     path: 'home1',
@@ -56,7 +61,6 @@ export const routes: Routes = [
     loadComponent: () => import('./chargement2/chargement2.page').then( m => m.Chargement2Page)
   },
   {
-
     path: 'profil',
     loadComponent: () => import('./pages/profil/profil.page').then( m => m.ProfilPage)
   },
