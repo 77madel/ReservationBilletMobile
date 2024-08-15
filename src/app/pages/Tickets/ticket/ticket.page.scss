@@ -1,0 +1,191 @@
+ion-content {
+  --background: linear-gradient(to bottom, #04BBC7, #04BBC7 20%, #a6d8dd 50%, #04BBC7 80%, #04BBC7);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+
+ion-header{
+  margin-top: 10px;
+  background-color: #04BBC7;
+
+  .head {
+    display: flex;
+    justify-content: space-between;
+    align-items: first baseline;
+    width: 100%;
+    padding: 0 20px;
+
+    ion-icon {
+      font-size: 30px;
+    }
+    ion-title{
+      h1{
+        font-size: 30px;
+        font-weight: bold;
+        padding-left: 70px;
+      }
+    }
+    
+  }
+}
+.ticket-container {
+  width: 100%;
+  padding-bottom: 60px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.ticket-card {
+  width: 320px;
+  border-radius: 25px;
+  box-shadow: 0px 5px 15px rgba(0, 0, 0, 0.1);
+  background-color: #ffff;
+}
+
+.ticket-item {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  width: 100%;
+  padding: 20px
+}
+.vol {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  width: 100%;
+  padding:20px;
+  margin-top: -40px;
+}
+.trait-position {
+  width: 100%;
+  height: 1px;
+  background-color: black;
+  margin-top: -15px;
+}
+.trait {
+  width: 70%;
+  height: 1px;
+  background-color: black;
+  margin-left: 45px;
+  margin-top: -16px;
+}
+.class-position {
+  display: flex;
+  justify-content: space-between;
+  margin-bottom: 20px;
+  margin-top: 10px;
+  text-align: center;
+}
+
+.class-info, .position-info {
+  text-align: center;
+  flex: 1;
+}
+
+.ticket-SERMIN{
+  background-color: #ffff;
+  display: flex;
+  justify-content: space-between;
+  padding: 20px;
+  align-items: center;
+
+}
+.sermin-profil{
+  flex: 3;
+  display: flex;
+  justify-content: space-between;
+  align-items: center 
+}
+
+.chaise-icon{
+  width: 50%;
+  height: 70%;
+}
+
+.place{
+  flex: 1;
+  display: flex;
+  margin-top: 0.1%;
+  margin-left: 13%;
+}
+
+.nom{
+  width: 100%;
+  display: inline;
+  font-size: medium;
+  margin-top: 1%;
+}
+
+
+
+.photo{
+  
+  width: 90%;
+  height: 90%;
+}
+
+.two-box {
+  border-top: 3px dashed black;
+  display: flex;
+}
+.cutout-left {
+  margin-left: -9%;
+  width: 50px;
+  height: 50px;
+  background-color: #7edfe6;
+  border-radius: 50%;
+  top: 50%;
+  transform: translateY(-50%);
+}
+
+.cutout-right {
+  margin-right: -9%;
+  width: 50px;
+  height: 50px;
+  background-color: #7edfe6;
+  border-radius: 50%;
+  top: 50%;
+  transform: translateY(-50%);
+}
+
+.qr-code{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.qr-code img {
+  width: 90%;
+  height: 90%;
+  margin-bottom: 7%;
+}
+
+.button{
+  
+}
+ion-label{
+  color: black;
+}
+input[type="submit"] {
+  background-color: #04BBC7;
+  color: white;
+  border: 1px solid #ffff;
+  padding: 10px 40px;
+  border-radius: 4px;
+  cursor: pointer;
+  color: #ffff;
+  font-size: 30px;
+  font-weight: bold;
+  margin-top: 20px;
+}
+
+input[type="submit"]:hover {
+  border: 2px solid transparent; 
+  border-image: linear-gradient(to right, #ffffff, #04BBC7) 4;}
+
+
+  

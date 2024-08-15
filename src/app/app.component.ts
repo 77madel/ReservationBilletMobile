@@ -1,9 +1,11 @@
-import { Component, AfterViewInit } from '@angular/core';
-import { IonApp, IonRouterOutlet, IonTabButton, IonTabBar, IonIcon, IonTabs, IonLabel } from '@ionic/angular/standalone';
+
+import { Component } from '@angular/core';
+import { IonApp, IonRouterOutlet, IonTabButton, IonTabBar, IonIcon, IonTabs, IonItem, IonLabel  } from '@ionic/angular/standalone';
 import { AccueilPage } from "./pages/accueil/accueil.page";
 import { airplane, home, library, notifications, person } from 'ionicons/icons';
 import { addIcons } from 'ionicons';
 import { RouterLink } from '@angular/router';
+
 import { ReservationvolPage } from './pages/reservation_vol/reservationvol/reservationvol.page';
 addIcons({
   'airplane': airplane,

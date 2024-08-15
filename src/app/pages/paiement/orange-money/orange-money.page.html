@@ -1,0 +1,41 @@
+<ion-app>
+<ion-header [translucent]="true">
+  <ion-toolbar>
+    <ion-title >
+      <ion-icon name="arrow-back"></ion-icon>
+       Orange Money
+      </ion-title>
+  </ion-toolbar>
+</ion-header>
+<ion-content [fullscreen]="true">
+  <ion-header collapse="condense">
+    <ion-toolbar>
+      <ion-title size="large">orangeMoney</ion-title>
+    </ion-toolbar>
+  </ion-header>
+  <div class="conteneur">
+    <ion-img src="assets/orange-money.png"> </ion-img>
+    <div class="saisie-zone">
+      <select name="" id="code-pays">
+        <option value="+223">+223</option>
+        <option value="+225">+225</option>
+        <option value="+226">+226</option>
+      </select>
+      
+      <ion-input  class="zone-num" [(ngModel)]="tel" maxlength="8" placeholder="Entrez votre numero" ></ion-input>
+    </div>
+      <div class="btn-cont">
+        <ion-button id="present-alert" (click) =verifierLongueur()>Payer maintenant</ion-button>
+        <ion-alert
+        trigger="present-alert"
+        header="Concernant la reservation"
+        subHeader="votre paiement"
+        message="{{mess}}"
+        [buttons]="alertButtons"
+      ></ion-alert>
+      </div>
+   </div>
+
+  
+</ion-content>
+</ion-app>

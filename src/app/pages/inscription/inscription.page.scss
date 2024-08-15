@@ -1,0 +1,114 @@
+ion-content{
+    --ion-background-color:#f0f0f0;
+}
+
+h2{
+    font-size: 30px;
+    text-align: center;
+    color: black;
+    font-family: Nunito,sans-serif;
+    margin-top: 20px;
+    
+   
+}
+
+.sociaux{
+    width: 345px;
+    height: 223px;
+    text-align: center;
+   display: flex;
+    align-items: center;
+    justify-content: center;
+    margin: auto;
+    margin-top: -50px;
+  
+   
+
+}
+
+.btn-goole{
+  width: 162px;
+  height: 51px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border-radius: 5px;
+  background-color:#da8484;  
+  font-size: 1.1em;
+  color:#D43838 ;
+  font-weight: bolder;
+  margin-right: 15px;
+
+}
+.btn-facebook{
+  width: 162px;
+  height: 51px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border-radius: 5px;
+  background-color:#9eb7eb;  
+  font-size: 1.1em;
+  color:#4267B2 ;
+  font-weight: bolder;
+}
+
+.separateur{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-top: -50px
+}
+
+.form{
+    margin-top: 10px;
+     text-align: center;
+}
+
+.form input{
+    width: 344px;
+    height: 57Px;
+    border-radius: 10px;
+    border: none;
+    
+   
+}
+.chp{
+    margin-bottom: 15px;
+    padding: 10px;
+}
+
+.cha{
+    margin-top: 20px;
+}
+
+.connect{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.btn-connexion{
+    width: 344px;
+    height: 57px;
+    background-color: #04BBC7;
+    color: white;
+    font-size: 20px;
+    margin-top: 40px;
+    text-align: center;
+    border-radius: 5px;
+}
+
+.sos{
+    width: 210px;
+    height: 58px;
+    margin: 40px auto;
+  
+}
+
+.sinscrire{
+    color: #04BBC7;
+    margin-left: 40%;
+}
+
+ 
