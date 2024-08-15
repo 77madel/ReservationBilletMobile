@@ -104,6 +104,10 @@ export const routes: Routes = [
   {
     path: 'liste-des-vols',
     loadComponent: () => import('./pages/liste-des-vols/liste-des-vols.page').then( m => m.ListeDesVolsPage)
+  },
+  {
+    path: 'search-vol-form',
+    loadComponent: () => import('./pages/search-vol-form/search-vol-form.page').then( m => m.SearchVolFormPage)
   }
 
 ];
