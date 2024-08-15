@@ -1,22 +1,30 @@
 
 <ion-app>
   <ion-tabs>
-    <ion-tab-bar  class="home">
+        <ion-tab-bar slot="bottom" class="animated-footer">
+      <div class="moving-circle"></div>
+      <ion-tab-button tab="home" id="home" class="active">
+        
+        <ion-tab-bar  class="home">
       <ion-tab-button tab="home">
+        
         <ion-icon name="home"></ion-icon>
-        Accueil
+        <ion-label>Accueil</ion-label>
       </ion-tab-button>
+
       <ion-tab-button tab="reserv" routerLink="/reservationvol">
         <ion-icon name="airplane"></ion-icon>
-        Reservation
+        <ion-label>Vol</ion-label>
       </ion-tab-button>
-      <ion-tab-button tab="notif" routerLink="/verification">
+           <ion-tab-button tab="notif">
+              <ion-tab-button tab="notif" routerLink="/verification">
         <ion-icon name="notifications"></ion-icon>
-        Notification
+        <ion-label>Notifications</ion-label>
       </ion-tab-button>
-      <ion-tab-button tab="person">
+             <ion-tab-button tab="person" routerLink="/profil">
+                <ion-tab-button tab="person">
         <ion-icon name="person"></ion-icon>
-        Profil
+        <ion-label>Profil</ion-label>
       </ion-tab-button>
     </ion-tab-bar>
   </ion-tabs>
