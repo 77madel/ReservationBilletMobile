@@ -1,6 +1,7 @@
 import { Component } from '@angular/core';
 import { IonHeader, IonToolbar, IonTitle, IonContent } from '@ionic/angular/standalone';
 
+
 @Component({
   selector: 'app-home',
   templateUrl: 'home.page.html',
@@ -9,5 +10,9 @@ import { IonHeader, IonToolbar, IonTitle, IonContent } from '@ionic/angular/stan
   imports: [IonHeader, IonToolbar, IonTitle, IonContent],
 })
 export class HomePage {
+
+  mosque: String = "assets/images/djenne-mosque 1.png";
+
+
   constructor() {}
 }
