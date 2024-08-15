@@ -19,7 +19,7 @@
         </div>
         <h4>{{ flight.airline }}</h4>
         <div>
-          <h5>{{ flight.time}}</h5>
+          <h5>{{ flight.time }}</h5>
           <h6>{{ flight.destination }}</h6>
         </div>
       </div>
@@ -28,9 +28,34 @@
         <div class="cutout cutout-right"></div>
       </div>
       <div class="box-footer">
-        <button>Annuler</button>
+        <button (click)="openModal()">Annuler</button>
         <h6>Voir détails</h6>
       </div>
+    </div>
+  </div>
+
+  <!-- Modal de confirmation -->
+  <div class="modal" *ngIf="showModal">
+    <div class="modal-content">
+      <img src="assets/icon/annuler.png" alt="annuler" />
+      <h2>Confirmer l'annulation</h2>
+      <p>Êtes-vous sûr de vouloir annuler ce vol ?</p>
+      <div class="modal-actions">
+        <button (click)="confirmCancellation()" class="btn-valider">Valider</button>
+        <button (click)="closeModal()" class="btn-annuler">Annuler</button>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- Second Modal -->
+ <div *ngIf="isProcessingModalVisible" class="modal">
+  <div class="modal-content">
+    <p class=" processing-modal">Merci de patienter pendant 48 heures pour que votre remboursement soit correctement traité.</p>
+    <br>
+    <div class="modal-buttons">
+      <span>lire politique de remboursement</span>
+      <button (click)="closeProcessingModal()" class="btn-annuler">Annuler</button>
     </div>
   </div>
 </div>

@@ -1,0 +1,15 @@
+<div class="scroll">
+  <div class="list">
+  @for (notification of notif; track notification.id) {
+
+    <div class="notif">
+      {{ notification.date}}  {{notification.heure}}
+      <div class="notif-content">
+        {{
+          notification.objet
+        }}
+      </div>
+    </div>
+  }
+  </div>
+</div>
