@@ -1,0 +1,32 @@
+<ion-header [translucent]="true">
+  <ion-toolbar>
+    <ion-title>Aide</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content [fullscreen]="true">
+  <div class="page-compte">
+    
+        <ul class="input-list">
+          <div class="input-text">
+            <h3>Message</h3>
+          </div>
+          <li class="input-items">
+             <textarea class="items" rows="6"></textarea>
+              <!-- <ion-icon slot="icon-only" name="create-outline" aria-hidden="true"></ion-icon> -->
+          </li>
+          <div class="input-text">
+            <h3>Compagnie</h3>
+          </div>
+          <li class="input-items">
+             <select class="items">
+              <option>Air Mali</option>
+              <option>Sky Mali</option>
+              <option>Air senegal</option>
+              <option>Air Burkina</option>
+             </select>
+          </li>
+          <ion-button  expand="full" class="btn-save">Envoyer</ion-button>
+        </ul>
+    </div>
+</ion-content>

@@ -12,7 +12,7 @@ export const routes: Routes = [
   },
   {
     path: '',
-    redirectTo: 'home%',
+    redirectTo: 'home',
     pathMatch: 'full',
   },
   {
@@ -23,7 +23,9 @@ export const routes: Routes = [
     path: 'update-profil',
     loadComponent: () => import('./pages/update-profil/update-profil.page').then( m => m.UpdateProfilPage)
   },
-
-
+  {
+    path: 'aide',
+    loadComponent: () => import('./pages/aide/aide.page').then( m => m.AidePage)
+  },
 
 ];
