@@ -38,6 +38,8 @@ export const routes: Routes = [
   {
     path: 'ticket',
     loadComponent: () => import('./pages/Tickets/ticket/ticket.page').then( m => m.TicketPage)
+  },
+  {
     path: 'home1',
     loadComponent: () => import('./home1/home1.page').then( m => m.Home1Page)
   },
@@ -53,6 +55,7 @@ export const routes: Routes = [
     path: 'chargement2',
     loadComponent: () => import('./chargement2/chargement2.page').then( m => m.Chargement2Page)
   },
+  {
 
     path: 'profil',
     loadComponent: () => import('./pages/profil/profil.page').then( m => m.ProfilPage)
@@ -97,6 +100,6 @@ export const routes: Routes = [
   {
     path: 'liste-des-vols',
     loadComponent: () => import('./pages/liste-des-vols/liste-des-vols.page').then( m => m.ListeDesVolsPage)
-  },
+  }
 
 ];
