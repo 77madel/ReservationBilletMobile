@@ -1,0 +1,22 @@
+ion-content{
+  background: #f6f7f9;
+}
+
+
+#splash-screen-container {
+  text-align: center;
+  justify-content: center;
+  display: flex;
+  position: absolute;
+  left: 0;
+  right: 0;
+  top: 50%;
+  transform: translateY(-50%);
+}
+
+.image {
+  width: 200px;
+  height: 200px;
+  margin-top: 100px;
+  margin-left: 30px;
+}

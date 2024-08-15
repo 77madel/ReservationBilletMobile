@@ -1,0 +1,82 @@
+
+  <ion-header [translucent]="true">
+    <div class="head">
+      <ion-icon name="arrow-back-circle-outline" ></ion-icon>
+      <ion-title><h1>G-Ticket</h1></ion-title>
+    </div>
+  </ion-header>
+<ion-content> 
+  <div class="ticket-container">
+      <ion-card class="ticket-card">
+
+        <div class="ticket-item">
+          <div class="logo">
+            <ion-thumbnail slot="start">
+            <img src="assets/Images/Logo_PANKURU.png" alt="Logo">
+            </ion-thumbnail>
+          </div>
+          <ion-label>
+            <p>26/Mai/2024</p>
+          </ion-label>
+        </div>
+
+        <div class="vol">
+          <div class="depart">
+             <p>08:30</p>
+             <p>Bamako</p>
+          </div>
+          <div class="vol-icon">
+            <ion-icon name="airplane-outline"></ion-icon>
+          </div>
+          <div class="arriver">
+            <p>08:30</p>
+            <p>Niame</p>
+          </div>
+        </div>
+        <div class="trait-position"></div>
+        <div class="class-position">
+          <div class="class-info">
+            <p>Économie</p>
+            <p><strong>Classe</strong></p>
+          </div>
+          <div class="position-info">
+            <p>Milieu</p>
+            <p><strong>Position</strong></p>
+          </div>
+          <div class="class-info">
+            <p>DJO17</p>
+            <p><strong>Vol</strong></p>
+          </div>
+        </div>
+        <div class="trait"></div>
+
+        <div class="ticket-SERMIN" lines="none">
+          <div class="sermin-profil">
+            <div class="photo">
+              <img src="assets/Images/sermin.png" alt="Avatar">
+            </div>
+            <div class="nom">
+              <h3 style="color: blue;">Sermin</h3>
+              <span>22 ans,</span> <span>Masculin</span> 
+            </div>
+          </div>
+          <div class="place">
+            <img class="chaise-icon" src="assets/Images/chaise.png" alt="">
+            <p>17D</p>
+          </div>
+        </div>
+        
+        <div class="two-box">
+          <div class="cutout-left"></div>
+          <hr>
+          <div class="cutout-right"></div>
+        </div>
+        <div class="qr-code">
+          <img src="assets/Images/Scan.png" alt="QR Code">
+        </div>
+    </ion-card>
+      <ion-label>
+        <input type="submit" value="Imprimer">
+      </ion-label>
+  </div>
+</ion-content>
