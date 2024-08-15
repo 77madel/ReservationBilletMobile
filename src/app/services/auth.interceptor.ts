@@ -4,11 +4,12 @@ import { inject } from "@angular/core";
 
 export const authInterceptor: HttpInterceptorFn = (req, next) => {
     const authService = inject(LoginServiceService);  // Injecter le AuthService
-    const user = authService.login; // Récupérer l'utilisateur depuis localStorage
-    const token = LoginServiceService?.jwtToken; // Extraire le token de l'utilisateur s'il est disponible
+    const user = localStorage.getItem("currentUser"); // Récupérer l'utilisateur depuis localStorage
+    // Extraire le token de l'utilisateur s'il est disponible
   
     // Vérifiez si le token existe
-    if (token) {
+    if (user) {
+      const token = JSON.parse(user!).jwtToken; 
       const clonedReq = req.clone({
         setHeaders: {
           Authorization: `Bearer ${token}`

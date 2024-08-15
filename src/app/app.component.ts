@@ -7,6 +7,8 @@ import { addIcons } from 'ionicons'
 import { RouterLink } from '@angular/router';
 
 import { ReservationvolPage } from './pages/reservation_vol/reservationvol/reservationvol.page';
+import { LoginServiceService } from './services/login-service.service';
+import { ConnectionPage } from './pages/connection/connection.page';
 
 @Component({
   selector: 'app-root',
@@ -20,4 +22,6 @@ export class AppComponent {
   constructor() {
     addIcons({ library, playCircle, radio, search,home,airplane,notifications,person});
   }
+  
+  
 }

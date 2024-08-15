@@ -34,6 +34,8 @@ export class ConnectionPage implements OnInit {
         localStorage.setItem('token', response.token);
         // Redirigez l'utilisateur vers la page d'accueil ou une page protégée
         this.router.navigate(['/home']);
+        this.login.email='';
+        this.login.password='';
       },
       (error) => {
         // Gérez les erreurs de connexion
@@ -41,6 +43,8 @@ export class ConnectionPage implements OnInit {
       }
     );
   }
+
+  
 
   ngOnInit() {
   }
