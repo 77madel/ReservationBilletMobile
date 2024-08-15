@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import {Notificat, NotificationService} from "../notification.service";
+// import {Notificat, NotificationService} from "../notification.service";
 import {IonicModule} from "@ionic/angular";
 import {addIcons} from "ionicons";
 import {checkmarkCircleOutline} from "ionicons/icons";
@@ -13,9 +13,9 @@ import {checkmarkCircleOutline} from "ionicons/icons";
     IonicModule
   ]
 })
-export class ListNotificationsComponent  implements OnInit {
+export class ListNotificationsComponent   {
 
-  constructor(private notificationService: NotificationService) {  }
+  constructor() {  }
 
 
   notif : any[] = [
@@ -72,11 +72,11 @@ export class ListNotificationsComponent  implements OnInit {
       "vol": null
     }
   ];
-  ngOnInit() {
-    this.notificationService.getNotification().subscribe((dataNotif) => {
-      //this.notif = dataNotif;
-      //console.log(this.notif);
-    });
-  }
+  //ngOnInit() {
+    // this.notificationService.getNotification().subscribe((dataNotif) => {
+    //   //this.notif = dataNotif;
+    //   //console.log(this.notif);
+    // });
+  //}
 
 }
