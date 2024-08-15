@@ -1,0 +1,52 @@
+//.image{
+  //margin-bottom: 20px;
+//}
+
+//.ellipse1{
+  //width: 400px; /* Ajustez cette valeur selon vos besoins */
+  //height: 150px; /* Ajustez cette valeur selon vos besoins */
+  //background-color: #04BBC7; /* Couleur de fond similaire à celle de l'image */
+  //border-radius: 100% 100% 100% 100%;
+  //clip-path: path('M 0 0 Q 100 50 200 0 Q 100 100 0 0');
+  //position: relative;
+  //top: 100px;
+  //left: 20px;
+//}
+
+ion-content {
+  opacity: 1;
+  --background: none; /* Désactive l'image de fond par défaut d'Ionic */
+
+  background-image: url("../../assets/imgs/G.png");
+  background-size: cover; /* Ajuste l'image pour qu'elle couvre toute la zone */
+  background-repeat: no-repeat; /* Empêche la répétition de l'image */
+  background-position: center; /* Centre l'image dans l'élément */
+  height: 100%; /* Assure que le ion-content prend toute la hauteur */
+  width: 100%; /* Assure que le ion-content prend toute la largeur */
+  position: absolute; /* Assure que l'image couvre tout le contenu */
+  top: 0;
+  left: 0;
+}
+
+
+
+//.ellie{
+  //margin-bottom: 10px;
+  //margin-top: 10px;
+//}
+
+.wel {
+  display: flex;
+  text-align: center;
+  justify-content: center;
+  color: #D2D3D5;
+  margin-top: 200px;
+}
+
+h1{
+  font-size:50px;
+  font-weight: bold;
+  margin-top: 270px;
+  margin-left: 100px;
+  color: #D2D3D5;
+}
