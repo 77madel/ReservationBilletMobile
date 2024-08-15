@@ -35,3 +35,43 @@
 /* @import "@ionic/angular/css/palettes/dark.always.css"; */
 /* @import "@ionic/angular/css/palettes/dark.class.css"; */
 @import '@ionic/angular/css/palettes/dark.system.css';
+.animated-footer {
+  position: relative;
+  z-index: 1;
+}
+
+ion-tab-button::part(native) {
+  position: relative;
+  z-index: 2;
+}
+ion-label{
+display: none;
+}
+ion-tab-button{
+transition: .5s background-color, color, display;
+}
+ion-tab-button.active ion-icon {
+  color: #fff;
+}
+ion-tab-button.active ion-label {
+  color: #fff;
+display: block;
+}
+ion-tab-button.active{
+  background-color: #04BBC7;
+border-radius: 10px;
+}
+
+ion-tab-button ion-icon {
+  font-size: 24px;
+}
+
+
+ion-tab-button::part(native) {
+  position: relative;
+  z-index: 2; /* Assurez-vous que les boutons sont au-dessus du cercle mobile */
+}
+
+ion-tab-button ion-icon {
+  font-size: 24px;
+}

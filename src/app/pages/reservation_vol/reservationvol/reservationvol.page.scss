@@ -45,8 +45,7 @@
 }
 
 .container.selected {
-  background-color: white; /* Couleur de fond pour le conteneur sélectionné */
-  /* Vous pouvez ajouter d'autres styles ici pour mettre en évidence le conteneur */
+  background-color: white;
 }
 
 .two-box {
@@ -108,6 +107,88 @@ button {
   color: #CF2530;
 }
 
+/* Modal styles */
+.modal {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  background-color: rgba(0, 0, 0, 0.5);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.modal-content {
+  background-color: white;
+  padding: 20px;
+  border-radius: 10px;
+  width: 80%;
+  max-width: 400px;
+  text-align: center;
+}
+
+.modal-actions {
+  margin-top: 20px;
+  display: flex;
+  justify-content: space-around;
+}
+
+.modal-actions button {
+  width: 45%;
+  height: 30px;
+  font-weight: 800;
+}
+
+.btn-valider{
+background-color: #CF2530;
+}
+.btn-annuler{
+  background-color: white;
+  border: 2px solid #04BBC7;
+  color: #04BBC7;
+}
+
+/* Style pour le second modal */
+.processing-modal {
+  background-color: #04BBC7;
+color: #F1EFEF;
+padding: 20px;
+border-radius: 10px;
+}
+
+.modal-buttons button {
+  width: 45%;
+  height: 30px;
+  font-weight: 800;
+  width: 100px;
+}
+
+.processing-modal .modal-buttons {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.modal-buttons{
+display: flex;
+align-items: end;
+justify-content: space-between;
+}
+
+.modal-buttons span {
+  flex-grow: 1;
+  text-align: left;
+  font-weight: 600;
+  font-size: 13px;
+  color: #266AF2;
+  text-decoration: underline;
+}
+
+.processing-modal .modal-buttons button {
+  background-color: #CF2530;
+}
 /* Responsiveness */
 @media screen and (min-width: 600px) {
   .container-wrapper {
