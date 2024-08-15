@@ -31,50 +31,16 @@
         </div>
   
       <div class="travel-cards">
-          
-        <div class="card">
-          <img [src]="mosque" alt="Djenné, Mali">
-          <div class="card-info">
-              <h2>Djenné, Mali</h2>
-              <p>À partir de $1500</p>
-          </div>
-        </div>
-        <div class="card">
-          <img [src]="mosque" alt="Djenné, Mali">
-          <div class="card-info">
-              <h2>Djenné, Mali</h2>
-              <p>À partir de $1500</p>
-          </div>
-        </div>
-        <div class="card">
-          <img [src]="mosque" alt="Djenné, Mali">
-          <div class="card-info">
-              <h2>Djenné, Mali</h2>
-              <p>À partir de $1500</p>
-          </div>
-        </div>
-        <div class="card">
-          <img [src]="mosque" alt="Djenné, Mali">
-          <div class="card-info">
-              <h2>Djenné, Mali</h2>
-              <p>À partir de $1500</p>
-          </div>
-        </div>
-        <div class="card">
-          <img [src]="mosque" alt="Djenné, Mali">
-          <div class="card-info">
-              <h2>Djenné, Mali</h2>
-              <p>À partir de $1500</p>
-          </div>
-        </div>
-        <div class="card">
-          <img [src]="mosque" alt="Djenné, Mali">
-          <div class="card-info">
-              <h2>Djenné, Mali</h2>
-              <p>À partir de $1500</p>
-          </div>
-        </div>
-
+          @for (item of pays; track $index) {
+            <div class="card">
+              <img [src]="mosque" alt="{{item.capital}}, {{item.name}}">
+              <div class="card-info">
+                  <h2>{{item.capital}}, {{item.name}}</h2>
+                  <p>À partir de ${{item.prix}}</p>
+              </div>
+            </div>
+          }
+        
       </div>
   </main>
 </div>
