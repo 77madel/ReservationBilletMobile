@@ -17,6 +17,7 @@ import { RouterLink } from '@angular/router';
 export class AccueilPage implements OnInit {
  
   mosque: String = "assets/Images/djenne-mosque 1.png";
+  logo: String = "assets/Images/Logo_PANKURU.png";
   pays: any =[ {
     "name": "Mali",
     "capital": "Bamako",

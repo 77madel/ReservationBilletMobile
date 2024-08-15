@@ -12,20 +12,21 @@
 
 header {
   display: flex;
-  justify-content: space-between;
+  justify-content: flex-start;
   padding: 15px;
   background-color: #ffffff;
-  border-bottom: 1px solid #ccc;
   width: 100vw;
-
-  .menu-icon {
-    font-size: 24px;
-    cursor: pointer;
+  // height: 55vh;
+  
+  img{
+    width: 20vw;
+    height: 13vh;
   }
 
-  .logo {
-    font-size: 24px;
-  }
+  // div{
+  //   height: 100%
+  // }
+  
 }
 
 .search-section {
