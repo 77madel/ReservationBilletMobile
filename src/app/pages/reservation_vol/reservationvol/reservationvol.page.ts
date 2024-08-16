@@ -20,12 +20,39 @@ export class ReservationvolPage {
     { time: '16:00 AM', origin: 'BNV', destination: 'MLP', airline: 'Senegale', depart: '16:00 AM' }
   ];
 
+  showModal: boolean = false;
   selectedFlight: any = null;
-
+  isConfirmationModalVisible = false;
+  isProcessingModalVisible = false;
   constructor(private router: Router) { }
 
   handleContainerClick(flight: { time: string, origin: string, destination: string, airline: string, depart: string }) {
     this.selectedFlight = flight;
+    // Rediriger vers la page de détail avec les informations du vol
     this.router.navigate(['page-details'], { state: { containerDetails: flight } });
+  }
+
+  openModal(event: Event) {
+    event.stopPropagation();  // Empêche le clic de se propager au conteneur
+    this.showModal = true;
+  }
+
+  closeModal() {
+    this.showModal = false;
+  }
+
+  confirmCancel() {
+    // Logique pour confirmer l'annulation du vol
+    this.showModal = false;
+  }
+//secondModal
+  confirmCancellation() {
+    this.isConfirmationModalVisible = false;
+    this.isProcessingModalVisible = true;
+    this. closeModal();
+  }
+
+  closeProcessingModal() {
+    this.isProcessingModalVisible = false;
   }
 }
