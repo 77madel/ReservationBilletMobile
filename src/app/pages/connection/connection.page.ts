@@ -33,7 +33,7 @@ export class ConnectionPage implements OnInit {
         // Enregistrez le jeton d'authentification dans le stockage local
         localStorage.setItem('token', response.token);
         // Redirigez l'utilisateur vers la page d'accueil ou une page protégée
-        this.router.navigate(['/home1']);
+        this.router.navigate(['/accueil']);
         this.login.email='';
         this.login.password='';
       },
