@@ -9,41 +9,41 @@
             🛫
         </div>
     </header>
-    
+   
     <main>
-        <div class="search-section">
+          <div class="search-section">
             <h1>Où voulez-vous Aller ?</h1>
             <div class="search-bar">
                 <input type="text" placeholder="Recherchez votre voyage">
                 <button><i class="search-icon">&#128269;</i></button>
             </div>
-        </div>
-    
-        <div class="category-filter">
+          </div>
+  
+  
+  
+  
+          <div class="category-filter">
             <button class="active">Tout</button>
             <button>Afrique</button>
             <button>Europe</button>
             <button>Asia</button>
             <button>Océanie</button>
-        </div>
+            <button>Océanie</button>
+          </div>
     
         <div class="travel-cards">
-            <div class="card">
-                <img src="/src/assets/images/djenne-mosque 1.png" alt="Djenné, Mali">
+            @for (item of pays; track $index) {
+              <div class="card">
+                <img [src]="mosque" alt="{{item.capital}}, {{item.name}}">
                 <div class="card-info">
-                    <h2>Djenné, Mali</h2>
-                    <p>À partir de $1500</p>
+                    <h2>{{item.capital}}, {{item.name}}</h2>
+                    <p>À partir de ${{item.prix}}</p>
                 </div>
-            </div>
-    
-            <div class="card">
-                <img src="/src/assets/images/Rectangle 14.png" alt="Island, USA">
-                <div class="card-info">
-                    <h2>Island, USA</h2>
-                    <p>À partir de $1500</p>
-                </div>
-            </div>
+              </div>
+            }
+          
         </div>
     </main>
-</div>
-
+  </div>
+  
+  
