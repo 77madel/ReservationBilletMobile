@@ -7,6 +7,9 @@ import { addIcons } from 'ionicons';
 import { RouterLink } from '@angular/router';
 
 import { ReservationvolPage } from './pages/reservation_vol/reservationvol/reservationvol.page';
+import { LoginServiceService } from './services/login-service.service';
+import { ConnectionPage } from './pages/connection/connection.page';
+
 addIcons({
   'airplane': airplane,
   'home': home,
@@ -74,6 +77,7 @@ export class AppComponent implements AfterViewInit {
       // this.moveCircleToTab(clickedTab, true);
     }
   }
+
 
 
   // moveCircleToTab(tab: HTMLElement, animate: boolean) {
