@@ -5,7 +5,8 @@ import { airplane, home, notifications, person } from 'ionicons/icons';
 import { addIcons } from 'ionicons';
 import { Router, RouterLink } from '@angular/router';
 import { ReservationvolPage } from './pages/reservation_vol/reservationvol/reservationvol.page';
-import { NgIf } from '@angular/common';
+import { LoginServiceService } from './services/login-service.service';
+import { ConnectionPage } from './pages/connection/connection.page';
 
 addIcons({
   'airplane': airplane,
@@ -77,11 +78,6 @@ export class AppComponent implements AfterViewInit {
     }
   }
 
-  shouldShowFooter(): boolean {
-    // Retourne false si la route actuelle est la page de connexion
-    return this.router.url !== '/connexion';
-  }
-}
 
 
   // moveCircleToTab(tab: HTMLElement, animate: boolean) {
