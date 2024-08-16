@@ -1,6 +1,6 @@
 
 ion-tab-button:hover{
-  background-color: aqua;
+  background-color: var(--blue-pers);
 
 }
 ion-tab-bar {
@@ -11,7 +11,7 @@ ion-tab-button {
   color: #A5A7AC; /* Couleur du texte et des icônes par défaut */
 
   &.tab-selected {
-    background-color: #04BBC7; /* Couleur du texte et des icônes lorsque l'onglet est sélectionné */
+    background-color: var(--blue-pers); /* Couleur du texte et des icônes lorsque l'onglet est sélectionné */
   }
 
 }
