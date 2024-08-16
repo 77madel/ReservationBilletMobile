@@ -97,6 +97,7 @@ export const routes: Routes = [
   {
     path: 'inscription',
     loadComponent: () => import('./pages/inscription/inscription.page').then( m => m.InscriptionPage),
+    canActivate:[GuardAuthentificationService]
   },
   {
     path: 'verification',
@@ -124,15 +125,5 @@ export const routes: Routes = [
     loadComponent: () => import('./pages/liste-des-vols/liste-des-vols.page').then( m => m.ListeDesVolsPage),
     canActivate:[GuardAuthentificationService]
   },
-  {
-    path: 'search-vol-form',
-    loadComponent: () => import('./pages/search-vol-form/search-vol-form.page').then( m => m.SearchVolFormPage),
-    canActivate:[GuardAuthentificationService]
-  },
-  {
-    path: 'vol-selectionner',
-    loadComponent: () => import('./pages/vol-selectionner/vol-selectionner.page').then( m => m.VolSelectionnerPage),
-    canActivate:[GuardAuthentificationService]
-  }
 
 ];
