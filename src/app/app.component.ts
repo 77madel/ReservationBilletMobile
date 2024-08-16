@@ -7,6 +7,7 @@ import { Router, RouterLink } from '@angular/router';
 import { ReservationvolPage } from './pages/reservation_vol/reservationvol/reservationvol.page';
 import { LoginServiceService } from './services/login-service.service';
 import { ConnectionPage } from './pages/connection/connection.page';
+import { NgIf } from '@angular/common';
 
 addIcons({
   'airplane': airplane,
@@ -30,7 +31,6 @@ addIcons({
     AccueilPage,
     RouterLink,
     ReservationvolPage,
-NgIf
   ],
 })
 export class AppComponent implements AfterViewInit {
@@ -100,3 +100,4 @@ export class AppComponent implements AfterViewInit {
   //     }
   //   }
   // }
+}
