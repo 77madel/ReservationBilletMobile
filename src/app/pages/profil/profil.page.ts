@@ -6,6 +6,7 @@ import { airplane, chevronForwardOutline, exitOutline, helpCircleOutline, home, 
 
 import { addIcons } from 'ionicons'
 import { RouterLink } from '@angular/router';
+import { LoginServiceService } from 'src/app/services/login-service.service';
 
 @Component({
   selector: 'app-profil',
@@ -16,13 +17,17 @@ import { RouterLink } from '@angular/router';
 })
 export class ProfilPage implements OnInit {
 
-  constructor() {
+  constructor(private servLogin:LoginServiceService) {
     addIcons({ library, playCircle, radio, search,home,
       airplane,notifications,person,helpCircleOutline,settingsOutline,exitOutline,
       lockOpenOutline,chevronForwardOutline,lockClosedOutline,logOutOutline});
    }
 
   ngOnInit() {
+  }
+
+  deconnecter(){
+    this.servLogin.logout();
   }
 
 }
