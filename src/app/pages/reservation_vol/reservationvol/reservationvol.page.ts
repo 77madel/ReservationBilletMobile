@@ -28,10 +28,12 @@ export class ReservationvolPage {
 
   handleContainerClick(flight: { time: string, origin: string, destination: string, airline: string, depart: string }) {
     this.selectedFlight = flight;
+    // Rediriger vers la page de détail avec les informations du vol
     this.router.navigate(['page-details'], { state: { containerDetails: flight } });
   }
 
-  openModal() {
+  openModal(event: Event) {
+    event.stopPropagation();  // Empêche le clic de se propager au conteneur
     this.showModal = true;
   }
 

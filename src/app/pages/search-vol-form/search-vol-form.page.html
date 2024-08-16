@@ -1,0 +1,54 @@
+<ion-header [translucent]="true">
+  <ion-toolbar>
+    <ion-icon name="arrow-back-outline" slot="start"></ion-icon>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content [fullscreen]="true">
+  <div class="content">
+    <ion-card class="tabs">
+      <ion-card-content>
+        <div class="element" [ngClass]="{'active': selectedTab===1}" (click)="onTabItemClick(1)">Allez-simple</div>
+        <div class="element" [ngClass]="{'active': selectedTab===2}" (click)="onTabItemClick(2)">Allez-Retour</div>
+      </ion-card-content>
+    </ion-card>
+    <ion-card>
+
+      <ion-card-content>
+        <div class="formContent">
+          <div class="paysToPays">
+            <ion-input label="Pays De Depart" (ionInput)="filterPaysDepart($event)" debounce="300" label-placement="floating" fill="outline" placeholder="Enter text" [(ngModel)]="paysDeDepart" />
+            <ion-list *ngIf="filteredPaysDepart.length > 0">
+              <ion-item *ngFor="let item of filteredPaysDepart" (click)="selectedItem(item)">{{ item }}</ion-item>
+            </ion-list>
+            <div class="separator" (click)="switchPays()">
+              <ion-icon name="arrow-up-outline" class="icon"></ion-icon>
+              <ion-icon name="arrow-down-outline" class="icon"></ion-icon>
+            </div>
+            <ion-input label="Pays D'arrivee" (ionInput)="filterPaysDArrivee($event)" debounce="300" label-placement="floating" fill="outline" placeholder="Enter text" [(ngModel)]="paysArrive"></ion-input>
+            <ion-list *ngIf="filteredPaysDArrivee.length > 0">
+              <ion-item *ngFor="let item of filteredPaysDArrivee" (click)="selectedItem2(item)">{{ item }}</ion-item>
+            </ion-list>
+          </div>
+
+          <div class="depart">
+            <ion-input type="date" label="Entrer la date de depart" label-placement="floating" fill="outline" [(ngModel)]="dateDepart"></ion-input>
+            @if (showRetour){
+              <ion-input type="date" label="Entrer la date de Retour" label-placement="floating" fill="outline" [(ngModel)]="dateDeRetour"></ion-input>
+            }
+          </div>
+          <div class="voyageurEtClasse">
+            <ion-input type="number" label="Voyageur" label-placement="floating" fill="outline"></ion-input>
+            <ion-select placeholder="Classe" slot="end">
+              <ion-select-option [value]="classes[0]" >Economique</ion-select-option>
+              <ion-select-option [value]="classes[1]" >Affaire</ion-select-option>
+            </ion-select>
+           </div>
+        </div>
+      </ion-card-content>
+
+    </ion-card>
+    <div class="separer"></div>
+    <ion-button>Continuer</ion-button>
+  </div>
+</ion-content>
