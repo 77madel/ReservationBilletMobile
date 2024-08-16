@@ -12,7 +12,7 @@ export const routes: Routes = [
 
   {
     path: '',
-    redirectTo: 'login',
+    redirectTo: 'splash-screen',
     pathMatch: 'full',
   },
 
@@ -97,7 +97,6 @@ export const routes: Routes = [
   {
     path: 'inscription',
     loadComponent: () => import('./pages/inscription/inscription.page').then( m => m.InscriptionPage),
-    canActivate:[GuardAuthentificationService]
   },
   {
     path: 'verification',

@@ -86,7 +86,7 @@ h6 {
   padding: 10px;
 }
 
-button {
+.box-footer button {
   padding-left: 15px;
   padding-right: 15px;
   border: none;
@@ -224,7 +224,7 @@ button {
 
   .price-container {
     text-align: center;
-    margin: 16px 0;
+   // margin: 16px 0;
 
     p {
       font-size: 18px;
@@ -247,6 +247,36 @@ button {
     max-width: 48%;
   }
 }
+
+.flex-btn {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 40px;
+  //background-color: rebeccapurple;
+  margin: 20px 0px 20px 0px;
+}
+    .flex-btn button{
+    height: 40px;
+    padding-left: 15px;
+    padding-right: 15px;
+    border: none;
+    border-radius: 10px;
+    font-weight: 300;
+      margin-left: 20px;
+  }
+
+    .flex-btn .btn-continuer{
+      background-color: #04BBC7;
+      color: white;
+    }
+    .flex-btn .btn-annuler{
+      background-color: white;
+      color: #00c2cc;
+      border: 3px solid #00c2cc;
+      //margin-left: 20px;
+    }
+
 
 @media screen and (min-width: 900px) {
   .container {
