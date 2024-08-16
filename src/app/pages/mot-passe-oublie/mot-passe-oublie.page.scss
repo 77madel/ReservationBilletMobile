@@ -33,14 +33,15 @@ ion-icon {
 ion-input {
   margin-left: 10%;
   margin-right: 10%;
-  width: 344px;
+  width: 60%;
   color: #191C32;
   --background: white;
   --border-radius: 8px;
+  display: flex;
 }
 .envoyer {
   margin-top: 10%;
-  width: 344px;
+  width: 60%;
   height: 57px;
   margin-left: 10%;
   align-content: center;

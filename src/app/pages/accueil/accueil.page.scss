@@ -1,18 +1,159 @@
-
-ion-tab-button:hover{
-    background-color: aqua;
-
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: Arial, sans-serif;
 }
-ion-tab-bar {
-    background-color: #A5A7AC; /* Couleur de fond de la barre d'onglets */
-    border-top: 1px solid #e0e0e0; /* Bordure supérieure de la barre d'onglets */
-  }
-  ion-tab-button {
-    color: #A5A7AC; /* Couleur du texte et des icônes par défaut */
 
-    &.tab-selected {
-      background-color: #04BBC7; /* Couleur du texte et des icônes lorsque l'onglet est sélectionné */
+.container {
+  display: grid;
+  grid-template-rows: 55px 1fr;
+}
+
+header {
+  display: flex;
+  justify-content: space-between;
+  padding: 15px;
+  background-color: #ffffff;
+  border-bottom: 1px solid #ccc;
+  width: 100vw;
+
+  .menu-icon {
+    font-size: 24px;
+    cursor: pointer;
+  }
+
+  .logo {
+    font-size: 24px;
+  }
+}
+
+.search-section {
+  margin-top: 50px;
+  overflow-y: scroll;
+  width: 100vw;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+
+  h1 {
+    font-size: 24px;
+    margin-bottom: 20px;
+    width: 100%;
+    text-align: center;
+  }
+
+  .search-bar {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    filter: drop-shadow(0px 4px 4px rgba(0, 0, 0, 0.25));
+    width: 100%;  
+
+    input {
+      width: 70%;
+      padding: 10px;
+      border-radius: 25px;
+      border: 1px solid #ccc;
+      box-sizing: border-box;
     }
 
+    button {
+      background-color: #00bfa6;
+      border: none;
+      border-radius: 50%;
+      padding: 10px;
+      cursor: pointer;
+      margin-left: -40px;
+      position: relative;
+
+      .search-icon {
+        color: white;
+        font-size: 18px;
+      }
+    }
+  }
+}
+
+
+
+.category-filter {
+  display: flex;
+  justify-content: space-around;
+  padding: 10px 0;
+  background-color: #fff;
+  width: 100vw;
+
+  button {
+    border: none;
+    background: none;
+    font-size: 14px;
+    color: #555;
+    cursor: pointer;
+    padding: 10px 20px;
+
+    &:hover, &:active{
+      color: #00bfa6;
+      border-bottom: 2px solid #00bfa6;
+    }
 
   }
+}
+
+.travel-cards {
+  display: flex;
+  justify-content: center;
+  overflow-x: auto; /* Permet le défilement horizontal */
+  -webkit-overflow-scrolling: touch; /* Assure un défilement fluide sur les appareils tactiles */
+  scroll-snap-type: x mandatory; /* Aligne les cartes au centre pendant le défilement */
+  padding: 20px;
+
+  .card {
+    flex: 0 0 auto; /* Empêche les cartes de se réduire en taille et leur permet de défiler horizontalement */
+    background-color: #fff;
+    border-radius: 15px;
+    overflow: hidden;
+    margin: 0 10px;
+    max-width: 100%;
+    text-align: center;
+    scroll-snap-align: center; /* Assure que chaque carte s'aligne bien au centre pendant le défilement */
+
+    img {
+      width: 100%;
+      height: auto; /* Ajuste la hauteur automatiquement pour conserver les proportions */
+      border-bottom: 1px solid #ccc;
+    }
+
+    .card-info {
+      margin-top: -40%;
+      padding: 15px;
+      color: #ffffff;
+
+      h2 {
+        font-size: 18px;
+        margin-bottom: 10px;
+      }
+
+      p {
+        font-size: 14px;
+      }
+    }
+  }
+}
+
+ion-tab-button:hover {
+  background-color: aqua;
+}
+
+ion-tab-bar {
+  background-color: #A5A7AC; /* Couleur de fond de la barre d'onglets */
+  border-top: 1px solid #e0e0e0; /* Bordure supérieure de la barre d'onglets */
+}
+
+ion-tab-button {
+  color: #A5A7AC; /* Couleur du texte et des icônes par défaut */
+  
+  &.tab-selected {
+    background-color: #04BBC7; /* Couleur du texte et des icônes lorsque l'onglet est sélectionné */
+  }
+}

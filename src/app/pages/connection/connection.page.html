@@ -19,17 +19,17 @@
      <div class="form">
 
       <div class="chp">
-       <input type="email" placeholder="email">
+       <input type="email" placeholder="email" [(ngModel)]="login.email">
       </div>
 
       <div class="chap">
-       <input type="password" placeholder="mot de passe">
+       <input type="password" placeholder="mot de passe"[(ngModel)]="login.password">
       </div>
      </div>
 
 
      <div class="connect">
-      <button class="btn-connexion">Connexion</button>
+      <button class="btn-connexion" (click)="seconnecter()">Connexion</button>
      </div>
 
      <div class="sos">
