@@ -1,0 +1,62 @@
+<div class="Body-page">
+  <div class="title">
+    <div>
+      <i class="fa-solid fa-arrow-left" ></i>
+    </div>
+    <ion-title>Sélectionner votre vol</ion-title>
+  </div>
+
+  <!-- Trait pointillé courbé avec icône avion -->
+  <div class="dotted-line-container">
+    <div class="dotted-curve">
+      <!-- <span class="start-point"></span>
+      <span class="end-point"></span> -->
+      <ion-icon name="airplane" class="airplane-dotted-icon"></ion-icon>
+    </div>
+  </div>
+
+  <div class="Distance">
+    <div class="Yul">
+      <div class="Che" style="">CHE</div>
+    </div>
+    <div class="Nrt" style="">
+      <div class="Blr" style="">BLR</div>
+    </div>
+  </div>
+
+  <div class="div-btn">
+    <input type="date" class="btn1" style="">
+    <button class="btn1" style="">1 passager</button>
+  </div>
+
+  <div class="Class">
+    <div class="Rectangle100"> <div class="Economique">Economique</div> </div>
+  </div>
+
+
+  <div class="container-wrapper">
+
+    <div class="container"
+         *ngFor="let flight of flights"
+         [class.selected]="flight === selectedFlight">
+      <div class="heure-time">
+        <div>
+          <h5>{{ flight.depart }}</h5>
+          <h6>{{ flight.origin }}</h6>
+        </div>
+        <h4>{{ flight.airline }}</h4>
+        <div>
+          <h5>{{ flight.time}}</h5>
+          <h6>{{ flight.destination }}</h6>
+        </div>
+      </div>
+      <div class="two-box">
+        <div class="cutout cutout-left"></div>
+        <div class="cutout cutout-right"></div>
+      </div>
+        <div class="airline">{{ flight.airline}}</div>
+        <img src="../../../assets/Images/avionlogo.png" alt="Logo Avion" class="logoAvion">
+        <div class="prix">1000CFA</div>
+    </div>
+  </div>
+</div>

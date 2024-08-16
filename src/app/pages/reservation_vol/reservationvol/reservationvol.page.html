@@ -1,0 +1,61 @@
+<div class="Body-page">
+  <nav class="nav-bar">
+    <div>
+      <i class="fa-solid fa-bars"></i>
+    </div>
+    <div>
+      <i class="fa-solid fa-bell"></i>
+    </div>
+  </nav>
+  <div class="container-wrapper">
+    <div class="container"
+         *ngFor="let flight of flights"
+         (click)="handleContainerClick(flight)"
+         [class.selected]="flight === selectedFlight">
+      <div class="heure-time">
+        <div>
+          <h5>{{ flight.depart }}</h5>
+          <h6>{{ flight.origin }}</h6>
+        </div>
+        <h4>{{ flight.airline }}</h4>
+        <div>
+          <h5>{{ flight.time }}</h5>
+          <h6>{{ flight.destination }}</h6>
+        </div>
+      </div>
+      <div class="two-box">
+        <div class="cutout cutout-left"></div>
+        <div class="cutout cutout-right"></div>
+      </div>
+      <div class="box-footer">
+        <button (click)="openModal($event)">Annuler</button>
+        <h6>Voir détails</h6>
+      </div>
+    </div>
+  </div>
+
+  <!-- Modal de confirmation -->
+  <div class="modal" *ngIf="showModal">
+    <div class="modal-content">
+      <img src="assets/icon/annuler.png" alt="annuler" />
+      <h2>Confirmer l'annulation</h2>
+      <p>Êtes-vous sûr de vouloir annuler ce vol ?</p>
+      <div class="modal-actions">
+        <button (click)="confirmCancellation()" class="btn-valider">Valider</button>
+        <button (click)="closeModal()" class="btn-annuler">Annuler</button>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- Second Modal -->
+ <div *ngIf="isProcessingModalVisible" class="modal">
+  <div class="modal-content">
+    <p class=" processing-modal">Merci de patienter pendant 48 heures pour que votre remboursement soit correctement traité.</p>
+    <br>
+    <div class="modal-buttons">
+      <span>lire politique de remboursement</span>
+      <button (click)="closeProcessingModal()" class="btn-annuler">Annuler</button>
+    </div>
+  </div>
+</div>
