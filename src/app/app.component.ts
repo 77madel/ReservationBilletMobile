@@ -1,18 +1,19 @@
-
 import {AfterViewInit, Component} from '@angular/core';
-import { IonApp, IonRouterOutlet, IonTabButton, IonTabBar, IonIcon, IonTabs, IonItem, IonLabel  } from '@ionic/angular/standalone';
+import { IonApp, IonRouterOutlet, IonTabButton, IonTabBar, IonIcon, IonTabs, IonItem, IonLabel } from '@ionic/angular/standalone';
 import { AccueilPage } from "./pages/accueil/accueil.page";
-import { airplane, home, library, notifications, person } from 'ionicons/icons';
+import { airplane, home, notifications, person } from 'ionicons/icons';
 import { addIcons } from 'ionicons';
-import { RouterLink } from '@angular/router';
-
+import { Router, RouterLink } from '@angular/router';
 import { ReservationvolPage } from './pages/reservation_vol/reservationvol/reservationvol.page';
+import { NgIf } from '@angular/common';
+
 addIcons({
   'airplane': airplane,
   'home': home,
   'notifications': notifications,
   'person': person
 });
+
 @Component({
   selector: 'app-root',
   templateUrl: 'app.component.html',
@@ -28,25 +29,26 @@ addIcons({
     AccueilPage,
     RouterLink,
     ReservationvolPage,
+NgIf
   ],
 })
 export class AppComponent implements AfterViewInit {
   activeTab: HTMLElement | null = null;
   movingCircle: HTMLElement | null = null;
 
- ngAfterViewInit() {
-  this.movingCircle = document.querySelector('.moving-circle');
-  this.activeTab = document.querySelector('ion-tab-button.active'); // Sélectionner l'onglet avec la classe active
+  constructor(private router: Router) {}
 
-  if (this.activeTab && this.movingCircle) {
-    // Positionner la boule sur l'onglet "Accueil" au démarrage
-    // this.moveCircleToTab(this.activeTab, false);
+  ngAfterViewInit() {
+    this.movingCircle = document.querySelector('.moving-circle');
+    this.activeTab = document.querySelector('ion-tab-button.active'); // Sélectionner l'onglet avec la classe active
+
+    if (this.activeTab && this.movingCircle) {
+      // Positionner la boule sur l'onglet "Accueil" au démarrage
+      // this.moveCircleToTab(this.activeTab, false);
+    }
+
+    this.addClickListeners();
   }
-
-  this.addClickListeners();
-}
-
-
 
   addClickListeners() {
     const tabButtons = document.querySelectorAll('ion-tab-button');
@@ -75,6 +77,12 @@ export class AppComponent implements AfterViewInit {
     }
   }
 
+  shouldShowFooter(): boolean {
+    // Retourne false si la route actuelle est la page de connexion
+    return this.router.url !== '/connexion';
+  }
+}
+
 
   // moveCircleToTab(tab: HTMLElement, animate: boolean) {
   //   const tabRect = tab.getBoundingClientRect();
@@ -96,4 +104,3 @@ export class AppComponent implements AfterViewInit {
   //     }
   //   }
   // }
-}
