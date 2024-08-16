@@ -1,24 +1,14 @@
 
 import { Routes } from '@angular/router';
-
 import { GuardAuthentificationService } from './services/guard-authentification.service';
-
+import {InscriptionReussiePage} from "./pages/inscription-reussie/inscription-reussie.page";
+import {NotificationPage} from "./pages/notification/notification.page";
+import {MotPasseOubliePage} from "./pages/mot-passe-oublie/mot-passe-oublie.page";
 export const routes: Routes = [
   {
     path: 'login',
     loadComponent: () => import('./pages/connection/connection.page').then((m) => m.ConnectionPage),
   },
-  {
-    path: 'home',
-    loadComponent: () => import('./home/home.page').then((m) => m.HomePage),
-    canActivate:[GuardAuthentificationService]
-  },
-
-import {InscriptionReussiePage} from "./pages/inscription-reussie/inscription-reussie.page";
-import {NotificationPage} from "./pages/notification/notification.page";
-import {MotPasseOubliePage} from "./pages/mot-passe-oublie/mot-passe-oublie.page";
-
-export const routes: Routes = [
 
   {
     path: '',
@@ -60,7 +50,8 @@ export const routes: Routes = [
   },
   {
     path: 'ticket',
-    loadComponent: () => import('./pages/Tickets/ticket/ticket.page').then(m => m.TicketPage)
+    loadComponent: () => import('./pages/Tickets/ticket/ticket.page').then( m => m.TicketPage)
+
   },
   {
     path: 'home1',
@@ -134,5 +125,9 @@ export const routes: Routes = [
     loadComponent: () => import('./pages/liste-des-vols/liste-des-vols.page').then( m => m.ListeDesVolsPage),
     canActivate:[GuardAuthentificationService]
   },
+  {
+    path: 'search-vol-form',
+    loadComponent: () => import('./pages/search-vol-form/search-vol-form.page').then( m => m.SearchVolFormPage)
+  }
 
 ];
