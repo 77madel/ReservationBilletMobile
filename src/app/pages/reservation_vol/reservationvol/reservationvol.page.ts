@@ -13,9 +13,9 @@ import { Router } from '@angular/router';
 })
 export class ReservationvolPage {
   public flights: Array<{ time: string, origin: string, destination: string, airline: string, depart: string }> = [
-    { time: '08:30 AM', origin: 'CHE', destination: 'BLR', airline: 'Maroc', depart: '08:30 AM' },
     { time: '09:00 AM', origin: 'DEL', destination: 'BOM', airline: 'Gabon', depart: '09:00 AM' },
     { time: '11:00 AM', origin: 'HGR', destination: 'YTU', airline: 'Mali', depart: '11:00 AM' },
+    { time: '08:30 AM', origin: 'CHE', destination: 'BLR', airline: 'Maroc', depart: '08:30 AM' },
     { time: '12:00 AM', origin: 'KIU', destination: 'FDS', airline: 'Ivoire', depart: '12:00 AM' },
     { time: '16:00 AM', origin: 'BNV', destination: 'MLP', airline: 'Senegale', depart: '16:00 AM' }
   ];
@@ -26,11 +26,13 @@ export class ReservationvolPage {
   isProcessingModalVisible = false;
   constructor(private router: Router) { }
 
-  handleContainerClick(flight: { time: string, origin: string, destination: string, airline: string, depart: string }) {
+  handleContainerClick(flight: any) {
     this.selectedFlight = flight;
-    // Rediriger vers la page de détail avec les informations du vol
-    this.router.navigate(['page-details'], { state: { containerDetails: flight } });
+console.log(flight);
+    this.router.navigate(['page-details', { id: flight.time }], { state: { containerDetails: flight } });
   }
+
+
 
   openModal(event: Event) {
     event.stopPropagation();  // Empêche le clic de se propager au conteneur
