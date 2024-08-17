@@ -133,6 +133,10 @@ export const routes: Routes = [
     path: 'vol-selectionner',
     loadComponent: () => import('./pages/vol-selectionner/vol-selectionner.page').then( m => m.VolSelectionnerPage),
     canActivate:[GuardAuthentificationService]
+  },  {
+    path: 'classe-economique',
+    loadComponent: () => import('./pages/classe-economique/classe-economique.page').then( m => m.ClasseEconomiquePage)
   }
+
 
 ];
