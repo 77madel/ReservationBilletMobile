@@ -11,36 +11,35 @@
     </ion-avatar>
 
     <div class="user-info">
-      <h2>Adama SERMIN</h2>
-      <p>ID : 56456941</p>
+      <h2>{{nom}} {{prenom}}</h2>
+      <p>ID : {{id}}</p>
     </div>
         <ul class="input-list">
           <div class="input-text">
-            <h3>Email</h3>
+            <h3>Nom</h3>
+            <li class="input-items">
+              <input type="text" placeholder="{{nom}}">
+               <ion-icon slot="icon-only" name="create-outline" aria-hidden="true"></ion-icon>
+           </li>
           </div>
+
+          <div class="input-text">
+            <h3>Prenom</h3>
+            <li class="input-items">
+              <input type="text" placeholder="{{prenom}}">
+               <ion-icon slot="icon-only" name="create-outline" aria-hidden="true"></ion-icon>
+           </li>
+          </div>
+
           <li class="input-items">
-             <input type="email" placeholder="amadou@gmail.com">
+             <input type="email" placeholder="{{email}}">
               <ion-icon slot="icon-only" name="create-outline" aria-hidden="true"></ion-icon>
           </li>
           <div class="input-text">
             <h3>Localisation</h3>
           </div>
           <li class="input-items">
-             <input type="text" placeholder="bamako" aria-hidden="true">
-              <ion-icon slot="icon-only" name="create-outline" aria-hidden="true"></ion-icon>
-          </li>
-          <div class="input-text">
-            <h3>Adress</h3>
-          </div>
-          <li class="input-items">
-             <input type="text" placeholder="Bamako faladie" aria-hidden="true">
-              <ion-icon slot="icon-only" name="create-outline" aria-hidden="true"></ion-icon>
-          </li>
-          <div class="input-text">
-            <h3>Numero de Telephone</h3>
-          </div>
-          <li class="input-items">
-             <input type="tel" placeholder="79882616">
+             <input type="text" placeholder="{{adresse}}" aria-hidden="true">
               <ion-icon slot="icon-only" name="create-outline" aria-hidden="true"></ion-icon>
           </li>
           <ion-button  expand="full" class="btn-save">Enregistrer</ion-button>
