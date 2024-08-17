@@ -7,13 +7,19 @@ import { BehaviorSubject, catchError, map, Observable } from 'rxjs';
   providedIn: 'root'
 })
 export class LoginServiceService {
-
+  private hasToken(): boolean {
+    return !!localStorage.getItem('currentUser');
+  }
+  private loggedIn = new BehaviorSubject<boolean>(this.hasToken());
   private isLoggedIn = false;
+    private baseUrl = 'http://localhost:8080';
     private apiUrl = 'http://localhost:8080/personne/signin'; // URL de votre API Spring Boot
     
     private currentUserSubject!: BehaviorSubject<any>;
-    public currentUser!: Observable<any>;    static jwtToken: any;
-  
+    public currentUser!: Observable<any>;
+        static jwtToken: any;
+        public current: any;
+
     constructor(private http: HttpClient,private router: Router) {}
   
     login(username: string, password: string): Observable<any> {
@@ -22,7 +28,13 @@ export class LoginServiceService {
         map(user => {
           if (user && user.jwtToken) {
             this.isLoggedIn=true;
+            this.getUtilisateur();
             localStorage.setItem('currentUser', JSON.stringify(user));
+            let a = localStorage.getItem('currentUser');
+            if(a != null){
+              this.current = JSON.parse(a);
+            }
+            //console.log("Utilisateur actu", this.current)
 
           }
           return user;
@@ -31,16 +43,45 @@ export class LoginServiceService {
         }),
       );
     }
+
+    // Observable pour écouter les changements de connexion
+  isLoggedIn$ = this.loggedIn.asObservable();
   
-    logout(username: string='', password: string=''): void {
+    logout(): void {
+      if (confirm("Êtes-vous sûr de vouloir vous déconnecter ?")){
       localStorage.removeItem('currentUser');
-      this.router.navigate(["/login"])
-      this.isLoggedIn=false;
-      
+      this.loggedIn.next(false); // Déclenche un changement d'état
+      this.router.navigate(['/login']);
+      window.location.reload();
+      }
+    }
+  
+    verifLoggedIn(): boolean {
+      return this.hasToken();
     }
 
-    verifLoggedIn():boolean{
-      return this.isLoggedIn;
+    get(name: string): Observable<any> {
+      return this.http.get(`${this.baseUrl}/${name}/afficher`);
+    }
+
+
+    getUtilisateur() {
+      const user = localStorage.getItem('currentUser');
+    
+      if (user) {
+        const conversionUser = JSON.parse(user);
+        
+        const prenom = conversionUser.username.prenom;
+        const nom = conversionUser.username.nom;
+        const id=conversionUser.username.id;
+        return conversionUser;
+      } else {
+        console.log("Aucun utilisateur connecté trouvé.");
+        return null;
+      }
     }
     
+    
   }
+
+

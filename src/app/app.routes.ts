@@ -90,11 +90,6 @@ export const routes: Routes = [
     canActivate:[GuardAuthentificationService]
   },
   {
-    path: 'connection',
-    loadComponent: () => import('./pages/connection/connection.page').then( m => m.ConnectionPage),
-    canActivate:[GuardAuthentificationService]
-  },
-  {
     path: 'inscription',
     loadComponent: () => import('./pages/inscription/inscription.page').then( m => m.InscriptionPage),
   },
