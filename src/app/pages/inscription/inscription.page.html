@@ -1,6 +1,6 @@
 
 <ion-content [fullscreen]="true">
-
+  <form (ngSubmit)="enregistrer()">
   <h2>Inscription</h2>
 
     <div class="sociaux">
@@ -18,16 +18,20 @@
 
     <div class="form">
 
+      <div class="chp">
+        <input type="text" placeholder="nom" [(ngModel)]="utilisateur.nom">
+       </div>
+
+       <div class="chp">
+        <input type="text" placeholder="prenom" [(ngModel)]="utilisateur.prenom">
+       </div>
+
      <div class="chp">
-      <input type="email" placeholder="email">
+      <input type="email" placeholder="email" [(ngModel)]="utilisateur.email">
      </div>
 
      <div class="chap">
-      <input type="password" placeholder="mot de passe">
-     </div>
-
-     <div class="cha">
-      <input type="password" placeholder="Confirmer mot de passe">
+      <input type="password" placeholder="mot de passe" [(ngModel)]="utilisateur.motDePasse">
      </div>
     </div>
 
@@ -41,5 +45,5 @@
        <button [routerLink]="['/connection']" class="sinscrire">Se connecter</button>
     </div>
 
-
+  </form>
 </ion-content>

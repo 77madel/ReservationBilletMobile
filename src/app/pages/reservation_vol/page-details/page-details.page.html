@@ -1,7 +1,7 @@
 <div class="Body-page">
   <nav class="nav-bar">
     <div>
-      <i class="fa-solid fa-arrow-left"  (click)="goBack()"></i>
+      <i class="fa-solid fa-arrow-left" (click)="goBack()"></i>
     </div>
     <div>
       <h5>Détails du Vol</h5>
@@ -16,8 +16,8 @@
         </div>
         <h4>{{ details.airline }}</h4>
         <div>
-          <h5>{{ details?.time}}</h5>
-          <h6>{{ details.destination }}</h6>
+          <h5>{{ details?.time }}</h5>
+          <h6>{{ details?.destination }}</h6>
         </div>
       </div>
       <div class="two-box">
@@ -25,16 +25,16 @@
         <div class="cutout cutout-right"></div>
       </div>
       <div class="box-footer">
-        <button>Annuler</button>
+        <button (click)="openModal($event)">Annuler</button>
         <h6>Voir détails</h6>
       </div>
     </div>
     <div class="flight-content">
       <div class="flight-container">
         <!-- Image en tête -->
-      <div class="center-image-entete">
-        <img src="assets/icon/SKYMALI 1.png" alt="Flight Header" class="header-image" />
-      </div>
+        <div class="center-image-entete">
+          <img src="assets/icon/SKYMALI 1.png" alt="Flight Header" class="header-image" />
+        </div>
 
         <!-- Trait sous l'image -->
         <hr class="full-width-line" />
@@ -42,8 +42,6 @@
         <!-- Trait pointillé courbé avec icône avion -->
         <div class="dotted-line-container">
           <div class="dotted-curve">
-            <!-- <span class="start-point"></span>
-            <span class="end-point"></span> -->
             <ion-icon name="airplane" class="airplane-dotted-icon"></ion-icon>
           </div>
         </div>
@@ -51,14 +49,13 @@
         <!-- Conteneurs de départ et d'arrivée -->
         <div class="flight-details">
           <div class="departure">
-            <!-- <h4>Départ</h4> -->
-            <p>CHE</p>
+            <p>{{ details?.origin }}</p>
           </div>
           <div class="arrival">
-            <!-- <h4>Arrivée</h4> -->
-            <p>BLR</p>
+            <p>{{ details?.destination }}</p>
           </div>
         </div>
+
         <!-- Conteneurs double texte -->
         <div class="flight-details">
           <div class="text1">
@@ -71,6 +68,7 @@
           </div>
         </div>
         <hr class="full-width-line" />
+
         <!-- Deux conteneurs côte à côte (Date et Heure) -->
         <div class="datetime-container">
           <ion-item>
@@ -83,7 +81,6 @@
           </ion-item>
         </div>
 
-        <!-- Trait sous les inputs -->
         <hr class="full-width-line" />
 
         <!-- Texte Prix -->
@@ -91,7 +88,31 @@
           <p>Prix: {{ price }}</p>
         </div>
       </div>
+    </div>
+  </div>
+</div>
 
+  <!-- Modal de confirmation -->
+  <div class="modal" *ngIf="showModal">
+    <div class="modal-content">
+      <img src="assets/icon/annuler.png" alt="annuler" />
+      <h2>Confirmer l'annulation</h2>
+      <p>Êtes-vous sûr de vouloir annuler ce vol ?</p>
+      <div class="modal-actions">
+        <button (click)="confirmCancellation()" class="btn-valider">Valider</button>
+        <button (click)="closeModal()" class="btn-annuler">Annuler</button>
+      </div>
+    </div>
+  </div>
+
+<!-- Second Modal -->
+ <div *ngIf="isProcessingModalVisible" class="modal">
+  <div class="modal-content">
+    <p class=" processing-modal">Merci de patienter pendant 48 heures pour que votre remboursement soit correctement traité.</p>
+    <br>
+    <div class="modal-buttons">
+      <span>lire politique de remboursement</span>
+      <button (click)="closeProcessingModal()" class="btn-annuler">Fermer</button>
     </div>
   </div>
 </div>
