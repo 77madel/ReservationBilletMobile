@@ -1,6 +1,7 @@
-import { Component, OnInit } from '@angular/core';
 import { CommonModule } from '@angular/common';
+import { Component, OnInit } from '@angular/core';
 import { FormsModule } from '@angular/forms';
+import { Router } from "@angular/router";
 import {
   IonBackButton,
   IonButtons, IonChip, IonCol,
@@ -10,8 +11,7 @@ import {
   IonTitle,
   IonToolbar
 } from '@ionic/angular/standalone';
-import {Router} from "@angular/router";
-import {ListeVolService} from "../../services/ListeVol/liste-vol.service";
+import { ListeVolService } from "../../services/ListeVol/liste-vol.service";
 
 @Component({
   selector: 'app-liste-des-vols',
@@ -34,7 +34,6 @@ export class ListeDesVolsPage implements OnInit{
     try {
       const response = await this.serviceVol.ListVol();
       this.vol = response;
-      console.log("folo", this.vol)
     } catch (error: any) {
       throw error;
     }

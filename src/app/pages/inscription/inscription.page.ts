@@ -1,9 +1,9 @@
-import { Component, OnInit } from '@angular/core';
 import { CommonModule } from '@angular/common';
+import { Component, OnInit } from '@angular/core';
 import { FormsModule } from '@angular/forms';
+import { Route, Router, RouterLink } from "@angular/router";
 import { IonContent, IonHeader, IonTitle, IonToolbar } from '@ionic/angular/standalone';
-import {Router, RouterLink} from "@angular/router";
-import { HttpClient } from '@angular/common/http';
+import { InscriptionServiceService } from 'src/app/services/inscription-service.service';
 
 @Component({
   selector: 'app-inscription',
@@ -13,31 +13,38 @@ import { HttpClient } from '@angular/common/http';
   imports: [IonContent, IonHeader, IonTitle, IonToolbar, CommonModule, FormsModule, RouterLink]
 })
 export class InscriptionPage implements OnInit {
+
   utilisateur = {
     nom: '',
-    prenom:'',
+    prenom: '',
     email: '',
-    motDePasse: ''
+    password: '',
+    numeroDeTelephone:'',
+    adresse:'',
+    date:new Date(''),
+
   };
 
-  private apiUrl = 'http://localhost:8080/utilisateur/ajout';
-
-  constructor(private http:HttpClient,private router:Router) { }
-
-  ngOnInit() {
+  constructor(private inscriServ: InscriptionServiceService,private router: Router) {}
+  ngOnInit(): void {
   }
-
+  public a:any;
 
   enregistrer() {
-    this.http.post(this.apiUrl, this.utilisateur).subscribe(
-      (response) => {
-        console.log('Utilisateur enregistré avec succès', response);
-                this.router.navigate(['/accueil']); 
-      },
-      (error) => {
-        console.error('Erreur lors de l\'enregistrement de l\'utilisateur', error);
-      }
-    );
+    this.inscriServ.addUser(this.utilisateur)
+      .subscribe(response => {
+        console.log('Utilisateur enregistré:');
+        alert('Votre compte a été créer avec succès')
+        this.router.navigate(['/login'])
+      }, error => {
+        
+        console.error('Erreur lors de l\'enregistrement:', error);
+      });
   }
 
+  redirectConnection(){
+    this.router.navigate(['/login'])
+  }
+
+  
 }
