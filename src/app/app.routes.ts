@@ -1,9 +1,6 @@
 
 import { Routes } from '@angular/router';
 import { GuardAuthentificationService } from './services/guard-authentification.service';
-import {InscriptionReussiePage} from "./pages/inscription-reussie/inscription-reussie.page";
-import {NotificationPage} from "./pages/notification/notification.page";
-import {MotPasseOubliePage} from "./pages/mot-passe-oublie/mot-passe-oublie.page";
 export const routes: Routes = [
   {
     path: 'login',
