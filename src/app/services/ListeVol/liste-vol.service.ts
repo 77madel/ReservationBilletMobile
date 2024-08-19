@@ -13,27 +13,17 @@ export class ListeVolService {
 
   constructor(private http: HttpClient, private router: Router) { }
 
-  // get(): Observable<any> {
-  //   const headers = new HttpHeaders(
-  //     {
-  //       'Content-Type': 'application/json' ,
-  //       'Authorization': 'Bearer ' + localStorage.getItem('token')
-  //     }
-  //   );
-  //   return this.http.get(`${this.apiUrl}/vol/afficher`, {headers});
-  //
-  // }
-
   async ListVol(): Promise<any> {
     const url = `${this.apiUrl}/vol/afficher`;
-    // const headers = new HttpHeaders({
-    //   'Authorization': `Bearer ${jwtToken}`
-    // })
     try{
       const response =  this.http.get<any>(url).toPromise()
       return response;
     }catch(error){
       throw error;
     }
+  }
+
+ async getVolById(id: string): Promise<any> {
+    return this.http.get<any>(`${this.apiUrl}/vol/afficher/${id}`).toPromise();
   }
 }

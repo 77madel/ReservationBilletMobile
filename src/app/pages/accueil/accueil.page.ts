@@ -33,7 +33,9 @@ import { SearchPipe } from './search.pipe'; // Importez le pipe autonome ici
 })
 export class AccueilPage implements OnInit {
 
+  
 
+ 
   mosque: String = "assets/Images/djenne-mosque 1.png";
   logo: String = "assets/Images/logo.png";
   villes: any[] = []; // Variable pour stocker les données récupérées
@@ -47,10 +49,10 @@ export class AccueilPage implements OnInit {
   constructor(private accueilService: AccueilService, private nvControle:NavController) { 
     addIcons({ library, playCircle, radio, search, home, airplane, notifications, person });
   }
-
-  ngOnInit() {
-    this.loadVilles(); // Appel à la méthode pour charger les données au démarrage
+  ngOnInit(): void {
+    this.loadVilles();
   }
+  
 
   // Méthode pour charger les données
   loadVilles() {
