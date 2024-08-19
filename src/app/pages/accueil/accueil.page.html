@@ -27,11 +27,11 @@
           </div>
     
         <div class="travel-cards">
-            @for (item of pays; track $index) {
+            @for (item of villes; track $index) {
               <div class="card">
-                <img [src]="mosque" alt="{{item.capital}}, {{item.name}}">
+                <img [src]="mosque" alt="{{item.nom}}, {{item.pays}}">
                 <div class="card-info">
-                    <h2>{{item.capital}}, {{item.name}}</h2>
+                    <h2>{{item.nom}}, {{item.pays}}</h2>
                     <p>À partir de ${{item.prix}}</p>
                 </div>
               </div>
