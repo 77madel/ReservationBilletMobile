@@ -47,3 +47,44 @@
   align-content: center;
   --background: #04BBC7;
 }
+
+.seating-container {
+  display: flex;
+  justify-content: space-between;
+  padding: 10px;
+
+  .hub-lot, .milieu, .couloir {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+
+  ion-button {
+    margin: 5px 0;
+  }
+}
+
+.selected-seat {
+  margin-top: 20px;
+  text-align: center;
+}
+
+ion-button[color="orange"] {
+  --background: #FFA500; /* Couleur orange */
+  --color: #ffffff;
+}
+
+ion-button[color="danger"] {
+  --background: #FF0000; /* Couleur rouge */
+}
+
+ion-button.selected {
+  --background: #0000FF; /* Couleur bleue lorsque le siège est sélectionné */
+  --color: #ffffff;
+}
+
+ion-button[color="selected-color"] {
+  --background: #0000FF; /* Couleur bleue lorsqu'un siège est sélectionné */
+  --color: #ffffff;
+}

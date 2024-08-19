@@ -19,14 +19,80 @@
     </div>
     <div class="legend-item libre">
       <ion-icon name="ellipse"></ion-icon>
-      libre
+      Libre
     </div>
     <div class="legend-item occupe">
       <ion-icon name="ellipse"></ion-icon>
-      occupé
+      Occupé
     </div>
   </div>
 
+  <div class="seating-container">
+    <!-- Section HUBLOT -->
+    <div class="hub-lot">
+      <div *ngFor="let siege of getSiegeHubLot()">
+        <ion-row>
+          <ion-col>
+            <ion-button
+              [color]="siege.disponibilite === 'OUI' ? (isSelected(siege) ? 'selected-color' : 'success') : 'danger'"
+              (click)="selectSiege(siege)"
+              [disabled]="siege.disponibilite !== 'OUI'">
+              {{siege.numero}}
+            </ion-button>
 
-  <ion-button expand="block" class="demarer">Démarer</ion-button>
+          </ion-col>
+        </ion-row>
+      </div>
+    </div>
+
+    <!-- Section MILIEU -->
+    <div class="milieu">
+      <div *ngFor="let siege of getSiegeMilieu()">
+        <ion-row>
+          <ion-col>
+            <ion-button
+              [color]="siege.disponibilite === 'OUI' ? (isSelected(siege) ? 'selected-color' : 'success') : 'danger'"
+              (click)="selectSiege(siege)"
+              [disabled]="siege.disponibilite !== 'OUI'">
+              {{siege.numero}}
+            </ion-button>
+
+          </ion-col>
+        </ion-row>
+      </div>
+    </div>
+
+    <!-- Section COULOIR -->
+    <div class="couloir">
+      <div *ngFor="let siege of getSiegeCouloir()">
+        <ion-row>
+          <ion-col>
+            <ion-button
+              [color]="siege.disponibilite === 'OUI' ? (isSelected(siege) ? 'selected-color' : 'success') : 'danger'"
+              (click)="selectSiege(siege)"
+              [disabled]="siege.disponibilite !== 'OUI'">
+              {{siege.numero}}
+            </ion-button>
+
+          </ion-col>
+        </ion-row>
+      </div>
+    </div>
+  </div>
+
+  <!-- Affichage du siège sélectionné -->
+  <div *ngIf="siegeSelectionne" class="selected-seat">
+    <ion-card>
+      <ion-card-header>
+        <ion-card-title>Siège Sélectionné</ion-card-title>
+      </ion-card-header>
+      <ion-card-content>
+        <p>Numéro : {{siegeSelectionne.numero}}</p>
+        <p>Position : {{siegeSelectionne.positionSiege.nom}}</p>
+        <p>Classe : {{siegeSelectionne.positionSiege.claseSiege.nom}}</p>
+      </ion-card-content>
+    </ion-card>
+  </div>
+
+  <ion-button expand="block" class="demarer">Démarrer</ion-button>
 </div>
