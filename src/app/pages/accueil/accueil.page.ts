@@ -17,9 +17,10 @@ import { AccueilService } from './accueil.service'; // Import du service
 export class AccueilPage implements OnInit {
 
   mosque: String = "assets/Images/djenne-mosque 1.png";
-  logo: String = "assets/Images/Logo_PANKURU.png";
-
+  logo: String = "assets/Images/logo.png";
   villes: any[] = []; // Variable pour stocker les données récupérées
+  filteredVilles: any[] = []; // Stocker les villes filtrées
+  searchText: string = ''; // Texte de recherche
 
   constructor(private accueilService: AccueilService) { // Injection du service
     addIcons({ library, playCircle, radio, search, home, airplane, notifications, person });
@@ -34,6 +35,7 @@ export class AccueilPage implements OnInit {
     this.accueilService.getData().subscribe({
       next: data => {
         this.villes = data;
+        this.filteredVilles = this.villes; // Initialiser les villes filtrées avec toutes les villes
         console.log(this.villes);
       },
       error: error => {
@@ -43,6 +45,12 @@ export class AccueilPage implements OnInit {
         console.log('Récupération des données terminée');
       }
     });
-    
+  }
+
+  // Méthode pour filtrer les villes en fonction de l'entrée de recherche
+  onSearch() {
+    this.filteredVilles = this.villes.filter((ville) =>
+      ville.nom.toLowerCase().includes(this.searchText.toLowerCase())
+    );
   }
 }

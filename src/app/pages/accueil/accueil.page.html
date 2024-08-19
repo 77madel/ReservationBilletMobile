@@ -10,7 +10,7 @@
           <div class="search-section">
             <h1>Où voulez-vous Aller ?</h1>
             <div class="search-bar">
-                <input type="text" placeholder="Recherchez votre voyage">
+                <input type="text" placeholder="Recherchez votre voyage" [(ngModel)]="searchText" (input)="onSearch()">
                 <button><i class="search-icon">&#128269;</i></button>
             </div>
           </div>
@@ -32,7 +32,7 @@
                 <img [src]="mosque" alt="{{item.nom}}, {{item.pays}}">
                 <div class="card-info">
                     <h2>{{item.nom}}, {{item.pays}}</h2>
-                    <p>À partir de ${{item.prix}}</p>
+                    <!-- <p>À partir de ${{item.prix}}</p> -->
                 </div>
               </div>
             }
