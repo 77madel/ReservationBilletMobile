@@ -44,7 +44,11 @@
   font-weight: 800;
   transition: background-color 0.3s ease;
 }
-
+img {
+  margin-left: 100px;
+  margin-top: 20px;
+  width: 100px;
+}
 .two-box {
   border-top: 3px dashed black;
 }
@@ -77,14 +81,19 @@
 h6 {
   margin-top: 3px;
   margin-bottom: 10px;
+  color: #04BBC7;
 }
 
 .box-footer {
   display: flex;
   justify-content: space-between;
-  margin-top: 20px;
+  margin-top: -29px;
   padding: 10px;
 }
+
+//.box-footer h6{
+//
+//}
 
 .box-footer button {
   padding-left: 15px;
@@ -120,7 +129,7 @@ h6 {
     text-align: center;
   }
   .center-image-entete{
-    display: flex;
+
     justify-content: center;
     align-items: center;
   }

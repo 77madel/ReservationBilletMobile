@@ -49,4 +49,8 @@ export class ListeDesVolsPage implements OnInit{
     return nom.substring(0, 3);
   }
 
+  viewVolDetail(volId: number): void {
+    this.router.navigate(['/vol', volId]);
+  }
+
 }
