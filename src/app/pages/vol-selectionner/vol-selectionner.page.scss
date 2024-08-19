@@ -86,7 +86,7 @@ h6 {
   padding: 10px;
 }
 
-button {
+.box-footer button {
   padding-left: 15px;
   padding-right: 15px;
   border: none;
@@ -105,7 +105,7 @@ button {
 }
 //Cette partie le grand conteneur
 .flight-content{
-margin-bottom: 20px;
+  margin-bottom: 20px;
 }
 .flight-container {
   width: 90%;
@@ -120,9 +120,9 @@ margin-bottom: 20px;
     text-align: center;
   }
   .center-image-entete{
-  display: flex;
-  justify-content: center;
-  align-items: center;
+    display: flex;
+    justify-content: center;
+    align-items: center;
   }
 
   .full-width-line {
@@ -156,7 +156,7 @@ margin-bottom: 20px;
       color: #007bff;
     }
     .text2{
-    text-align: right;
+      text-align: right;
     }
   }
 
@@ -224,7 +224,7 @@ margin-bottom: 20px;
 
   .price-container {
     text-align: center;
-    margin: 16px 0;
+   // margin: 16px 0;
 
     p {
       font-size: 18px;
@@ -234,89 +234,6 @@ margin-bottom: 20px;
   }
 }
 
-
-/* Modal styles */
-.modal {
-  position: fixed;
-  top: 0;
-  left: 0;
-  width: 100vw;
-  height: 100vh;
-  background-color: rgba(0, 0, 0, 0.5);
-  display: flex;
-  justify-content: center;
-  align-items: center;
-}
-
-.modal-content {
-  background-color: white;
-  padding: 20px;
-  border-radius: 10px;
-  width: 80%;
-  max-width: 400px;
-  text-align: center;
-}
-
-.modal-actions {
-  margin-top: 20px;
-  display: flex;
-  justify-content: space-around;
-}
-
-.modal-actions button {
-  width: 45%;
-  height: 30px;
-  font-weight: 800;
-}
-
-.btn-valider{
-background-color: #CF2530;
-}
-.btn-annuler{
-  background-color: white;
-  border: 2px solid #04BBC7;
-  color: #04BBC7;
-}
-
-/* Style pour le second modal */
-.processing-modal {
-  background-color: #04BBC7;
-color: #F1EFEF;
-padding: 20px;
-border-radius: 10px;
-}
-
-.modal-buttons button {
-  width: 45%;
-  height: 30px;
-  font-weight: 800;
-  width: 100px;
-}
-
-.processing-modal .modal-buttons {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-}
-
-.modal-buttons{
-display: flex;
-align-items: end;
-justify-content: space-between;
-}
-
-.modal-buttons span {
-  flex-grow: 1;
-  text-align: left;
-  font-weight: 600;
-  font-size: 13px;
-  color: #266AF2;
-  text-decoration: underline;
-}
-
-.processing-modal .modal-buttons button {
-  background-color: #CF2530;
-}
 /* Responsiveness */
 @media screen and (min-width: 600px) {
   .container-wrapper {
@@ -330,6 +247,36 @@ justify-content: space-between;
     max-width: 48%;
   }
 }
+
+.flex-btn {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 40px;
+  //background-color: rebeccapurple;
+  margin: 20px 0px 20px 0px;
+}
+    .flex-btn button{
+    height: 40px;
+    padding-left: 15px;
+    padding-right: 15px;
+    border: none;
+    border-radius: 10px;
+    font-weight: 300;
+      margin-left: 20px;
+  }
+
+    .flex-btn .btn-continuer{
+      background-color: #04BBC7;
+      color: white;
+    }
+    .flex-btn .btn-annuler{
+      background-color: white;
+      color: #00c2cc;
+      border: 3px solid #00c2cc;
+      //margin-left: 20px;
+    }
+
 
 @media screen and (min-width: 900px) {
   .container {

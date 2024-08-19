@@ -1,6 +1,7 @@
-import { Component, OnInit } from '@angular/core';
 import { CommonModule } from '@angular/common';
+import { Component, OnInit } from '@angular/core';
 import { FormsModule } from '@angular/forms';
+import { Router } from "@angular/router";
 import {
   IonBackButton,
   IonButtons, IonChip, IonCol,
@@ -10,7 +11,7 @@ import {
   IonTitle,
   IonToolbar
 } from '@ionic/angular/standalone';
-import {Router} from "@angular/router";
+import { ListeVolService } from "../../services/ListeVol/liste-vol.service";
 
 @Component({
   selector: 'app-liste-des-vols',
@@ -19,24 +20,33 @@ import {Router} from "@angular/router";
   standalone: true,
   imports: [IonContent, IonHeader, IonTitle, IonToolbar, CommonModule, FormsModule, IonButtons, IonBackButton, IonGrid, IonRow, IonCol, IonIcon, IonChip, IonLabel, IonItem, IonDatetimeButton, IonModal, IonDatetime]
 })
-export class ListeDesVolsPage{
+export class ListeDesVolsPage implements OnInit{
+  vol:any[] = [];
 
-  public flights: Array<{ time: string, origin: string, destination: string, airline: string, depart: string }> = [
-    { time: '08:30 AM', origin: 'CHE', destination: 'BLR', airline: 'Maroc', depart: '08:30 AM' },
-    { time: '09:00 AM', origin: 'DEL', destination: 'BOM', airline: 'Gabon', depart: '09:00 AM' },
-    { time: '11:00 AM', origin: 'HGR', destination: 'YTU', airline: 'Mali', depart: '11:00 AM' },
-    { time: '12:00 AM', origin: 'KIU', destination: 'FDS', airline: 'Ivoire', depart: '12:00 AM' },
-    { time: '16:00 AM', origin: 'BNV', destination: 'MLP', airline: 'Senegale', depart: '16:00 AM' }
-  ];
+  constructor(private router: Router, private serviceVol:ListeVolService) { }
 
-  selectedFlight: any = null;
 
-  constructor(private router: Router) { }
-
-  handleContainerClick(flight: { time: string, origin: string, destination: string, airline: string, depart: string }) {
-    this.selectedFlight = flight;
-    this.router.navigate(['page-details'], { state: { containerDetails: flight } });
+  ngOnInit(): void {
+    this.loadVol()
   }
 
+  async loadVol() {
+    try {
+      const response = await this.serviceVol.ListVol();
+      this.vol = response;
+      console.log(this.vol)
+    } catch (error: any) {
+      throw error;
+    }
+  }
+
+  getFormattedTime(dateEtHeure: string): string {
+    const date = new Date(dateEtHeure);
+    return date.toLocaleTimeString([], { hour: '2-digit', minute: '2-digit' });
+  }
+
+  getFirstThreeLetters(nom: string): string {
+    return nom.substring(0, 3);
+  }
 
 }

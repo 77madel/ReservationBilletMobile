@@ -1,0 +1,132 @@
+ion-card{
+    --background: white;
+
+}
+
+.tabs{
+
+  border-radius: 20px;
+  background-color: white;
+  padding: 5px;
+
+  ion-card-content{
+    display: flex;
+    justify-content: space-around;
+  }
+
+}
+
+.element{
+  cursor: pointer;
+  padding: 10px 30px;
+  border-radius: 20px;
+  transition: background-color 0.2s ease;
+}
+
+.active{
+  background-color: var(--ion-color-primary);
+  color: white;
+}
+
+.formContent{
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+
+    .paysToPays{
+        display: flex;
+        flex-direction: column;
+        margin-bottom: 10px;
+
+        .separator{
+            width: 40px;
+            height: 40px;
+            padding: 4px;
+            border-radius: 50%;
+            background-color: var(--ion-color-primary);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            align-self: flex-end;
+            margin: -3px;
+            margin-right: 4px;
+            z-index: 5;
+            cursor: pointer;
+
+
+            .icon{
+                font-size: 30px;
+                color: white;
+            }
+        }
+    }
+}
+
+.voyageurEtClasse{
+    display: flex;
+    gap: 8px;
+}
+
+ion-icon{
+    font-size: 30px;
+}
+
+ion-input[type="date"]::-webkit-calendar-picker-indicator{
+    display: none;
+}
+input[type="date"]::-webkit-calendar-picker-indicator{
+  display: none;
+}
+
+.depart{
+  display: flex;
+  gap: 4px;
+}
+
+ion-list{
+  max-height: 200px;
+  overflow-y: auto;
+  width: 100%;
+  position: relative;
+  background-color: white;
+  z-index: 1000;
+  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+}
+
+ion-iten{
+  cursor: pointer;
+}
+
+.voyageurEtClasse{
+  display: flex;
+  justify-content: space-between;
+  gap: 50px;
+  ion-input{
+    align-self: start;
+    flex: 1;
+  }
+  ion-select{
+    align-self: end;
+    width: 30%;
+  }
+}
+
+.separer{
+  margin: 10px 20px 0 20px;
+  height: 30px;
+  width: 100%;
+  border-top: 0.7px solid #1d1d1d;
+}
+
+.content{
+  display: flex;
+  flex-direction: column;
+  ion-button{
+    align-self: center;
+  }
+}
+
+
+
+
+
