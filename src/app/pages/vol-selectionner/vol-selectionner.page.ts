@@ -11,6 +11,7 @@ import {
   IonTitle,
   IonToolbar
 } from '@ionic/angular/standalone';
+
 import {ActivatedRoute} from "@angular/router";
 import {ListeVolService} from "../../services/ListeVol/liste-vol.service";
 
@@ -25,7 +26,6 @@ export class VolSelectionnerPage implements OnInit {
   vol: any;
 
   constructor(private route: ActivatedRoute, private serviceVol: ListeVolService) { }
-
   ngOnInit() {
     const volId = this.route.snapshot.paramMap.get('id');
     this.loadVolDetail(volId);
