@@ -1,0 +1,328 @@
+* {
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
+}
+
+.Body-page {
+  background-color: white;
+  height: 100%;
+  width: 100vw;
+  display: flex;
+  flex-direction: column;
+}
+.Distance{
+  width: 334px;
+  height: 90.16px;
+  margin-top: -45px;
+  //position: absolute;
+}
+
+.Yul{
+  width: 43.74px;
+  height: 44px;
+  padding: 10px;
+  //position: absolute;
+  background: rgba(255, 255, 255, 0.30);
+  box-shadow: 0px 5px 10px rgba(0, 0, 0, 0.25);
+  border-radius: 50px;
+  border: 0.50px rgba(255, 255, 255, 0.60) solid;
+  backdrop-filter: blur(10px);
+  justify-content: center;
+  align-items: center;
+  gap: 10px;
+  display: inline-flex;
+  margin-left: 35px;
+}
+.Che{
+  color: #CF2530;
+  font-size: 15px;
+  font-family: Prompt;
+  font-weight: 700;
+  word-wrap: break-word;
+}
+
+.Nrt{
+  width: 43.74px;
+  height: 44px;
+  padding: 10px;
+  margin-left: 210px;
+  //position: absolute;
+  background: rgba(255, 255, 255, 0.30);
+  box-shadow: 0px 5px 10px rgba(0, 0, 0, 0.25);
+  border-radius: 50px;
+  border: 0.50px rgba(255, 255, 255, 0.60) solid;
+  backdrop-filter: blur(10px);
+  justify-content: center;
+  align-items: center;
+  gap: 10px;
+  display: inline-flex;
+}
+
+.Blr{
+  color: #CF2530;
+  font-size: 15px;
+  font-family: Prompt;
+  font-weight: 700;
+  word-wrap: break-word;
+}
+
+
+.btn1{
+  margin-left: 15px;
+  margin-bottom: 15px;
+}
+
+.button{
+  border: none;
+  border-radius: 10px;
+  background-color: #04BBC7;
+  color: white;
+  font-weight: 300;
+  height: 40px;
+  width: 150px;
+  text-align: center;
+  margin-bottom: 5px;
+}
+
+.div-btn{
+  display: flex;
+  margin-left: 10px;
+  margin-top: 10px;
+}
+
+.div-btn1{
+  display: flex;
+  margin-left: 100px;
+  margin-top: 10px;
+}
+
+.class {
+  width: 338px;
+  height: 44px;
+  margin-left: 35px;
+  margin-top: 100px;
+}
+
+.Rectangle100{
+  height: 44px;
+  margin-left: 10px;
+  margin-right: 10px;
+  margin-top: 5px;
+  border-radius: 1px;
+  padding-top: 15px;
+  text-align: center;
+  background: #04BBC7;
+}
+.Economique{
+  margin-bottom: 25px;
+  color: white;
+  font-size: 17px;
+  font-family: Nunito;
+  font-weight: 700;
+}
+
+.nav-bar {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 20px;
+  background-color: white;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+}
+
+.nav-bar i {
+  font-size: 30px;
+}
+
+.container-wrapper {
+  overflow-y: auto;
+  flex-grow: 1;
+  padding: 20px;
+}
+
+.container {
+  width: 100%;
+  max-width: 300px;
+  height: 150px;
+  background-color: #F1EFEF;
+  position: relative;
+  margin: 20px auto;
+  border-radius: 20px;
+  box-shadow: 0 4px 4px rgba(0, 0, 0, 0.2);
+  font-weight: 800;
+  transition: background-color 0.3s ease;
+}
+
+.container.selected {
+  background-color: white; /* Couleur de fond pour le conteneur sélectionné */
+  /* Vous pouvez ajouter d'autres styles ici pour mettre en évidence le conteneur */
+}
+
+.two-box {
+  border-top: 3px dashed black;
+}
+
+.cutout {
+  position: absolute;
+  width: 50px;
+  height: 50px;
+  background-color: white;
+  border-radius: 50%;
+  top: 50%;
+  transform: translateY(-50%);
+}
+
+.cutout-left {
+  left: -20px;
+}
+
+.cutout-right {
+  right: -20px;
+}
+
+.heure-time {
+  display: flex;
+  justify-content: space-between;
+  margin: 10px;
+  padding-top: 8px;
+}
+
+h6 {
+  margin-top: 3px;
+  margin-bottom: 10px;
+}
+
+.box-footer {
+  display: flex;
+  justify-content: space-between;
+  margin-top: 20px;
+  padding: 10px;
+}
+
+button {
+  //padding-left: 15px;
+  //padding-right: 15px;
+  border: none;
+  border-radius: 10px;
+  background-color: #04BBC7;
+  color: white;
+  font-weight: 300;
+  height: 40px;
+  width: 150px;
+}
+
+.heure-time h5 {
+  color: #04BBC7;
+}
+
+.heure-time h4 {
+  color: #CF2530;
+}
+
+.airline{
+  left: 12px;
+  top: 91px;
+  position: absolute;
+  color: #04BBC7;
+  font-size: 20px;
+  font-family: Inter;
+  font-weight: 700;
+  word-wrap: break-word;
+  margin-top: 25px;
+
+}
+
+.logoAvion{
+  margin-left: 90px;
+  margin-top: 12px;
+}
+.prix{
+  left: 230px;
+  top: 120px;
+  position: absolute;
+  color: #04BBC7;
+  font-size: 15px;
+  font-family: Inter;
+  font-weight: 700;
+  word-wrap: break-word;
+}
+
+.title{
+  text-align: center;
+  margin-top: 25px ;
+  display: flex;
+
+}
+.fa-solid {
+  height: 20px;
+  width: 25px;
+  margin-left: 15px;
+  margin-top: 5px;
+}
+
+.dotted-line-container {
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 120px; /* Ajustez selon la courbure souhaitée */
+  margin-top: 15px;
+}
+
+.dotted-curve {
+  position: relative;
+  border: none;
+  border-top: 2px dotted black;
+  width: 200px; /* Largeur de la courbe */
+  height: 100px; /* Hauteur de la courbe */
+  border-radius: 100px 100px 0 0; /* Crée un demi-cercle */
+  background: transparent;
+}
+
+.airplane-dotted-icon {
+  position: absolute;
+  left: 50%;
+  top: -20px; /* Ajustez la position de l'icône */
+  transform: translateX(-50%);
+  font-size: 24px; /* Taille de l'icône */
+}
+
+.start-point, .end-point {
+  position: absolute;
+  width: 10px;
+  height: 10px;
+  background-color: black;
+  border-radius: 50%;
+  top: -5px; /* Positionne les points en haut de la courbe */
+}
+
+.start-point {
+  left: 0;
+}
+
+.end-point {
+  right: 0;
+}
+
+
+/* Responsiveness */
+@media screen and (min-width: 600px) {
+  .container-wrapper {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+  }
+
+  .container {
+    flex: 1 1 48%;
+    max-width: 48%;
+  }
+}
+
+@media screen and (min-width: 900px) {
+  .container {
+    flex: 1 1 31%;
+    max-width: 31%;
+  }
+}

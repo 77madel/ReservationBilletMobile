@@ -5,7 +5,7 @@
   font-family: Arial, sans-serif;
 }
 
-.container{
+.container {
   display: grid;
   grid-template-rows: 55px 1fr;
 }
@@ -16,6 +16,7 @@ header {
   padding: 15px;
   background-color: #ffffff;
   border-bottom: 1px solid #ccc;
+  width: 100vw;
 
   .menu-icon {
     font-size: 24px;
@@ -28,13 +29,18 @@ header {
 }
 
 .search-section {
-  text-align: center;
-  padding: 20px;
   margin-top: 50px;
+  overflow-y: scroll;
+  width: 100vw;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
 
   h1 {
     font-size: 24px;
     margin-bottom: 20px;
+    width: 100%;
+    text-align: center;
   }
 
   .search-bar {
@@ -42,15 +48,14 @@ header {
     justify-content: center;
     align-items: center;
     filter: drop-shadow(0px 4px 4px rgba(0, 0, 0, 0.25));
-
+    width: 100%;  
 
     input {
-      width: 80%;
+      width: 70%;
       padding: 10px;
       border-radius: 25px;
       border: 1px solid #ccc;
-      margin-right: -40px;
-      padding-right: 50px;
+      box-sizing: border-box;
     }
 
     button {
@@ -59,6 +64,8 @@ header {
       border-radius: 50%;
       padding: 10px;
       cursor: pointer;
+      margin-left: -40px;
+      position: relative;
 
       .search-icon {
         color: white;
@@ -68,11 +75,14 @@ header {
   }
 }
 
+
+
 .category-filter {
   display: flex;
   justify-content: space-around;
   padding: 10px 0;
   background-color: #fff;
+  width: 100vw;
 
   button {
     border: none;
@@ -82,35 +92,42 @@ header {
     cursor: pointer;
     padding: 10px 20px;
 
-    &.active {
+    &:hover, &:active{
       color: #00bfa6;
       border-bottom: 2px solid #00bfa6;
     }
+
   }
 }
 
 .travel-cards {
   display: flex;
   justify-content: center;
+  overflow-x: auto; /* Permet le défilement horizontal */
+  -webkit-overflow-scrolling: touch; /* Assure un défilement fluide sur les appareils tactiles */
+  scroll-snap-type: x mandatory; /* Aligne les cartes au centre pendant le défilement */
   padding: 20px;
 
   .card {
+    flex: 0 0 auto; /* Empêche les cartes de se réduire en taille et leur permet de défiler horizontalement */
     background-color: #fff;
     border-radius: 15px;
     overflow: hidden;
-    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
     margin: 0 10px;
     max-width: 100%;
     text-align: center;
+    scroll-snap-align: center; /* Assure que chaque carte s'aligne bien au centre pendant le défilement */
 
     img {
       width: 100%;
-      height: auto;
+      height: auto; /* Ajuste la hauteur automatiquement pour conserver les proportions */
       border-bottom: 1px solid #ccc;
     }
 
     .card-info {
+      margin-top: -40%;
       padding: 15px;
+      color: #ffffff;
 
       h2 {
         font-size: 18px;
@@ -118,33 +135,25 @@ header {
       }
 
       p {
-        color: #00bfa6;
         font-size: 14px;
       }
     }
   }
 }
 
-
-
-
-ion-tab-button:hover{
-    background-color: aqua;
-
+ion-tab-button:hover {
+  background-color: aqua;
 }
+
 ion-tab-bar {
-    background-color: #A5A7AC; /* Couleur de fond de la barre d'onglets */
-    border-top: 1px solid #e0e0e0; /* Bordure supérieure de la barre d'onglets */
-  }
-  ion-tab-button {
-    color: #A5A7AC; /* Couleur du texte et des icônes par défaut */
-    
-    &.tab-selected {
-      background-color: #04BBC7; /* Couleur du texte et des icônes lorsque l'onglet est sélectionné */
-    }
+  background-color: #A5A7AC; /* Couleur de fond de la barre d'onglets */
+  border-top: 1px solid #e0e0e0; /* Bordure supérieure de la barre d'onglets */
+}
+
+ion-tab-button {
+  color: #A5A7AC; /* Couleur du texte et des icônes par défaut */
   
-    
+  &.tab-selected {
+    background-color: #04BBC7; /* Couleur du texte et des icônes lorsque l'onglet est sélectionné */
   }
-
-
-
+}

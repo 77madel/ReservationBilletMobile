@@ -1,0 +1,48 @@
+<ion-header [translucent]="true">
+  <ion-toolbar>
+    <ion-title>updateProfil</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content [fullscreen]="true">
+  <div class="page-compte">
+    <ion-avatar>
+      <img src="../../assets/3.jpg" alt="Photo de profil">
+    </ion-avatar>
+
+    <div class="user-info">
+      <h2>{{nom}} {{prenom}}</h2>
+      <p>ID : {{id}}</p>
+    </div>
+        <ul class="input-list">
+          <div class="input-text">
+            <h3>Nom</h3>
+            <li class="input-items">
+              <input type="text" placeholder="{{nom}}">
+               <ion-icon slot="icon-only" name="create-outline" aria-hidden="true"></ion-icon>
+           </li>
+          </div>
+
+          <div class="input-text">
+            <h3>Prenom</h3>
+            <li class="input-items">
+              <input type="text" placeholder="{{prenom}}">
+               <ion-icon slot="icon-only" name="create-outline" aria-hidden="true"></ion-icon>
+           </li>
+          </div>
+
+          <li class="input-items">
+             <input type="email" placeholder="{{email}}">
+              <ion-icon slot="icon-only" name="create-outline" aria-hidden="true"></ion-icon>
+          </li>
+          <div class="input-text">
+            <h3>Localisation</h3>
+          </div>
+          <li class="input-items">
+             <input type="text" placeholder="{{adresse}}" aria-hidden="true">
+              <ion-icon slot="icon-only" name="create-outline" aria-hidden="true"></ion-icon>
+          </li>
+          <ion-button  expand="full" class="btn-save">Enregistrer</ion-button>
+        </ul>
+    </div>
+</ion-content>
