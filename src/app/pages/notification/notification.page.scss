@@ -1,3 +1,7 @@
+
+
+
+
 * {
   background-color: #F3F5F6;
 }
@@ -18,7 +22,6 @@
   padding-top: 5%;
 }
 .logo {
-
   width: 100px;
   height: 100px;
 }
@@ -44,6 +47,9 @@
   width: 30px;
   height: 30px;
 }
-.listNotif {
+.listNotif{
   overflow: scroll;
+}
+.listNotif::-webkit-scrollbar{
+display: none;
 }

@@ -1,33 +1,37 @@
 
 <ion-content [fullscreen]="true">
-
+  <form (ngSubmit)="enregistrer()">
   <h2>Inscription</h2>
 
     <div class="sociaux">
 
       <button class="btn-goole">GOOGLE</button>
-     
+
        <button class="btn-facebook">FACEBOOK</button>
-  
+
     </div>
 
      <div class="separateur">
         <span>Ou</span>
      </div>
 
-   
+
     <div class="form">
 
+      <div class="chp">
+        <input type="text" placeholder="nom" [(ngModel)]="utilisateur.nom">
+       </div>
+
+       <div class="chp">
+        <input type="text" placeholder="prenom" [(ngModel)]="utilisateur.prenom">
+       </div>
+
      <div class="chp">
-      <input type="email" placeholder="email">
+      <input type="email" placeholder="email" [(ngModel)]="utilisateur.email">
      </div>
 
      <div class="chap">
-      <input type="password" placeholder="mot de passe">
-     </div>
-
-     <div class="cha">
-      <input type="password" placeholder="Confirmer mot de passe">
+      <input type="password" placeholder="mot de passe" [(ngModel)]="utilisateur.motDePasse">
      </div>
     </div>
 
@@ -38,8 +42,8 @@
 
     <div class="sos">
       <p>Vous avez deja un compte ?</p>
-       <button class="sinscrire">Se connecter</button>
+       <button [routerLink]="['/connection']" class="sinscrire">Se connecter</button>
     </div>
 
- 
+  </form>
 </ion-content>

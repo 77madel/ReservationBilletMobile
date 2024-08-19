@@ -1,6 +1,26 @@
 
+// .animated-footer {
+//   position: relative;
+// }
+
+// .moving-circle {
+//   // position: absolute;
+//   bottom: 20px; /* Adjust to align with the icons */
+//   width: 60px;
+//   height: 60px;
+//   background: rgba(255, 255, 255, 0.7);
+//   border-radius: 50%;
+//   z-index: -1;
+//   transition: transform 0.4s ease;
+// }
+
+// ion-tab-button {
+//   position: relative;
+//   z-index: 1; /* Ensure tab buttons appear above the moving circle */
+// }
+
 ion-tab-button:hover{
-  background-color: aqua;
+  background-color: var(--blue-pers);
 
 }
 ion-tab-bar {
@@ -11,7 +31,7 @@ ion-tab-button {
   color: #A5A7AC; /* Couleur du texte et des icônes par défaut */
 
   &.tab-selected {
-    background-color: #04BBC7; /* Couleur du texte et des icônes lorsque l'onglet est sélectionné */
+    background-color: var(--blue-pers); /* Couleur du texte et des icônes lorsque l'onglet est sélectionné */
   }
 
 }

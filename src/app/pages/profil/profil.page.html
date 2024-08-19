@@ -11,8 +11,8 @@
     </ion-avatar>
 
     <div class="user-info">
-      <h2>Adama SERMIN</h2>
-      <p>ID : 56456941</p>
+      <h2>{{nom}} {{prenom}}</h2>
+      <p>ID : {{id}}</p>
     </div>
 
     <ul class="settings-list">
@@ -52,7 +52,7 @@
         <div class="setting-text">
           <h3>Se déconnecter</h3>
         </div>
-        <ion-icon name="chevron-forward-outline"></ion-icon>
+        <ion-icon name="chevron-forward-outline" (click)="deconnecter()"></ion-icon>
       </li>
     </ul>
   </div>
