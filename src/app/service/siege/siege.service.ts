@@ -8,11 +8,11 @@ import {Siege} from "../../models/Siege";
 })
 export class SiegeService {
 
-  private apiSiege = "http://localhost:8080/siege/afficher"
+  private apiSiege = "http://localhost:8080/siege/afficher/avion"
   constructor(private http: HttpClient) { }
 
-  getSiege(): Observable<any> {
-    return this.http.get<Siege[]>(this.apiSiege);
+  getSiege(avionId: number | null): Observable<any> {
+    return this.http.get<Siege[]>(`${this.apiSiege}/${avionId}`);
   }
 
   postData(data: any): Observable<any> {

@@ -2,27 +2,22 @@ import { Component, OnInit } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { FormsModule } from '@angular/forms';
 import {
-  IonButton, IonCard, IonCardContent, IonCardHeader, IonCardTitle, IonCol,
-  IonContent,
-  IonGrid,
-  IonHeader,
-  IonIcon, IonImg,
-  IonRow,
+  IonButton,
+  IonCard,
+  IonCardContent, IonCardHeader, IonCardTitle, IonCol,
+  IonContent, IonGrid,
+  IonHeader, IonIcon, IonImg, IonRow,
   IonTitle,
   IonToolbar
 } from '@ionic/angular/standalone';
-import { ellipse } from 'ionicons/icons';
-import { addIcons } from 'ionicons';
-import { SiegeService } from '../../service/siege/siege.service';
-import { Siege } from '../../models/Siege';
+import {Siege} from "../../models/Siege";
+import {SiegeService} from "../../service/siege/siege.service";
 import {ActivatedRoute} from "@angular/router";
 
-addIcons({ ellipse });
-
 @Component({
-  selector: 'app-classe-economique',
-  templateUrl: './classe-economique.page.html',
-  styleUrls: ['./classe-economique.page.scss'],
+  selector: 'app-classe-affaire',
+  templateUrl: './classe-affaire.page.html',
+  styleUrls: ['./classe-affaire.page.scss'],
   standalone: true,
   imports: [
     IonContent, IonHeader, IonTitle, IonToolbar, CommonModule, FormsModule,
@@ -30,9 +25,9 @@ addIcons({ ellipse });
     IonCardContent, IonCardTitle, IonCard
   ]
 })
-export class ClasseEconomiquePage implements OnInit {
+export class ClasseAffairePage implements OnInit {
 
-  avionId!: number | null;
+  avionId!: number;
   Sieges: Siege[] = [];
   siegeSelectionne: Siege | null = null;
 
@@ -41,9 +36,9 @@ export class ClasseEconomiquePage implements OnInit {
   ngOnInit(): void {
     this.route.paramMap.subscribe(params => {
       const idParam = params.get('id');
-      this.avionId = idParam ? +idParam : null; // Ou une valeur par défaut si nécessaire
+      //this.avionId = idParam ? +idParam : null; // Ou une valeur par défaut si nécessaire
       this.listSiege(); // Charge les sièges pour cet avion
-      //this.avionId = 1;
+      this.avionId = 1;
     });
   }
 
@@ -60,24 +55,15 @@ export class ClasseEconomiquePage implements OnInit {
   }
 
   getSiegeHubLot(): Siege[] {
-    return this.Sieges.filter(siege =>
-      siege.positionSiege.nom === 'HUBLOT' &&
-      siege.positionSiege.classeSiege.nom === 'ECONOMIQUE'
-    );
+    return this.Sieges.filter(siege => siege.positionSiege.nom === 'HUBLOT');
   }
 
   getSiegeMilieu(): Siege[] {
-    return this.Sieges.filter(siege =>
-      siege.positionSiege.nom === 'MILIEU' &&
-      siege.positionSiege.classeSiege.nom === 'ECONOMIQUE'
-    );
+    return this.Sieges.filter(siege => siege.positionSiege.nom === 'MILIEU');
   }
 
   getSiegeCouloir(): Siege[] {
-    return this.Sieges.filter(siege =>
-      siege.positionSiege.nom === 'COULOIR' &&
-      siege.positionSiege.classeSiege.nom === 'ECONOMIQUE'
-    );
+    return this.Sieges.filter(siege => siege.positionSiege.nom === 'COULOIR');
   }
 
   selectSiege(siege: Siege): void {
@@ -88,14 +74,8 @@ export class ClasseEconomiquePage implements OnInit {
   }
 
 
-
   isSelected(siege: Siege): boolean {
     return this.siegeSelectionne?.id === siege.id;
   }
 
-  /*
-  Ouvrir classeEconomique
-  goToClasseEconomique(avionId: number) {
-    this.router.navigate(['/classe-economique', avionId]);
-  }*/
 }
