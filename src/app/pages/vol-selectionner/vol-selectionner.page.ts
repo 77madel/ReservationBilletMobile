@@ -11,6 +11,7 @@ import {
   IonTitle,
   IonToolbar
 } from '@ionic/angular/standalone';
+import { ActivatedRoute } from '@angular/router';
 
 @Component({
   selector: 'app-vol-selectionner',
@@ -21,7 +22,12 @@ import {
 })
 export class VolSelectionnerPage implements OnInit {
 
-  constructor() { }
+  
+
+  constructor(private route:ActivatedRoute) {
+
+   
+   }
 
   ngOnInit() {
   }

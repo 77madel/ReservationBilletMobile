@@ -1,7 +1,7 @@
 import { CommonModule } from '@angular/common';
 import { Component, OnInit } from '@angular/core';
 import { FormsModule } from '@angular/forms';
-import { Router } from "@angular/router";
+import { ActivatedRoute, Router } from "@angular/router";
 import {
   IonBackButton,
   IonButtons, IonChip, IonCol,
@@ -21,9 +21,22 @@ import { ListeVolService } from "../../services/ListeVol/liste-vol.service";
   imports: [IonContent, IonHeader, IonTitle, IonToolbar, CommonModule, FormsModule, IonButtons, IonBackButton, IonGrid, IonRow, IonCol, IonIcon, IonChip, IonLabel, IonItem, IonDatetimeButton, IonModal, IonDatetime]
 })
 export class ListeDesVolsPage implements OnInit{
+
+  paysDeDepart: string = '';
+  searchValue: string = '';
+  dateDepart: string = '';
+  dateDeRetour: string = '';
   vol:any[] = [];
 
-  constructor(private router: Router, private serviceVol:ListeVolService) { }
+  constructor(private router: Router, private serviceVol:ListeVolService,private route:ActivatedRoute) { 
+    this.route.params.subscribe(params => {
+      this.paysDeDepart = params['paysDeDepart'];
+      this.searchValue = params['searchValue'];
+      this.dateDepart = params['dateDepart'];
+      this.dateDeRetour = params['dateDeRetour'];
+    });
+
+  }
 
 
   ngOnInit(): void {
@@ -47,5 +60,9 @@ export class ListeDesVolsPage implements OnInit{
   getFirstThreeLetters(nom: string): string {
     return nom.substring(0, 3);
   }
+
+
+
+  
 
 }

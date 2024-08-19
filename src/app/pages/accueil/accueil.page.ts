@@ -3,9 +3,10 @@ import { CommonModule } from '@angular/common';
 import { FormsModule } from '@angular/forms';
 import { IonContent, IonHeader, IonTitle, IonToolbar, IonTabs, IonIcon, IonTabButton, IonTabBar } from '@ionic/angular/standalone';
 import { airplane, home, library, notifications, person, personOutline, playCircle, radio, search } from 'ionicons/icons';
+import { NavController } from '@ionic/angular';
 
 import { addIcons } from 'ionicons'
-import { RouterLink } from '@angular/router';
+import { Router, RouterLink } from '@angular/router';
 
 @Component({
   selector: 'app-accueil',
@@ -15,6 +16,10 @@ import { RouterLink } from '@angular/router';
   imports: [IonTabBar, IonTabButton, IonIcon, IonTabs, IonContent, IonHeader, IonTitle, IonToolbar, CommonModule, FormsModule,RouterLink]
 })
 export class AccueilPage implements OnInit {
+aff() {
+  this.nvControle.navigateForward([`/search-vol-form`,{ searchValue: this.chercheValue }])
+}
+  chercheValue:string='';
  
   mosque: String = "assets/Images/djenne-mosque 1.png";
   pays: any =[ {
@@ -43,7 +48,7 @@ export class AccueilPage implements OnInit {
     "prix": 3500
   }
   ]
-  constructor() { 
+  constructor(private router:Router,private nvControle:NavController) { 
     addIcons({ library, playCircle, radio, search,home,airplane,notifications,person});
     
   }
