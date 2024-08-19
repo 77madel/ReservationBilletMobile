@@ -47,6 +47,7 @@ export class ListeDesVolsPage implements OnInit{
     try {
       const response = await this.serviceVol.ListVol();
       this.vol = response;
+      console.log(this.vol)
     } catch (error: any) {
       throw error;
     }
@@ -61,8 +62,9 @@ export class ListeDesVolsPage implements OnInit{
     return nom.substring(0, 3);
   }
 
+  viewVolDetail(volId: number): void {
+    this.router.navigate(['/vol', volId]);
+  }
 
-
-  
 
 }

@@ -122,7 +122,7 @@ export const routes: Routes = [
     canActivate:[GuardAuthentificationService]
   },
   {
-    path: 'vol-selectionner',
+    path: 'vol/:id',
     loadComponent: () => import('./pages/vol-selectionner/vol-selectionner.page').then( m => m.VolSelectionnerPage),
     canActivate:[GuardAuthentificationService]
   }
