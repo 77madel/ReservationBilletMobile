@@ -16,6 +16,7 @@ export class AccueilService {
     return this.http.get<any>(`${this.apiUrl}/ville/afficher`);
   }
 
+
   
 }
 

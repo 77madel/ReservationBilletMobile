@@ -1,28 +1,50 @@
 import { Component, OnInit } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { FormsModule } from '@angular/forms';
-import { IonContent, IonHeader, IonTitle, IonToolbar, IonTabs, IonIcon, IonTabButton, IonTabBar } from '@ionic/angular/standalone';
+import { IonContent, IonHeader, IonTitle, IonToolbar, IonTabs, IonIcon, IonTabButton, IonTabBar, IonItem, IonLabel, IonList } from '@ionic/angular/standalone';
 import { airplane, home, library, notifications, person, personOutline, playCircle, radio, search } from 'ionicons/icons';
 import { addIcons } from 'ionicons';
 import { RouterLink } from '@angular/router';
-import { AccueilService } from './accueil.service'; // Import du service
+import { AccueilService } from './accueil.service'; 
+import { NavController } from '@ionic/angular';
+import { SearchPipe } from './search.pipe'; // Importez le pipe autonome ici
 
 @Component({
   selector: 'app-accueil',
   templateUrl: './accueil.page.html',
   styleUrls: ['./accueil.page.scss'],
   standalone: true,
-  imports: [IonTabBar, IonTabButton, IonIcon, IonTabs, IonContent, IonHeader, IonTitle, IonToolbar, CommonModule, FormsModule, RouterLink]
+  imports: [IonList, 
+    IonLabel, 
+    IonItem, 
+    IonTabBar, 
+    IonTabButton, 
+    IonIcon, 
+    IonTabs, 
+    IonContent, 
+    IonHeader, 
+    IonTitle, 
+    IonToolbar, 
+    CommonModule, 
+    FormsModule, 
+    RouterLink,
+    SearchPipe // Importez directement le pipe ici
+  ]
 })
 export class AccueilPage implements OnInit {
+
 
   mosque: String = "assets/Images/djenne-mosque 1.png";
   logo: String = "assets/Images/logo.png";
   villes: any[] = []; // Variable pour stocker les données récupérées
-  filteredVilles: any[] = []; // Stocker les villes filtrées
   searchText: string = ''; // Texte de recherche
+  filteredVilles: any[] = [];
+  showSuggestions: boolean = false;
+  paysArrive: string | undefined;
+  filteredPaysDArrivee: never[] | undefined;
+  
 
-  constructor(private accueilService: AccueilService) { // Injection du service
+  constructor(private accueilService: AccueilService, private nvControle:NavController) { 
     addIcons({ library, playCircle, radio, search, home, airplane, notifications, person });
   }
 
@@ -35,7 +57,6 @@ export class AccueilPage implements OnInit {
     this.accueilService.getData().subscribe({
       next: data => {
         this.villes = data;
-        this.filteredVilles = this.villes; // Initialiser les villes filtrées avec toutes les villes
         console.log(this.villes);
       },
       error: error => {
@@ -47,10 +68,23 @@ export class AccueilPage implements OnInit {
     });
   }
 
-  // Méthode pour filtrer les villes en fonction de l'entrée de recherche
   onSearch() {
-    this.filteredVilles = this.villes.filter((ville) =>
+    this.showSuggestions = this.searchText.trim().length > 0;
+    this.filteredVilles = this.villes.filter(ville =>
       ville.nom.toLowerCase().includes(this.searchText.toLowerCase())
     );
   }
+
+  filterVille(event: any) {
+    const query = event.target.value.toLowerCase();
+    console.log(query);
+    this.filteredVilles = this.villes.filter(item => {
+      return item.toLowerCase().indexOf(query) > -1;
+    })
+  }
+
+  aff() {
+    this.nvControle.navigateForward([`/search-vol-form`,{ searchValue: this.chercheValue }])
+  }
+    chercheValue:string='';
 }

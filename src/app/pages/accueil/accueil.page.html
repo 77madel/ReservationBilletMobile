@@ -1,43 +1,40 @@
 <div class="container">
-    <header>
-        <div>
-          <img [src]="logo" alt="logo">
+  <header>
+    <div>
+      <img [src]="logo" alt="logo">
+    </div>
+  </header>
+
+  <main>
+    <div class="search-section">
+      <h1>Où voulez-vous Aller ?</h1>
+      <div class="search-bar">
+        <input type="text" placeholder="Recherchez votre voyage" [(ngModel)]="searchText" (input)="onSearch()">
+        <button (click)="aff()"><i class="search-icon">&#128269;</i></button>
+        <ion-list *ngIf="filteredVilles.length > 0 && showSuggestions" class="suggestions-list">
+          <ion-item *ngFor="let ville of filteredVilles | search:searchText">{{ ville.nom }}</ion-item>
+        </ion-list>
+      </div>
+    </div>
+    
+
+    <div *ngIf="!showSuggestions" class="category-filter">
+      <button class="active">Tout</button>
+      <button>Afrique</button>
+      <button>Europe</button>
+      <button>Asie</button>
+      <button>Océanie</button>
+    </div>
+
+    <div *ngIf="!showSuggestions" class="travel-cards">
+      <div class="card" *ngFor="let item of villes">
+        <img [src]="mosque" alt="{{item.nom}}, {{item.pays}}">
+        <div class="card-info">
+          <h2>{{item.nom}}, {{item.pays}}</h2>
         </div>
-      
-    </header>
+      </div>
+    </div>
+  </main>
 
-    <main>
-          <div class="search-section">
-            <h1>Où voulez-vous Aller ?</h1>
-            <div class="search-bar">
-                <input type="text" placeholder="Recherchez votre voyage" [(ngModel)]="searchText" (input)="onSearch()">
-                <button><i class="search-icon">&#128269;</i></button>
-            </div>
-          </div>
-
-
-
-
-          <div class="category-filter">
-            <button class="active">Tout</button>
-            <button>Afrique</button>
-            <button>Europe</button>
-            <button>Asia</button>
-            <button>Océanie</button>
-          </div>
-
-        <div class="travel-cards">
-            @for (item of villes; track $index) {
-              <div class="card">
-                <img [src]="mosque" alt="{{item.nom}}, {{item.pays}}">
-                <div class="card-info">
-                    <h2>{{item.nom}}, {{item.pays}}</h2>
-                    <!-- <p>À partir de ${{item.prix}}</p> -->
-                </div>
-              </div>
-            }
-
-        </div>
-    </main>
-  </div>
-
+ 
+</div>
