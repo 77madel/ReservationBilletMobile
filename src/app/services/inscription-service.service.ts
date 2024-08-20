@@ -1,6 +1,6 @@
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
-import { Utilisateur } from '../models/utilisateur';
+import { Utilisateur } from '../models/Utilisateur'
 import { Observable } from 'rxjs';
 
 @Injectable({
@@ -11,7 +11,15 @@ export class InscriptionServiceService {
 
   constructor(private http:HttpClient) { }
 
-  addUser(user:Utilisateur):Observable<Utilisateur> {
+    addUser(user: {
+        date: Date;
+        password: string;
+        adresse: string;
+        numeroDeTelephone: string;
+        nom: string;
+        prenom: string;
+        email: string
+    }):Observable<Utilisateur> {
     return this.http.post<Utilisateur>(`${this.apiUrl}/ajout`, user);
   }
 

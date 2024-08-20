@@ -77,6 +77,16 @@ export class LoginServiceService {
       }
     }
 
+    deconnection(){
+      // Nettoyage de la session et redirection
+    localStorage.removeItem('authToken');
+    localStorage.removeItem('tokenExpiry');
+    this.router.navigate(['/login']);
+    console.log(localStorage)
+    }
+
+
+
 
     getUserId() {
       const user = localStorage.getItem('currentUser');
@@ -95,8 +105,6 @@ export class LoginServiceService {
         return null;
       }
     }
-
-
 
 
 

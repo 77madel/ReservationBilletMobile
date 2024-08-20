@@ -1,8 +1,11 @@
-import { Component, OnInit } from '@angular/core';
+import {Component, Input, OnInit} from '@angular/core';
 // import {Notificat, NotificationService} from "../notification.service";
 import {IonicModule} from "@ionic/angular";
 import {addIcons} from "ionicons";
 import {checkmarkCircleOutline} from "ionicons/icons";
+import {NotificationService} from "../../../service/notification/notification.service";
+import {Siege} from "../../../models/Siege";
+import {Notification} from "../../../models/Notification";
 
 @Component({
   selector: 'app-list-notifications',
@@ -13,12 +16,32 @@ import {checkmarkCircleOutline} from "ionicons/icons";
     IonicModule
   ]
 })
-export class ListNotificationsComponent   {
+export class ListNotificationsComponent implements OnInit{
 
-  constructor() {  }
+  @Input() utilisateurId!: number | null;
+  Notifications: Notification[] = [];
 
+  constructor(private notificationService: NotificationService) {  }
 
-  notif : any[] = [
+  ngOnInit() {
+    this.listNotificationUtilisateur();
+  }
+  listNotificationUtilisateur(): void {
+    if (this.utilisateurId !== null) {
+      this.notificationService.getNotification(this.utilisateurId).subscribe(
+        (response) => {
+          this.Notifications = response;
+          console.log(this.Notifications);
+        },
+        (error) => {
+          console.error('Erreur lors de la récupération des données :', error);
+        }
+      );
+    }
+  }
+}
+
+  /*notif : any[] = [
     {
       "id": 1,
       "objet": "Rappel, votre avion decolle\n" +
@@ -71,12 +94,7 @@ export class ListNotificationsComponent   {
       "reservation": null,
       "vol": null
     }
-  ];
-  //ngOnInit() {
-    // this.notificationService.getNotification().subscribe((dataNotif) => {
-    //   //this.notif = dataNotif;
-    //   //console.log(this.notif);
-    // });
-  //}
+  ];*/
 
-}
+
+

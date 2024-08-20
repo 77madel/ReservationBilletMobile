@@ -78,3 +78,8 @@ ion-tab-button ion-icon {
   font-size: 24px;
 }
 
+:root {
+  --ion-selected-color: #04BBC7; /* Remplacez #votreCouleurSelectionnee par la couleur souhaitée */
+  --ion-success-color: #04BBC7;
+  --ion-danger-color: #04BBC7;
+}
