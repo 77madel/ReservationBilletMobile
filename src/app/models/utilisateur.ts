@@ -1,10 +1,9 @@
-export interface Utilisateur{
-    nom: string;
-    prenom: string;
-    email: string;
-    password:string;
-    numeroDeTelephone:string;
-    adresse:string;
-    date:Date;
-
+export interface Utilisateur {
+  id: number;
+  nom: string;
+  prenom: string;
+  email: string;
+  numeroDeTelephone: string;
+  numeroDePassport: string;
+  numeroDeVisa: string;
 }
