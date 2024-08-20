@@ -18,6 +18,7 @@ export class ListeVolService {
     try{
       const response =  this.http.get<any>(url).toPromise()
       return response;
+      console.log(response)
     }catch(error){
       throw error;
     }

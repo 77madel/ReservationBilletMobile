@@ -40,8 +40,8 @@
          (click)="viewVolDetail(r.id)">
       <div class="heure-time">
         <div>
-          <h5>{{ getFormattedTime(dateDepart) }}</h5>
-          <h6>{{ getFirstThreeLetters(paysDeDepart) }}</h6>
+          <h5>{{ getFormattedTime(r.dateEtHeureDepart) }}</h5>
+          <h6>{{ getFirstThreeLetters(r.aeroportDepart) }}</h6>
         </div>
         <div>
           <h4>{{ getFormattedTime(r.dateEtHeureArrivee) }}</h4>
