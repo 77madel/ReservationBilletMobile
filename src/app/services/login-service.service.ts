@@ -27,14 +27,14 @@ export class LoginServiceService {
 
       this.debutInactivite();
 
-    // c'est pour utiliser les evenements de user
-    this.platform.resume.subscribe(() => this.finInactivite());
-    this.platform.pause.subscribe(() => this.finInactivite());
+      // c'est pour utiliser les evenements de user
+      this.platform.resume.subscribe(() => this.finInactivite());
+      this.platform.pause.subscribe(() => this.finInactivite());
 
-    window.addEventListener('click', () => this.finInactivite());
-    window.addEventListener('mousemove', () => this.finInactivite());
-    window.addEventListener('keydown', () => this.finInactivite());
-    window.addEventListener('scroll', () => this.finInactivite());
+      window.addEventListener('click', () => this.finInactivite());
+      window.addEventListener('mousemove', () => this.finInactivite());
+      window.addEventListener('keydown', () => this.finInactivite());
+      window.addEventListener('scroll', () => this.finInactivite());
   
 
     }
@@ -56,6 +56,8 @@ export class LoginServiceService {
       // Déconnexion de l'utilisateur
       this.deconnection();
     }
+
+
     login(username: string, password: string): Observable<any> {
       const credentials = { username, password };
       return this.http.post<any>(`${this.apiUrl}`, credentials).pipe(
@@ -120,11 +122,6 @@ export class LoginServiceService {
     console.log(localStorage)
     }
     
-    
-  }
-
-
-
     getUserId() {
       const user = localStorage.getItem('currentUser');
       if (user) {
@@ -142,9 +139,7 @@ export class LoginServiceService {
         return null;
       }
     }
+}
+  
+  
 
-
-
-
-
-  }
