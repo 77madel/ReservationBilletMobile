@@ -8,46 +8,91 @@
   <div class="content">
     <ion-card class="tabs">
       <ion-card-content>
-        <div class="element" [ngClass]="{'active': selectedTab===1}" (click)="onTabItemClick(1)">Allez-simple</div>
-        <div class="element" [ngClass]="{'active': selectedTab===2}" (click)="onTabItemClick(2)">Allez-Retour</div>
+        <div class="element" [ngClass]="{'active': selectedTab === 1}" (click)="onTabItemClick(1)">Allez-simple</div>
+        <div class="element" [ngClass]="{'active': selectedTab === 2}" (click)="onTabItemClick(2)">Allez-Retour</div>
       </ion-card-content>
     </ion-card>
-    <ion-card>
 
+    <ion-card>
       <ion-card-content>
         <div class="formContent">
           <div class="paysToPays">
-            <ion-input label="Pays De Depart" (ionInput)="filterPaysDepart($event)" debounce="300" label-placement="floating" fill="outline" placeholder="Enter text" [(ngModel)]="paysDeDepart" />
-            <ion-list *ngIf="filteredPaysDepart.length > 0">
-              <ion-item *ngFor="let item of filteredPaysDepart" (click)="selectedItem(item)">{{ item }}</ion-item>
+            <ion-input
+              label="Ville de Départ"
+              (ionInput)="filterVilleDepart($event)"
+              debounce="300"
+              label-placement="floating"
+              fill="outline"
+              placeholder="Enter text"
+              [(ngModel)]="villeDeDepart">
+            </ion-input>
+
+            <ion-list *ngIf="filteredVilleDepart.length > 0">
+              <ion-item *ngFor="let item of filteredVilleDepart" (click)="selectedItemVille(item)">
+                {{ item.nom }}
+              </ion-item>
             </ion-list>
+
             <div class="separator" (click)="switchPays()">
               <ion-icon name="arrow-up-outline" class="icon"></ion-icon>
               <ion-icon name="arrow-down-outline" class="icon"></ion-icon>
             </div>
-            <ion-input label="Pays D'arrivee" (ionInput)="filterPaysDArrivee($event)" debounce="300" label-placement="floating" fill="outline" placeholder="Enter text" [(ngModel)]="searchValue"></ion-input>
-            <ion-list *ngIf="filteredPaysDArrivee.length > 0">
-              <ion-item *ngFor="let item of filteredPaysDArrivee" (click)="selectedItem2(item)">{{ item }}</ion-item>
+
+            <ion-input
+              label="Ville d'Arrivée"
+              (ionInput)="filterVilleDArrivee($event)"
+              debounce="300"
+              label-placement="floating"
+              fill="outline"
+              placeholder="Enter text"
+              [(ngModel)]="villeDArrivee">
+            </ion-input>
+
+            <ion-list *ngIf="filteredVilleDArrivee.length > 0">
+              <ion-item *ngFor="let item of filteredVilleDArrivee" (click)="selectedItem2(item)">
+                {{ item.nom }}
+              </ion-item>
             </ion-list>
           </div>
-          
+
           <div class="depart">
-            <ion-input type="date" label="Entrer la date de depart" label-placement="floating" fill="outline" [(ngModel)]="dateDepart"></ion-input>
-            @if (showRetour){
-              <ion-input type="date" label="Entrer la date de Retour" label-placement="floating" fill="outline" [(ngModel)]="dateDeRetour"></ion-input>
-            }
+            <ion-input
+              type="date"
+              label="Entrer la date de départ"
+              label-placement="floating"
+              fill="outline"
+              [(ngModel)]="dateDepart">
+            </ion-input>
+
+            <ion-input
+              *ngIf="showRetour"
+              type="date"
+              label="Entrer la date de retour"
+              label-placement="floating"
+              fill="outline"
+              [(ngModel)]="dateDeRetour">
+            </ion-input>
           </div>
+
           <div class="voyageurEtClasse">
-            <ion-input type="number" label="Voyageur" label-placement="floating" fill="outline"></ion-input>
-            <ion-select placeholder="Classe" slot="end">
-              <ion-select-option [value]="classes[0]" >Economique</ion-select-option>
-              <ion-select-option [value]="classes[1]" >Affaire</ion-select-option>
+            <ion-input
+              type="number"
+              label="Voyageurs"
+              label-placement="floating"
+              fill="outline"
+              [(ngModel)]="voyageur">
+            </ion-input>
+
+            <ion-select placeholder="Classe" slot="end" [(ngModel)]="selectedClass">
+              <ion-select-option *ngFor="let classe of classes" [value]="classe">
+                {{ classe }}
+              </ion-select-option>
             </ion-select>
-           </div>
+          </div>
         </div>
       </ion-card-content>
-
     </ion-card>
+
     <div class="separer"></div>
     <ion-button (click)="continuer()">Continuer</ion-button>
   </div>

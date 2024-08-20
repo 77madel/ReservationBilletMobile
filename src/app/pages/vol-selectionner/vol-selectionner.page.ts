@@ -25,7 +25,26 @@ import {ListeVolService} from "../../services/ListeVol/liste-vol.service";
 export class VolSelectionnerPage implements OnInit {
   vol: any;
 
-  constructor(private route: ActivatedRoute, private serviceVol: ListeVolService) { }
+  paysDeDepart: string = '';
+  searchValue: string = '';
+  dateDepart: string = '';
+  dateDeRetour: string = '';
+  paysArrive!: string;
+  voyageur!: number;
+  classes!: string[];
+
+  constructor(private route: ActivatedRoute, private serviceVol: ListeVolService) {
+
+    this.route.params.subscribe(params => {
+      this.paysDeDepart = params['paysDeDepart'];
+      this.searchValue = params['searchValue'];
+      this.dateDepart = params['dateDepart'];
+      this.dateDeRetour = params['dateDeRetour'];
+      this.classes =  params['classes'];
+      this.paysArrive = params['paysArrive'];
+      this.voyageur = params['voyageur']
+    });
+  }
   ngOnInit() {
     const volId = this.route.snapshot.paramMap.get('id');
     this.loadVolDetail(volId);
