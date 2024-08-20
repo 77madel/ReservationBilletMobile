@@ -7,11 +7,12 @@ import { Observable } from 'rxjs';
 })
 export class FlightService {
 
-  private apiUrl = 'https://your-api-url.com/flights'; // Remplacez par l'URL de votre API
+  private apiUrl = 'http://localhost:8080/reservation/afficher/tout'; // URL de l'endpoint
 
   constructor(private http: HttpClient) { }
 
-  getFlights(): Observable<any[]> {
-    return this.http.get<any[]>(this.apiUrl);
+  // Ajuster la méthode pour récupérer les réservations
+  getFlights(id: number): Observable<any> {
+    return this.http.get<any>(`${this.apiUrl}/${id}`);
   }
 }

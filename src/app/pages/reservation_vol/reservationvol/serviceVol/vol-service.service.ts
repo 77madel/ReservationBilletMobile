@@ -12,7 +12,6 @@ export class VolServiceService {
 
     getVol(name:string):Observable<any>{
       return this.http.get(`${this.baseUrl}/${name}/afficher`)
-      
     }
 
 
