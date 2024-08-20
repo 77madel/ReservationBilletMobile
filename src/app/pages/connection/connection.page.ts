@@ -3,6 +3,7 @@ import { CommonModule } from '@angular/common';
 import { FormsModule } from '@angular/forms';
 import { IonContent, IonHeader, IonTitle, IonToolbar } from '@ionic/angular/standalone';
 import { LoginServiceService } from 'src/app/services/login-service.service';
+
 import {Router, RouterLink} from '@angular/router';
 
 @Component({
@@ -26,7 +27,6 @@ export class ConnectionPage{
   }
 
   constructor(private service:LoginServiceService,private router:Router) { }
-
   seconnecter() {
     this.service.login(this.login.email, this.login.password).subscribe(
       (response) => {
@@ -43,9 +43,3 @@ export class ConnectionPage{
       }
     );
   }
-
-
-
-
-
-}

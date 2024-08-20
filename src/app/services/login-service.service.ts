@@ -15,7 +15,7 @@ export class LoginServiceService {
   private isLoggedIn = false;
     private baseUrl = 'http://localhost:8080';
     private apiUrl = 'http://localhost:8080/personne/signin'; // URL de votre API Spring Boot
-    
+
     private currentUserSubject!: BehaviorSubject<any>;
     public currentUser!: Observable<any>;
         static jwtToken: any;
@@ -56,7 +56,6 @@ export class LoginServiceService {
       // Déconnexion de l'utilisateur
       this.deconnection();
     }
-  
     login(username: string, password: string): Observable<any> {
       const credentials = { username, password };
       return this.http.post<any>(`${this.apiUrl}`, credentials).pipe(
@@ -74,14 +73,14 @@ export class LoginServiceService {
           }
           return user;
 
-          
+
         }),
       );
     }
 
     // Observable pour écouter les changements de connexion
   isLoggedIn$ = this.loggedIn.asObservable();
-  
+
     logout(): void {
       if (confirm("Êtes-vous sûr de vouloir vous déconnecter ?")){
       localStorage.removeItem('currentUser');
@@ -90,7 +89,7 @@ export class LoginServiceService {
       window.location.reload();
       }
     }
-  
+
     verifLoggedIn(): boolean {
       return this.hasToken();
     }
@@ -102,19 +101,16 @@ export class LoginServiceService {
 
     getUtilisateur() {
       const user = localStorage.getItem('currentUser');
-    
       if (user) {
         const conversionUser = JSON.parse(user);
-        
-        const prenom = conversionUser.username.prenom;
-        const nom = conversionUser.username.nom;
-        const id=conversionUser.username.id;
-        return conversionUser;
+        console.log("Utilisateur récupéré depuis localStorage:", conversionUser);
+        return conversionUser; // Retourne l'objet utilisateur complet
       } else {
         console.log("Aucun utilisateur connecté trouvé.");
         return null;
       }
     }
+
 
     deconnection(){
       // Nettoyage de la session et redirection
@@ -127,3 +123,27 @@ export class LoginServiceService {
   }
 
 
+
+    getUserId() {
+      const user = localStorage.getItem('currentUser');
+      if (user) {
+        const conversionUser = JSON.parse(user);
+        const utilisateurId = conversionUser.username?.id; // Récupère l'ID utilisateur
+        if (utilisateurId) {
+          console.log("ID utilisateur trouvé:", utilisateurId);
+          return utilisateurId;
+        } else {
+          console.error("ID utilisateur non trouvé");
+          return null;
+        }
+      } else {
+        console.error("Aucun utilisateur connecté trouvé.");
+        return null;
+      }
+    }
+
+
+
+
+
+  }
