@@ -84,9 +84,8 @@ export class LoginServiceService {
     this.router.navigate(['/login']);
     console.log(localStorage)
     }
-    
-    
-  }
+
+
 
 
     getUserId() {
@@ -106,8 +105,6 @@ export class LoginServiceService {
         return null;
       }
     }
-
-
 
 
 
