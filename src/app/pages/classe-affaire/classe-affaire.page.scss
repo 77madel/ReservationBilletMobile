@@ -4,7 +4,7 @@
   background-color: #F3F5F6;
   height: 100%;
   align-items: center;
-  padding-top: 40%;
+  padding-top: 5%;
   overflow: scroll;
 }
 
@@ -15,6 +15,15 @@
   padding-top: 1%;
   font-weight: bold;
   font-family: Inter, serif;
+}
+
+.seating-container {
+  display: flex;
+  flex-direction: row;
+  background-color: white;
+  border-radius: 30px;
+  padding: 10px;
+  margin-top: 10%;
 }
 
 .legend-container {
@@ -48,7 +57,7 @@
   --background: #04BBC7;
 }
 
-.seating-container {
+.haut-gauche, .bas-gauche, .haut-droite, .bas-droite {
   display: flex;
   justify-content: space-between;
   padding: 10px;
@@ -61,7 +70,8 @@
   }
 
   ion-button {
-    margin: 5px 0;
+    width: 22px;
+    height: 32px;
   }
 }
 
@@ -69,3 +79,12 @@
   margin-top: 20px;
   text-align: center;
 }
+.tooltip {
+  margin-top: 5px;
+  color: #333;
+  background-color: #f1f1f1;
+  padding: 5px;
+  border-radius: 5px;
+}
+
+

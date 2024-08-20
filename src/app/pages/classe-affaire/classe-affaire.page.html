@@ -28,55 +28,90 @@
   </div>
 
   <div class="seating-container">
-    <!-- Section HUBLOT -->
-    <div class="hub-lot">
-      <div *ngFor="let siege of getSiegeHubLot()">
-        <ion-row>
-          <ion-col>
-            <ion-button
-              [color]="siege.disponibilite === 'OUI' ? (isSelected(siege) ? 'selected-color' : 'success') : 'danger'"
-              (click)="selectSiege(siege)"
-              [disabled]="siege.disponibilite !== 'OUI'">
-              {{siege.numero}}
-            </ion-button>
+    <div class="gauche">
+      <div class="haut-gauche">
+        <!-- Section HUBLOT -->
+        <div class="hub-lot">
+          <div *ngFor="let siege of getSiegeHubLot().slice(0,5)">
+            <ion-row>
+              <ion-col>
+                <ion-button
+                  [color]="siege.disponibilite === 'OUI' ? (isSelected(siege) ? 'selected-color' : 'success') : 'danger'"
+                  (click)="selectSiege(siege)"
+                  [disabled]="siege.disponibilite !== 'OUI'"
+                  (mouseover)="showTooltip(siege)"
+                  (mouseout)="hideTooltip()">
+                  {{siege.numero}}
 
-          </ion-col>
-        </ion-row>
+                </ion-button>
+              </ion-col>
+            </ion-row>
+          </div>
+        </div>
+
+        <!-- Section COULOIR -->
+        <div class="couloir">
+          <div *ngFor="let siege of getSiegeCouloir().slice(0,5)">
+            <ion-row>
+              <ion-col>
+                <ion-button
+                  [color]="siege.disponibilite === 'OUI' ? (isSelected(siege) ? 'selected-color' : 'success') : 'danger'"
+                  (click)="selectSiege(siege)"
+                  [disabled]="siege.disponibilite !== 'OUI'">
+                  {{siege.numero}}
+                </ion-button>
+
+              </ion-col>
+            </ion-row>
+          </div>
+        </div>
       </div>
+
+      <div class="secour">
+      </div>
+
     </div>
 
-    <!-- Section MILIEU -->
-    <div class="milieu">
-      <div *ngFor="let siege of getSiegeMilieu()">
-        <ion-row>
-          <ion-col>
-            <ion-button
-              [color]="siege.disponibilite === 'OUI' ? (isSelected(siege) ? 'selected-color' : 'success') : 'danger'"
-              (click)="selectSiege(siege)"
-              [disabled]="siege.disponibilite !== 'OUI'">
-              {{siege.numero}}
-            </ion-button>
+    <div class="droite">
+      <div class="haut-droite">
+        <!-- Section HUBLOT -->
+        <div class="hub-lot">
+          <div *ngFor="let siege of getSiegeHubLot().slice(5,10)">
+            <ion-row>
+              <ion-col>
+                <ion-button
+                  [color]="siege.disponibilite === 'OUI' ? (isSelected(siege) ? 'selected-color' : 'success') : 'danger'"
+                  (click)="selectSiege(siege)"
+                  [disabled]="siege.disponibilite !== 'OUI'">
+                  {{siege.numero}}
+                </ion-button>
 
-          </ion-col>
-        </ion-row>
+              </ion-col>
+            </ion-row>
+          </div>
+        </div>
+
+        <!-- Section COULOIR -->
+        <div class="couloir">
+          <div *ngFor="let siege of getSiegeCouloir().slice(5,10)">
+            <ion-row>
+              <ion-col>
+                <ion-button
+                  [color]="siege.disponibilite === 'OUI' ? (isSelected(siege) ? 'selected-color' : 'success') : 'danger'"
+                  (click)="selectSiege(siege)"
+                  [disabled]="siege.disponibilite !== 'OUI'">
+                  {{siege.numero}}
+                </ion-button>
+
+              </ion-col>
+            </ion-row>
+          </div>
+        </div>
       </div>
-    </div>
 
-    <!-- Section COULOIR -->
-    <div class="couloir">
-      <div *ngFor="let siege of getSiegeCouloir()">
-        <ion-row>
-          <ion-col>
-            <ion-button
-              [color]="siege.disponibilite === 'OUI' ? (isSelected(siege) ? 'selected-color' : 'success') : 'danger'"
-              (click)="selectSiege(siege)"
-              [disabled]="siege.disponibilite !== 'OUI'">
-              {{siege.numero}}
-            </ion-button>
-
-          </ion-col>
-        </ion-row>
+      <div class="secour">
       </div>
+
     </div>
   </div>
 
@@ -89,10 +124,10 @@
       <ion-card-content>
         <p>Numéro : {{siegeSelectionne.numero}}</p>
         <p>Position : {{siegeSelectionne.positionSiege.nom}}</p>
-        <p>Classe : {{siegeSelectionne.positionSiege.claseSiege.nom}}</p>
+        <p>Classe : {{siegeSelectionne.positionSiege.classeSiege.nom}}</p>
       </ion-card-content>
     </ion-card>
   </div>
 
-  <ion-button expand="block" class="demarer">Démarrer</ion-button>
+  <ion-button expand="block" class="demarer">Valider</ion-button>
 </div>

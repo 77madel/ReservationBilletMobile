@@ -16,6 +16,7 @@ import { addIcons } from 'ionicons';
 import { SiegeService } from '../../service/siege/siege.service';
 import { Siege } from '../../models/Siege';
 import {ActivatedRoute} from "@angular/router";
+import { IonicModule } from '@ionic/angular';
 
 addIcons({ ellipse });
 
@@ -35,6 +36,7 @@ export class ClasseEconomiquePage implements OnInit {
   avionId!: number | null;
   Sieges: Siege[] = [];
   siegeSelectionne: Siege | null = null;
+  tooltipVisible = false;
 
   constructor(private siegeService: SiegeService, private route: ActivatedRoute) {}
 
@@ -91,6 +93,14 @@ export class ClasseEconomiquePage implements OnInit {
 
   isSelected(siege: Siege): boolean {
     return this.siegeSelectionne?.id === siege.id;
+  }
+
+  showTooltip(siege: Siege): void {
+    this.tooltipVisible = true;
+  }
+
+  hideTooltip(): void {
+    this.tooltipVisible = false;
   }
 
   /*
