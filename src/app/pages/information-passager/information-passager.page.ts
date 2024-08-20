@@ -16,7 +16,17 @@ export class InformationPassagerPage implements OnInit {
 
   constructor() {addIcons({ arrowBackCircleOutline }); }
 
-  ngOnInit() {
-  }
+  ngOnInit() {}
 
+  // formulaires
+  forms= [{}];
+  maxForms = 3; // Nombre maximum de formulaires à afficher
+   // Ajouter un formulaire de plus si le nombre maximum n'est pas atteint
+   ajouterFormulaire() {
+    if (this.forms.length < this.maxForms) {
+      this.forms.push({}); // Ajoute un nouveau formulaire
+    } else {
+      console.log("Nombre maximum de formulaires atteint."); // Optionnel : Afficher un message
+    }
+  }
 }

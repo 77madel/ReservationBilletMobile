@@ -113,5 +113,9 @@ export class SearchVolFormPage implements OnInit {
     }]);
 
 }
+
+  retour(): void {
+    window.history.back();
+  }
 }
 
