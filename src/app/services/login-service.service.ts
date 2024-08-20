@@ -121,6 +121,7 @@ export class LoginServiceService {
     localStorage.removeItem('authToken');
     localStorage.removeItem('tokenExpiry');
     this.router.navigate(['/login']);
+    console.log(localStorage)
     }
     
     
