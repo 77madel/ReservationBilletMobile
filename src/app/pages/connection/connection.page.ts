@@ -12,7 +12,7 @@ import {Router, RouterLink} from '@angular/router';
   standalone: true,
   imports: [IonContent, IonHeader, IonTitle, IonToolbar, CommonModule, FormsModule, RouterLink]
 })
-export class ConnectionPage implements OnInit {
+export class ConnectionPage{
 
   login={
     email:'',
@@ -46,8 +46,6 @@ export class ConnectionPage implements OnInit {
 
 
 
-  ngOnInit() {
-  }
 
 
 }

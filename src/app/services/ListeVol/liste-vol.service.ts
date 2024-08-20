@@ -14,7 +14,7 @@ export class ListeVolService {
   constructor(private http: HttpClient, private router: Router) { }
 
   async ListVol(): Promise<any> {
-    const url = `${this.apiUrl}/vol/afficher`;
+    const url = `${this.apiUrl}/vol/afficher/tout`;
     try{
       const response =  this.http.get<any>(url).toPromise()
       return response;
