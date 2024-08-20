@@ -10,8 +10,8 @@
   <div class="container-wrapper">
     <div class="container"
          *ngFor="let flight of flights"
-         (click)="handleContainerClick(flight)"
-         [class.selected]="flight === selectedFlight">
+          (click)="handleContainerClick(flight)"
+          [class.selected]="flight === selectedFlight">
       <div class="heure-time">
         <div>
           <h5>{{ flight.depart }}</h5>

@@ -36,25 +36,25 @@
 
   <div class="container-wrapper">
 
+
+
     <div class="container"
-         *ngFor="let flight of flights"
-         [class.selected]="flight === selectedFlight">
+         *ngFor="let r of vol">
       <div class="heure-time">
         <div>
-          <h5>{{ flight.depart }}</h5>
-          <h6>{{ flight.origin }}</h6>
+          <h5>{{ getFormattedTime(r.dateEtHeureDepart) }}</h5>
+          <h6>{{ getFirstThreeLetters(r.aeroportDepart) }}</h6>
         </div>
-        <h4>{{ flight.airline }}</h4>
+        <h4>{{ getFormattedTime(r.dateEtHeureArrivee) }}</h4>
         <div>
-          <h5>{{ flight.time}}</h5>
-          <h6>{{ flight.destination }}</h6>
+          <h5>{{ getFirstThreeLetters(r.aeroportDArrivee) }}</h5>
         </div>
       </div>
       <div class="two-box">
         <div class="cutout cutout-left"></div>
         <div class="cutout cutout-right"></div>
       </div>
-        <div class="airline">{{ flight.airline}}</div>
+        <div class="airline">{{ r.compagnie }}</div>
         <img src="../../../assets/Images/avionlogo.png" alt="Logo Avion" class="logoAvion">
         <div class="prix">1000CFA</div>
     </div>

@@ -1,9 +1,6 @@
 
 import { Routes } from '@angular/router';
 import { GuardAuthentificationService } from './services/guard-authentification.service';
-import {InscriptionReussiePage} from "./pages/inscription-reussie/inscription-reussie.page";
-import {NotificationPage} from "./pages/notification/notification.page";
-import {MotPasseOubliePage} from "./pages/mot-passe-oublie/mot-passe-oublie.page";
 export const routes: Routes = [
   {
     path: 'login',
@@ -90,14 +87,8 @@ export const routes: Routes = [
     canActivate:[GuardAuthentificationService]
   },
   {
-    path: 'connection',
-    loadComponent: () => import('./pages/connection/connection.page').then( m => m.ConnectionPage),
-    canActivate:[GuardAuthentificationService]
-  },
-  {
     path: 'inscription',
     loadComponent: () => import('./pages/inscription/inscription.page').then( m => m.InscriptionPage),
-    canActivate:[GuardAuthentificationService]
   },
   {
     path: 'verification',
@@ -125,5 +116,15 @@ export const routes: Routes = [
     loadComponent: () => import('./pages/liste-des-vols/liste-des-vols.page').then( m => m.ListeDesVolsPage),
     canActivate:[GuardAuthentificationService]
   },
+  {
+    path: 'search-vol-form',
+    loadComponent: () => import('./pages/search-vol-form/search-vol-form.page').then( m => m.SearchVolFormPage),
+    canActivate:[GuardAuthentificationService]
+  },
+  {
+    path: 'vol/:id',
+    loadComponent: () => import('./pages/vol-selectionner/vol-selectionner.page').then( m => m.VolSelectionnerPage),
+    canActivate:[GuardAuthentificationService]
+  }
 
 ];

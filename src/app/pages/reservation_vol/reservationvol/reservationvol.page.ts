@@ -3,12 +3,14 @@ import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 import { FlightService } from 'src/app/services/figth/flight.service';
 import { LoginServiceService } from 'src/app/services/login-service.service';
+import { IonDatetime } from '@ionic/angular/standalone';
+
 
 @Component({
   selector: 'app-reservation-vol',
   templateUrl: './reservationvol.page.html',
   standalone:true,
-  imports:[NgFor, NgIf],
+  imports:[NgIf, NgFor, IonDatetime],
   styleUrls: ['./reservationvol.page.scss']
 })
 export class ReservationvolPage implements OnInit {
@@ -27,7 +29,7 @@ export class ReservationvolPage implements OnInit {
   ) {}
 
   ngOnInit() {
-    const utilisateurId = this.loginService.getUserId(); // Récupérer l'ID de l'utilisateur connecté
+    const utilisateurId = this.loginService.getUserId(); // Utilise getUserId pour obtenir l'ID
     console.log("Id utilisateur:===============" + utilisateurId + '===================================');
 
     if (utilisateurId !== null) {
@@ -36,6 +38,7 @@ export class ReservationvolPage implements OnInit {
       console.error('Utilisateur non connecté');
     }
   }
+
 
   loadFlights(id: number) {
     this.flightService.getFlights(id).subscribe(
