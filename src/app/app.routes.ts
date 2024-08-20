@@ -21,18 +21,18 @@ export const routes: Routes = [
   {
     path: 'accueil',
     loadComponent: () => import('./pages/accueil/accueil.page').then( m => m.AccueilPage),
-    // canActivate:[GuardAuthentificationService]
+    canActivate:[GuardAuthentificationService]
   },
   {
     path: '',
     redirectTo: 'splash-screen',
     pathMatch: 'full',
   },
-  {
-    path: 'profil',
-    loadComponent: () => import('./pages/profil/profil.page').then( m => m.ProfilPage),
-    canActivate:[GuardAuthentificationService]
-  },
+  // {
+  //   path: 'profil',
+  //   loadComponent: () => import('./pages/profil/profil.page').then( m => m.ProfilPage),
+  //   canActivate:[GuardAuthentificationService]
+  // },
   {
     path: 'inscription-reussie',
     loadComponent: () => import('./pages/inscription-reussie/inscription-reussie.page').then( m => m.InscriptionReussiePage)
@@ -119,7 +119,7 @@ export const routes: Routes = [
   {
     path: 'search-vol-form',
     loadComponent: () => import('./pages/search-vol-form/search-vol-form.page').then( m => m.SearchVolFormPage),
-    //canActivate:[GuardAuthentificationService]
+    canActivate:[GuardAuthentificationService]
   },
   {
     path: 'vol/:id',

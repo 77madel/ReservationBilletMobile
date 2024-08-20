@@ -27,8 +27,7 @@ export class ConnectionPage implements OnInit {
   }
 
   constructor(private service:LoginServiceService,private router:Router) { }
-  ngOnInit(): void {
-    throw new Error('Method not implemented.');
+  ngOnInit(){
   }
 
   seconnecter() {
@@ -40,7 +39,6 @@ export class ConnectionPage implements OnInit {
         this.router.navigate(['/accueil']);
         this.login.email='';
         this.login.password='';
-        console.log("====================="+this.login.email+"-"+this.login.password+"======================");
       },
       (error) => {
         // Gérez les erreurs de connexion
