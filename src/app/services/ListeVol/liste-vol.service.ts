@@ -1,4 +1,4 @@
-import { Injectable } from '@angular/core';
+ import { Injectable } from '@angular/core';
 import {HttpClient, HttpHeaders} from "@angular/common/http";
 import {Router} from "@angular/router";
 import {Observable} from "rxjs";
@@ -24,6 +24,6 @@ export class ListeVolService {
   }
 
  async getVolById(id: string): Promise<any> {
-    return this.http.get<any>(`${this.apiUrl}/vol/afficher/${id}`).toPromise();
+    return this.http.get<any>(`${this.apiUrl}/vol/afficher/tout/${id}`).toPromise();
   }
 }

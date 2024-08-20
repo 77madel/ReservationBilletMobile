@@ -31,7 +31,7 @@
               <ion-item *ngFor="let item of filteredPaysDArrivee" (click)="selectedItem2(item)">{{ item }}</ion-item>
             </ion-list>
           </div>
-
+          
           <div class="depart">
             <ion-input type="date" label="Entrer la date de depart" label-placement="floating" fill="outline" [(ngModel)]="dateDepart"></ion-input>
             @if (showRetour){
