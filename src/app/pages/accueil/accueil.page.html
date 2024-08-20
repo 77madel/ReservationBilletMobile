@@ -28,10 +28,10 @@
 
     <div *ngIf="!showSuggestions" class="travel-cards">
       @for (item of villes; track $index) {
-        <div (click)="aff()" class="card">
+        <div (click)="aff(item.nom)" class="card">
           <img [src]="mosque" alt="{{item.nom}}, {{item.pays.nom}}">
           <div class="card-info">
-            <h2>{{item.nom}}, {{item.pays}}</h2>
+            <h2>{{item.nom}}, {{item.pays.nom}}</h2>
           </div>
         </div>
       }

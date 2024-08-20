@@ -87,10 +87,12 @@ export class AccueilPage implements OnInit {
     })
   }
 
-  aff() {
+  aff(villeNom?: string) {
+    const searchValue = villeNom || this.searchText; // Utilise villeNom s'il est fourni, sinon utilise searchText
+    console.log("Navigating with searchValue:", searchValue);
     this.nvControle.navigateForward([`/search-vol-form`,{ 
-      // searchValue: this.chercheValue ,
-      searchValue: this.searchText
+      searchValue: searchValue,
+  
     }])
   }
   
