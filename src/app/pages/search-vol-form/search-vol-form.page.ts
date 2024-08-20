@@ -27,6 +27,7 @@ export class SearchVolFormPage implements OnInit {
   filteredPaysDArrivee: string[] = [];
   showRetour!: boolean;
   searchValue='';
+  VilleDepart: any;
 
 
   constructor(private route: ActivatedRoute,private router:Router) {
@@ -48,6 +49,7 @@ export class SearchVolFormPage implements OnInit {
   }
 
   ngOnInit() {
+    this.VilleDepart = this.route.snapshot.paramMap.get('searchValue') || '';
     this.paysDeDepart = "";
     this.dateDepart = Dateoperation.formatTodayDate();
     this.dateDeRetour = Dateoperation.formatTodayDate();
