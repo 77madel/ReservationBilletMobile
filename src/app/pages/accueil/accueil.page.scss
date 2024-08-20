@@ -10,27 +10,34 @@
   grid-template-rows: 55px 1fr;
 }
 
+// main.blurred {
+//   filter: blur(5px); /* Applique le flou */
+//   transition: filter 0.3s ease;
+// }
+
+
+
 header {
   display: flex;
-  justify-content: space-between;
+  justify-content: flex-start;
   padding: 15px;
   background-color: #ffffff;
-  border-bottom: 1px solid #ccc;
   width: 100vw;
-
-  .menu-icon {
-    font-size: 24px;
-    cursor: pointer;
+  // height: 55vh;
+  
+  img{
+    width: 15vw;
+    height: auto;
   }
 
-  .logo {
-    font-size: 24px;
-  }
+  // div{
+  //   height: 100%
+  // }
+  
 }
 
 .search-section {
   margin-top: 50px;
-  overflow-y: scroll;
   width: 100vw;
   display: flex;
   flex-direction: column;
@@ -83,6 +90,7 @@ header {
   padding: 10px 0;
   background-color: #fff;
   width: 100vw;
+  margin-top: 35px;
 
   button {
     border: none;
@@ -156,4 +164,29 @@ ion-tab-button {
   &.tab-selected {
     background-color: #04BBC7; /* Couleur du texte et des icônes lorsque l'onglet est sélectionné */
   }
+}
+
+.search-bar {
+  position: relative;
+}
+
+.suggestions-list {
+  position: absolute;
+  top: 100%;
+  left: 0;
+  width: 100%;
+  background: #fff;
+  border: 1px solid #ddd;
+  max-height: 200px;
+  overflow-y: auto;
+  z-index: 1000;
+}
+
+.suggestions-list li {
+  padding: 10px;
+  cursor: pointer;
+}
+
+.suggestions-list li:hover {
+  background-color: #f0f0f0;
 }

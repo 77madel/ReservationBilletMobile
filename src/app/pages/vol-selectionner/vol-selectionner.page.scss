@@ -44,7 +44,11 @@
   font-weight: 800;
   transition: background-color 0.3s ease;
 }
-
+img {
+  margin-left: 100px;
+  margin-top: 20px;
+  width: 100px;
+}
 .two-box {
   border-top: 3px dashed black;
 }
@@ -77,16 +81,21 @@
 h6 {
   margin-top: 3px;
   margin-bottom: 10px;
+  color: #04BBC7;
 }
 
 .box-footer {
   display: flex;
   justify-content: space-between;
-  margin-top: 20px;
+  margin-top: -29px;
   padding: 10px;
 }
 
-button {
+//.box-footer h6{
+//
+//}
+
+.box-footer button {
   padding-left: 15px;
   padding-right: 15px;
   border: none;
@@ -120,7 +129,7 @@ button {
     text-align: center;
   }
   .center-image-entete{
-    display: flex;
+
     justify-content: center;
     align-items: center;
   }
@@ -247,6 +256,36 @@ button {
     max-width: 48%;
   }
 }
+
+.flex-btn {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 40px;
+  //background-color: rebeccapurple;
+  margin: 20px 0px 20px 0px;
+}
+    .flex-btn button{
+    height: 40px;
+    padding-left: 15px;
+    padding-right: 15px;
+    border: none;
+    border-radius: 10px;
+    font-weight: 300;
+      margin-left: 20px;
+  }
+
+    .flex-btn .btn-continuer{
+      background-color: #04BBC7;
+      color: white;
+    }
+    .flex-btn .btn-annuler{
+      background-color: white;
+      color: #00c2cc;
+      border: 3px solid #00c2cc;
+      //margin-left: 20px;
+    }
+
 
 @media screen and (min-width: 900px) {
   .container {

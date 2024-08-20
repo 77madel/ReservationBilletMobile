@@ -25,12 +25,12 @@
               <ion-icon name="arrow-up-outline" class="icon"></ion-icon>
               <ion-icon name="arrow-down-outline" class="icon"></ion-icon>
             </div>
-            <ion-input label="Pays D'arrivee" (ionInput)="filterPaysDArrivee($event)" debounce="300" label-placement="floating" fill="outline" placeholder="Enter text" [(ngModel)]="paysArrive"></ion-input>
+            <ion-input label="Pays D'arrivee" (ionInput)="filterPaysDArrivee($event)" debounce="300" label-placement="floating" fill="outline" placeholder="Enter text" [(ngModel)]="searchValue"></ion-input>
             <ion-list *ngIf="filteredPaysDArrivee.length > 0">
               <ion-item *ngFor="let item of filteredPaysDArrivee" (click)="selectedItem2(item)">{{ item }}</ion-item>
             </ion-list>
           </div>
-
+          
           <div class="depart">
             <ion-input type="date" label="Entrer la date de depart" label-placement="floating" fill="outline" [(ngModel)]="dateDepart"></ion-input>
             @if (showRetour){
@@ -49,6 +49,6 @@
 
     </ion-card>
     <div class="separer"></div>
-    <ion-button>Continuer</ion-button>
+    <ion-button (click)="continuer()">Continuer</ion-button>
   </div>
 </ion-content>

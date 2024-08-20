@@ -1,7 +1,7 @@
-<div class="Body-page">
+<div class="Body-page" *ngIf="vol">
   <nav class="nav-bar">
     <div>
-      <i class="fa-solid fa-arrow-left" ></i>
+      <i class="fa-solid fa-arrow-left"></i>
     </div>
     <div>
       <h5>Détails du Vol</h5>
@@ -11,19 +11,20 @@
     <div class="container">
       <div class="heure-time">
         <div>
-          <h5>10:00</h5>
-          <h6>Test</h6>
+          <h5>{{ getFormattedTime(vol.dateEtHeureDepart) }}</h5>
+          <h6>{{ getFirstThreeLetters(vol.aeroportDepart) }}</h6>
         </div>
-        <h4>SKY</h4>
+        <h4>{{ vol.compagnie }}</h4>
         <div>
-          <h5>8:00</h5>
-          <h6>Test</h6>
+          <h5>{{ getFormattedTime(vol.dateEtHeureArrivee) }}</h5>
+          <h6>{{ getFirstThreeLetters(vol.aeroportDArrivee) }}</h6>
         </div>
       </div>
       <div class="two-box">
         <div class="cutout cutout-left"></div>
         <div class="cutout cutout-right"></div>
       </div>
+    <img src="../../../assets/Images/avionlogo.png" alt="Logo Avion" class="logoAvion">
       <div class="box-footer">
         <button>Annuler</button>
         <h6>Voir détails</h6>
@@ -42,8 +43,6 @@
         <!-- Trait pointillé courbé avec icône avion -->
         <div class="dotted-line-container">
           <div class="dotted-curve">
-            <!-- <span class="start-point"></span>
-            <span class="end-point"></span> -->
             <ion-icon name="airplane" class="airplane-dotted-icon"></ion-icon>
           </div>
         </div>
@@ -51,35 +50,33 @@
         <!-- Conteneurs de départ et d'arrivée -->
         <div class="flight-details">
           <div class="departure">
-            <!-- <h4>Départ</h4> -->
-            <p>CHE</p>
+            <p>{{ getFirstThreeLetters(vol.aeroportDepart) }}</p>
           </div>
           <div class="arrival">
-            <!-- <h4>Arrivée</h4> -->
-            <p>BLR</p>
+            <p>{{ getFirstThreeLetters(vol.aeroportDArrivee) }}</p>
           </div>
         </div>
         <!-- Conteneurs double texte -->
         <div class="flight-details">
           <div class="text1">
-            <p>Aeroport International</p>
-            <p>Modibo Keita</p>
+            <p>{{ vol.aeroportDepart }}</p>
+            <p>{{ vol.aeroportDepartNom }}</p>
           </div>
           <div class="text2">
-            <p>Aeroport International</p>
-            <p>de Niamey</p>
+            <p>{{ vol.aeroportDArrivee }}</p>
+            <p>{{ vol.aeroportDArrivee }}</p>
           </div>
         </div>
         <hr class="full-width-line" />
         <!-- Deux conteneurs côte à côte (Date et Heure) -->
         <div class="datetime-container">
           <ion-item>
-            <ion-label>Date</ion-label>
-            <ion-input type="date"></ion-input>
+            <ion-label>Date:</ion-label>
+            <ion-input  [value]="getFormattedDate(vol.dateEtHeureDepart)"></ion-input>
           </ion-item>
           <ion-item>
-            <ion-label>Heure</ion-label>
-            <ion-input type="time" ></ion-input>
+            <ion-label>Heure:</ion-label>
+            <ion-input [value]="getFormattedDate(vol.dateEtHeureDepart) | date:'HH:mm'"></ion-input>
           </ion-item>
         </div>
 
@@ -88,11 +85,16 @@
 
         <!-- Texte Prix -->
         <div class="price-container">
-          <p>Prix: 10000</p>
+          <p>Prix: {{ vol.prix }} CFA</p>
         </div>
       </div>
     </div>
-    <button class="button">Annuler</button>
-    <button class="button">Continuer</button>
+    <div class="flex-btn">
+      <button class="btn-annuler">Annuler</button>
+      <button class="btn-continuer">Continuer</button>
+    </div>
   </div>
 </div>
+<ng-template #noData>
+  <p>Loading...</p>
+</ng-template>

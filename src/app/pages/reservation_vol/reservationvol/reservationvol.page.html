@@ -10,8 +10,8 @@
   <div class="container-wrapper">
     <div class="container"
          *ngFor="let flight of flights"
-         (click)="handleContainerClick(flight)"
-         [class.selected]="flight === selectedFlight">
+          (click)="handleContainerClick(flight)"
+          [class.selected]="flight === selectedFlight">
       <div class="heure-time">
         <div>
           <h5>{{ flight.depart }}</h5>
@@ -37,7 +37,9 @@
   <!-- Modal de confirmation -->
   <div class="modal" *ngIf="showModal">
     <div class="modal-content">
-      <img src="assets/icon/annuler.png" alt="annuler" />
+      <div class="center-image">
+        <img src="assets/icon/annuler.png" alt="annuler" />
+      </div>
       <h2>Confirmer l'annulation</h2>
       <p>Êtes-vous sûr de vouloir annuler ce vol ?</p>
       <div class="modal-actions">
@@ -55,7 +57,7 @@
     <br>
     <div class="modal-buttons">
       <span>lire politique de remboursement</span>
-      <button (click)="closeProcessingModal()" class="btn-annuler">Annuler</button>
+      <button (click)="closeProcessingModal()" class="btn-annuler">Fermer</button>
     </div>
   </div>
 </div>
