@@ -44,6 +44,8 @@ export class AccueilPage implements OnInit {
   showSuggestions: boolean = false;
   paysArrive: string | undefined;
   filteredPaysDArrivee: never[] | undefined;
+  chercheValue:string='';
+  
   
 
   constructor(private accueilService: AccueilService, private nvControle:NavController) { 
@@ -86,7 +88,19 @@ export class AccueilPage implements OnInit {
   }
 
   aff() {
-    this.nvControle.navigateForward([`/search-vol-form`,{ searchValue: this.chercheValue }])
+    this.nvControle.navigateForward([`/search-vol-form`,{ 
+      // searchValue: this.chercheValue ,
+      searchValue: this.searchText
+    }])
   }
-    chercheValue:string='';
+  
+  
+
+  selectCity(ville: any) {
+    // Met à jour le texte de la barre de recherche avec le nom de la ville sélectionnée
+    this.searchText = ville.nom;
+    this.showSuggestions = false; // Masque la liste des suggestions après la sélection
+  }
+
+  
 }

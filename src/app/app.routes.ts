@@ -119,7 +119,7 @@ export const routes: Routes = [
   {
     path: 'search-vol-form',
     loadComponent: () => import('./pages/search-vol-form/search-vol-form.page').then( m => m.SearchVolFormPage),
-    canActivate:[GuardAuthentificationService]
+    //canActivate:[GuardAuthentificationService]
   },
   {
     path: 'vol/:id',

@@ -12,7 +12,7 @@
         <input type="text" placeholder="Recherchez votre voyage" [(ngModel)]="searchText" (input)="onSearch()">
         <button (click)="aff()"><i class="search-icon">&#128269;</i></button>
         <ion-list *ngIf="filteredVilles.length > 0 && showSuggestions" class="suggestions-list">
-          <ion-item *ngFor="let ville of filteredVilles | search:searchText">{{ ville.nom }}</ion-item>
+          <ion-item *ngFor="let ville of filteredVilles | search:searchText" (click)="selectCity(ville)">{{ ville.nom }}</ion-item>
         </ion-list>
       </div>
     </div>
@@ -27,12 +27,15 @@
     </div>
 
     <div *ngIf="!showSuggestions" class="travel-cards">
-      <div class="card" *ngFor="let item of villes">
-        <img [src]="mosque" alt="{{item.nom}}, {{item.pays}}">
-        <div class="card-info">
-          <h2>{{item.nom}}, {{item.pays}}</h2>
+      @for (item of villes; track $index) {
+        <div (click)="aff()" class="card">
+          <img [src]="mosque" alt="{{item.nom}}, {{item.pays.nom}}">
+          <div class="card-info">
+            <h2>{{item.nom}}, {{item.pays}}</h2>
+          </div>
         </div>
-      </div>
+      }
+      
     </div>
   </main>
 
