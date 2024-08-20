@@ -1,63 +1,71 @@
+import { NgFor, NgIf } from '@angular/common';
 import { Component, OnInit } from '@angular/core';
-import { CommonModule } from '@angular/common';
-import { FormsModule } from '@angular/forms';
-import { IonContent, IonHeader, IonTitle, IonToolbar, IonButton } from '@ionic/angular/standalone';
 import { Router } from '@angular/router';
-import { VolServiceService } from './serviceVol/vol-service.service';
+import { FlightService } from 'src/app/services/figth/flight.service';
+import { LoginServiceService } from 'src/app/services/login-service.service';
+import { IonDatetime } from '@ionic/angular/standalone';
+
 
 @Component({
   selector: 'app-reservation-vol',
   templateUrl: './reservationvol.page.html',
-  styleUrls: ['./reservationvol.page.scss'],
-  standalone: true,
-  imports: [IonContent, IonHeader, IonTitle, IonToolbar, IonButton, CommonModule, FormsModule]
+  standalone:true,
+  imports:[NgIf, NgFor, IonDatetime],
+  styleUrls: ['./reservationvol.page.scss']
 })
 export class ReservationvolPage implements OnInit {
-  volList:any;
-  public flights: Array<{ time: string, origin: string, destination: string, airline: string, depart: string }> = [
-    { time: '09:00 AM', origin: 'DEL', destination: 'BOM', airline: 'Gabon', depart: '09:00 AM' },
-    { time: '11:00 AM', origin: 'HGR', destination: 'YTU', airline: 'Mali', depart: '11:00 AM' },
-    { time: '08:30 AM', origin: 'CHE', destination: 'BLR', airline: 'Maroc', depart: '08:30 AM' },
-    { time: '12:00 AM', origin: 'KIU', destination: 'FDS', airline: 'Ivoire', depart: '12:00 AM' },
-    { time: '16:00 AM', origin: 'BNV', destination: 'MLP', airline: 'Senegale', depart: '16:00 AM' }
-  ];
-  // this.servLogin.get("vol").subscribe({
-    //   next: (data) => {
-    //     console.log(data);
-    //   },
-    //   error: (err) => {
-    //     console.log(err);
-    //   }
-    // })
 
-  getVol(){
-    this.servVol.getVol('vol').subscribe({
-      next:(data)=>{
-        this.volList=data;
-        console.log(data);
-      }
-    })
-  }
-
+  public flights: Array<{ time: string, origin: string, destination: string, airline: string, depart: string }> = [];
   showModal: boolean = false;
   selectedFlight: any = null;
   isConfirmationModalVisible = false;
   isProcessingModalVisible = false;
-  constructor(private router: Router,private servVol:VolServiceService) { }
-  ngOnInit(): void {
-    this.getVol()
+  public passagerListvol: any;
+
+  constructor(
+    private router: Router,
+    private flightService: FlightService,
+    private loginService: LoginServiceService
+  ) {}
+
+  ngOnInit() {
+    const utilisateurId = this.loginService.getUserId(); // Utilise getUserId pour obtenir l'ID
+    console.log("Id utilisateur:===============" + utilisateurId + '===================================');
+
+    if (utilisateurId !== null) {
+      this.loadFlights(utilisateurId);
+    } else {
+      console.error('Utilisateur non connecté');
+    }
+  }
+
+
+  loadFlights(id: number) {
+    this.flightService.getFlights(id).subscribe(
+      (data) => {
+        this.passagerListvol = data;
+        this.flights = this.passagerListvol.map((reservation: any) => ({
+          time: reservation.vol.dateEtHeureDepart,
+          origin: reservation.vol.aeroportDepart,
+          destination: reservation.vol.aeroportDArrivee,
+          airline: reservation.vol.adminCompagnie.compagnie.nom,
+          depart: reservation.vol.numeroDeVol
+        }));
+        console.log("Vols: ", this.flights);
+      },
+      (err) => {
+        console.error("Erreur lors de la récupération des vols: ", err);
+      }
+    );
   }
 
   handleContainerClick(flight: any) {
     this.selectedFlight = flight;
-console.log(flight);
     this.router.navigate(['page-details', { id: flight.time }], { state: { containerDetails: flight } });
   }
 
-
-
   openModal(event: Event) {
-    event.stopPropagation();  // Empêche le clic de se propager au conteneur
+    event.stopPropagation();
     this.showModal = true;
   }
 
@@ -65,15 +73,10 @@ console.log(flight);
     this.showModal = false;
   }
 
-  confirmCancel() {
-    // Logique pour confirmer l'annulation du vol
-    this.showModal = false;
-  }
-//secondModal
   confirmCancellation() {
     this.isConfirmationModalVisible = false;
     this.isProcessingModalVisible = true;
-    this. closeModal();
+    this.closeModal();
   }
 
   closeProcessingModal() {

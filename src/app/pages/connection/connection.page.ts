@@ -3,6 +3,7 @@ import { CommonModule } from '@angular/common';
 import { FormsModule } from '@angular/forms';
 import { IonContent, IonHeader, IonTitle, IonToolbar } from '@ionic/angular/standalone';
 import { LoginServiceService } from 'src/app/services/login-service.service';
+
 import {Router, RouterLink} from '@angular/router';
 
 @Component({
@@ -26,6 +27,9 @@ export class ConnectionPage implements OnInit {
   }
 
   constructor(private service:LoginServiceService,private router:Router) { }
+  ngOnInit(): void {
+    throw new Error('Method not implemented.');
+  }
 
   seconnecter() {
     this.service.login(this.login.email, this.login.password).subscribe(
@@ -36,6 +40,7 @@ export class ConnectionPage implements OnInit {
         this.router.navigate(['/accueil']);
         this.login.email='';
         this.login.password='';
+        console.log("====================="+this.login.email+"-"+this.login.password+"======================");
       },
       (error) => {
         // Gérez les erreurs de connexion
@@ -43,11 +48,5 @@ export class ConnectionPage implements OnInit {
       }
     );
   }
-
-
-
-  ngOnInit() {
-  }
-
 
 }
