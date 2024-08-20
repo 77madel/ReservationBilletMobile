@@ -31,6 +31,7 @@
     "@ionic/angular": "^8.2.6",
     "bootstrap": "^5.3.3",
     "ionicons": "^7.4.0",
+    "ReservationBilletMobile": "file:",
     "rxjs": "~7.8.0",
     "tslib": "^2.3.0",
     "zone.js": "~0.14.2"

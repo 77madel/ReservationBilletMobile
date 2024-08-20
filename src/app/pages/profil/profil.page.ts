@@ -35,10 +35,10 @@ export class ProfilPage implements OnInit {
     //   }
     // })
 this.userConnecter();
-    
+
   }
 
-  
+
   userConnecter(){
     const usrCnt=this.servLogin.getUtilisateur();
     this.id=usrCnt.username.id;
@@ -47,7 +47,7 @@ this.userConnecter();
   }
 
 
-  
+
 
   deconnecter(){
     this.servLogin.logout();
