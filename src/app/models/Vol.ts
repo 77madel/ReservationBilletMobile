@@ -1,3 +1,5 @@
+import {Avion} from "./Avion";
+
 export interface Vol {
   id: number;
   numeroDeVol: string;
@@ -6,4 +8,5 @@ export interface Vol {
   dateEtHeureArrivee: string;
   dateEtHeureDepart: string;
   tarifEconomiqueDeBase: number;
+  avion: Avion;
 }

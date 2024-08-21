@@ -5,10 +5,43 @@
     <div class="notif">
       {{notification.date}}  {{notification.heure}}
       <div class="notif-content">
-        {{
-          notification.objet
-        }}
+        <h2>{{notification.objet}}</h2>
+
+        <p>Bonjour <strong>{{notification.utilisateur.prenom}} {{notification.utilisateur.nom}}</strong>,</p>
+
+        <p>Nous vous confirmons que votre réservation a été effectuée avec succès. Voici les détails de votre réservation :</p>
+
+        <h3>Détails de la Réservation :</h3>
+        <ul>
+          <li><strong>Nom du client :</strong> {{notification.utilisateur.nom}}</li>
+          <li><strong>Numéro de réservation :</strong> {{ notification.reservation.id }}</li>
+          <li><strong>Vol :</strong> {{ notification.reservation.vol.numeroDeVol }}</li>
+          <li><strong>Date de départ :</strong> {{ notification.reservation.vol.dateEtHeureDepart }}</li>
+          <li><strong>Date d'arrivée :</strong> {{ notification.reservation.vol.aeroportDArrivee }}</li>
+          <li><strong>Siège :</strong> {{ notification.reservation.vol.avion.siege.positionSiege.nom }}</li>
+          <li><strong>Classe :</strong> {{ notification.reservation.vol.avion.siege.positionSiege.classeSiege }}</li>
+          <li><strong>Prix total :</strong> {{ notification.reservation.vol.avion.siege.positionSiege.tarif }}</li>
+        </ul>
+
+        <h3>Adresse de départ :</h3>
+        <p>{{ notification.reservation.vol.aeroportDepart }}</p>
+
+        <h3>Adresse d'arrivée :</h3>
+        <p>{{ notification.reservation.vol.aeroportDArrivee }}</p>
+
+        <p>Nous vous remercions d'avoir choisi <strong>[Nom de la compagnie ou du service]</strong>. Nous avons hâte de vous accueillir à bord.</p>
+
+        <p>Si vous avez des questions ou avez besoin d'assistance supplémentaire, n'hésitez pas à nous contacter à <strong>[Numéro de téléphone ou email du service client]</strong>.</p>
+
+        <p>Nous vous souhaitons un excellent voyage!</p>
+
+        <p>Cordialement,</p>
+
+        <p><strong>[Nom de la compagnie ou du service]</strong><br>
+          [Site web]<br>
+          [Coordonnées de la compagnie ou du service]</p>
       </div>
+
     </div>
   }
   </div>

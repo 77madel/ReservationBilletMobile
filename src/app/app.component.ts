@@ -1,5 +1,5 @@
 
-import {AfterViewInit, Component} from '@angular/core';
+import {AfterViewInit, Component, OnInit} from '@angular/core';
 import { IonApp, IonRouterOutlet, IonTabButton, IonTabBar, IonIcon, IonTabs, IonItem, IonLabel  } from '@ionic/angular/standalone';
 import { AccueilPage } from "./pages/accueil/accueil.page";
 import { airplane, home, library, notifications, person } from 'ionicons/icons';
@@ -33,11 +33,19 @@ addIcons({
     ReservationvolPage,
   ],
 })
-export class AppComponent implements AfterViewInit {
+export class AppComponent implements AfterViewInit,OnInit {
   activeTab: HTMLElement | null = null;
   movingCircle: HTMLElement | null = null;
+  currentUserId!:number;
 
- ngAfterViewInit() {
+  constructor(private loginServiceService: LoginServiceService) {
+  }
+
+  ngOnInit() {
+    this.currentUserId = this.loginServiceService.getCurrentUser().username.id;
+  }
+
+  ngAfterViewInit() {
   this.movingCircle = document.querySelector('.moving-circle');
   this.activeTab = document.querySelector('ion-tab-button.active'); // Sélectionner l'onglet avec la classe active
 

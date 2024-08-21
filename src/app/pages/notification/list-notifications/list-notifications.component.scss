@@ -18,6 +18,7 @@
   text-align: left;
   border-radius: 30px;
   margin-top: 10px;
+  margin-left: 3%;
 }
 .list {
   display: flex;
@@ -27,4 +28,7 @@
 }
 .scroll {
   overflow: scroll;
+}
+h2,p,strong,h3,ul,li {
+  background-color: white;
 }
