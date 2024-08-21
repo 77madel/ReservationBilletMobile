@@ -1,9 +1,6 @@
 
 import { Routes } from '@angular/router';
 import { GuardAuthentificationService } from './services/guard-authentification.service';
-import {InscriptionReussiePage} from "./pages/inscription-reussie/inscription-reussie.page";
-import {NotificationPage} from "./pages/notification/notification.page";
-import {MotPasseOubliePage} from "./pages/mot-passe-oublie/mot-passe-oublie.page";
 export const routes: Routes = [
   {
     path: 'login',
@@ -31,11 +28,11 @@ export const routes: Routes = [
     redirectTo: 'splash-screen',
     pathMatch: 'full',
   },
-  {
-    path: 'profil',
-    loadComponent: () => import('./pages/profil/profil.page').then( m => m.ProfilPage),
-    canActivate:[GuardAuthentificationService]
-  },
+  // {
+  //   path: 'profil',
+  //   loadComponent: () => import('./pages/profil/profil.page').then( m => m.ProfilPage),
+  //   canActivate:[GuardAuthentificationService]
+  // },
   {
     path: 'inscription-reussie',
     loadComponent: () => import('./pages/inscription-reussie/inscription-reussie.page').then( m => m.InscriptionReussiePage)
@@ -90,11 +87,6 @@ export const routes: Routes = [
     canActivate:[GuardAuthentificationService]
   },
   {
-    path: 'connection',
-    loadComponent: () => import('./pages/connection/connection.page').then( m => m.ConnectionPage),
-    canActivate:[GuardAuthentificationService]
-  },
-  {
     path: 'inscription',
     loadComponent: () => import('./pages/inscription/inscription.page').then( m => m.InscriptionPage),
   },
@@ -130,7 +122,7 @@ export const routes: Routes = [
     canActivate:[GuardAuthentificationService]
   },
   {
-    path: 'vol-selectionner',
+    path: 'vol/:id',
     loadComponent: () => import('./pages/vol-selectionner/vol-selectionner.page').then( m => m.VolSelectionnerPage),
     canActivate:[GuardAuthentificationService]
   },

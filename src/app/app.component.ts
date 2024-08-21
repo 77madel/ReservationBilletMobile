@@ -13,7 +13,7 @@ addIcons({
   'airplane': airplane,
   'home': home,
   'notifications': notifications,
-  'person': person
+  'person': person,
 });
 
 @Component({

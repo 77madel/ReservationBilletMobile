@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { FormsModule } from '@angular/forms';
-import { ActivatedRoute } from '@angular/router';
+import { ActivatedRoute, Router } from '@angular/router';
 import { Dateoperation } from 'src/app/Utils/dateOperation';
 import { addIcons } from 'ionicons';
 import {arrowBackOutline, arrowDownOutline, arrowUpOutline, calendarOutline} from 'ionicons/icons';
@@ -26,10 +26,18 @@ export class SearchVolFormPage implements OnInit {
   filteredPaysDepart: string[] = [];
   filteredPaysDArrivee: string[] = [];
   showRetour!: boolean;
+  searchValue='';
+  VilleDepart: any;
 
 
-  constructor(private route: ActivatedRoute) {
+  constructor(private route: ActivatedRoute,private router:Router) {
+
+    this.route.params.subscribe(params => {
+      this.searchValue = params['searchValue'];})
+
     this.listOfPays = ["Mali", "Namibie", "Burkina", "France"]
+
+
     this.selectedTab = 1;
     this.showRetour = false;
     addIcons({
@@ -41,6 +49,7 @@ export class SearchVolFormPage implements OnInit {
   }
 
   ngOnInit() {
+    this.VilleDepart = this.route.snapshot.paramMap.get('searchValue') || '';
     this.paysDeDepart = "";
     this.dateDepart = Dateoperation.formatTodayDate();
     this.dateDeRetour = Dateoperation.formatTodayDate();
@@ -95,6 +104,14 @@ export class SearchVolFormPage implements OnInit {
     this.paysArrive = temp;
   }
 
+  continuer() {
+    this.router.navigate(['/liste-des-vols', {
+      paysDeDepart: this.paysDeDepart,
+      searchValue: this.searchValue,
+      dateDepart: this.dateDepart,
+      dateDeRetour: this.dateDeRetour
+    }]);
 
+}
 }
 
