@@ -1,9 +1,20 @@
 export interface Vol {
   id: number;
-  numeroDeVol: string;
-  aeroportDepart: string;
-  aeroportDArrivee: string;
-  dateEtHeureArrivee: string;
   dateEtHeureDepart: string;
-  tarifEconomiqueDeBase: number;
+  dateEtHeureArrivee: string;
+  aeroportDepart: {
+    ville: {
+      nom: string;
+    };
+  };
+  aeroportDArrivee: {
+    ville: {
+      nom: string;
+    };
+  };
+  adminCompagnie: {
+    compagnie: {
+      nom: string;
+    };
+  };
 }
