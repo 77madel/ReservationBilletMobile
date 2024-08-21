@@ -42,7 +42,7 @@ export class AppComponent implements AfterViewInit,OnInit {
   }
 
   ngOnInit() {
-    this.currentUserId = this.loginServiceService.getCurrentUser().username.id;
+    this.currentUserId = this.loginServiceService.getUtilisateur().username.id;
   }
 
 
