@@ -68,51 +68,6 @@ export class ListeDesVolsPage implements OnInit{
     });
   }
 
-  // async loadVol() {
-  //   try {
-  //     const response = await this.serviceVol.ListVol();
-  //     this.vol = response;
-  //     console.log(this.vol[0].aeroportDepart.ville.nom)
-  //   } catch (error: any) {
-  //     throw error;
-  //   }
-  // }
-
-  // async loadVol() {
-  //   try {
-  //     const response = await this.serviceVol.ListVol();
-  //     console.log('Response:', response);  // Vérifiez ici ce qui est retourné par le service
-  //     // Filtrage par ville de départ uniquement
-  //     let filteredVol = response.filter((vol: Vol) => {
-  //       const volDepart = vol.aeroportDepart.ville.nom.trim().toLowerCase();
-  //       const depart = this.paysDeDepart.trim().toLowerCase();
-  //       return volDepart === depart;
-  //     });
-  //     console.log('Filtered by Depart:', filteredVol);
-  //
-  //     // Filtrage par ville d'arrivée
-  //     filteredVol = filteredVol.filter((vol: Vol) => {
-  //       const volArrivee = vol.aeroportDArrivee.ville.nom.trim().toLowerCase();
-  //       const arrivee = this.paysArrive.trim().toLowerCase();
-  //       return volArrivee === arrivee;
-  //     });
-  //     console.log('Filtered by Depart and Arrivee:', filteredVol);
-  //
-  //     // Filtrage par date
-  //     filteredVol = filteredVol.filter((vol: Vol) => {
-  //       const volDate = new Date(vol.dateEtHeureDepart).toDateString();
-  //       const dateDepart = new Date(this.dateDepart).toDateString();
-  //       return volDate === dateDepart;
-  //     });
-  //     console.log('Filtered by Depart, Arrivee, and Date:', filteredVol);
-  //
-  //     this.vol = filteredVol;
-  //
-  //   } catch (error: any) {
-  //     console.error(error);
-  //   }
-  // }
-
 
   async loadVol() {
     try {
