@@ -24,7 +24,7 @@ export class ListeVolService {
     }
   }
 
- async getVolById(id: string): Promise<any> {
-    return this.http.get<any>(`${this.apiUrl}/vol/afficher/tout/${id}`).toPromise();
+ getVolById(id: number): Observable<any> {
+    return this.http.get<any>(`${this.apiUrl}/vol/afficher/tout/${id}`);
   }
 }

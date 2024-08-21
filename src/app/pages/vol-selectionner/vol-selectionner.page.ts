@@ -12,7 +12,7 @@ import {
   IonToolbar
 } from '@ionic/angular/standalone';
 
-import {ActivatedRoute} from "@angular/router";
+import {ActivatedRoute, Router} from "@angular/router";
 import {ListeVolService} from "../../services/ListeVol/liste-vol.service";
 
 @Component({
@@ -23,6 +23,7 @@ import {ListeVolService} from "../../services/ListeVol/liste-vol.service";
   imports: [IonContent, IonHeader, IonTitle, IonToolbar, CommonModule, FormsModule, IonIcon, IonItem, IonLabel, IonInput]
 })
 export class VolSelectionnerPage implements OnInit {
+  volId!: number;
   vol: any;
 
   paysDeDepart: string = '';
@@ -33,7 +34,11 @@ export class VolSelectionnerPage implements OnInit {
   voyageur!: number;
   classes!: string[];
 
-  constructor(private route: ActivatedRoute, private serviceVol: ListeVolService) {
+  constructor(
+    private route: ActivatedRoute,
+    private serviceVol: ListeVolService,
+    private router: Router
+  ) {
 
     this.route.params.subscribe(params => {
       this.paysDeDepart = params['paysDeDepart'];
@@ -46,20 +51,18 @@ export class VolSelectionnerPage implements OnInit {
     });
   }
   ngOnInit() {
-    const volId = this.route.snapshot.paramMap.get('id');
-    this.loadVolDetail(volId);
+    // Récupérer l'ID du vol à partir des paramètres de route
+    this.volId = +this.route.snapshot.paramMap.get('id')!;
+
+    // Charger les détails du vol à partir du service
+    this.loadVolDetails();
   }
 
-  async loadVolDetail(volId: string | null) {
-    try {
-      if (volId) {
-        const response = await this.serviceVol.getVolById(volId);
-        this.vol = response;
-        console.log("Vol-selectionner", this.vol)
-      }
-    } catch (error: any) {
-      console.error('Error loading vol detail:', error);
-    }
+  loadVolDetails() {
+    this.serviceVol.getVolById(this.volId).subscribe((data) => {
+      this.vol = data;
+      console.log("VOLEDATA",this.vol)
+    });
   }
 
   getFormattedTime(dateEtHeure: string): string {
