@@ -1,110 +1,149 @@
-ion-content{
-    --ion-background-color:#f0f0f0;
+* {
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
 }
 
-h2{
-    font-size: 30px;
-    text-align: center;
-    color: black;
-    font-family: Nunito,sans-serif;
-    margin-top: 20px;
-    
-   
+.Body-page {
+  background-color: #fff;
 }
 
-.sociaux{
-    width: 345px;
-    height: 223px;
-    text-align: center;
-   display: flex;
-    align-items: center;
-    justify-content: center;
-    margin: auto;
-    margin-top: -50px;
-  
-   
+.Body-page::-webkit-scrollbar{
+display: none;
+}
 
+.logo {
+  margin-top: 10%;
+  text-align: center;
+}
+
+.logo .logo-page {
+  width: 100px;
+  height: 100px;
+}
+
+h3 {
+  font-size: 30px;
+  text-align: center;
+  color: black;
+  font-family: Nunito, sans-serif;
+  padding-top: 20px;
+  font-weight: 600;
+}
+
+.sociaux {
+  width: 345px;
+  height: 223px;
+  text-align: center;
+  align-items: center;
+  justify-content: center;
+  margin: 2% auto;
+  margin-bottom: 0px;
+}
+
+.btn-goole, .btn-facebook {
+  width: 345px;
+  height: 51px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  border-radius: 5px;
+  font-size: 1.1em;
+  padding-left: 15px;
+  padding-right: 15px;
+  font-weight: bolder;
+  margin-right: 15px;
+  color: black;
+  background-color: #fafafa;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
 }
 
 .btn-goole{
-  width: 162px;
-  height: 51px;
+  margin-top: 15px;
+}
+
+.form {
+  margin-top: 10px;
+  text-align: center;
+
+}
+
+input {
+  width: 344px;
+  height: 57px; /* Correction de la majuscule à minuscule */
+  border-radius: 10px;
+  border: none;
+  outline: none;
+  background-color: #fff; /* Assurez-vous que cette couleur est correcte */
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+  padding-left: 40px;
+}
+
+.chp {
+  margin-bottom: 15px;
+  padding: 10px;
+}
+
+.btn-goole img, .btn-facebook img{
+margin-right: 15px;
+}
+
+.connect {
   display: flex;
   justify-content: center;
   align-items: center;
-  border-radius: 5px;
-  background-color:#da8484;  
-  font-size: 1.1em;
-  color:#D43838 ;
-  font-weight: bolder;
-  margin-right: 15px;
-
 }
-.btn-facebook{
-  width: 162px;
-  height: 51px;
-  display: flex;
+
+.btn-connexion {
+  width: 150px;
+  height: 57px;
+  background-color: #04BBC7;
+  color: white;
+  font-size: 20px;
+  margin-top: 4%;
+  text-align: center;
+  border-radius: 5px;
+  font-weight: 600;
+}
+
+.sos {
+  margin-top: 25px;
+  padding-bottom: 20px;
   justify-content: center;
+  display: flex;
   align-items: center;
-  border-radius: 5px;
-  background-color:#9eb7eb;  
-  font-size: 1.1em;
-  color:#4267B2 ;
-  font-weight: bolder;
 }
 
-.separateur{
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    margin-top: -50px
+.sos button{
+  background-color: transparent;
 }
 
-.form{
-    margin-top: 10px;
-     text-align: center;
+.trait-ou{
+  display: flex;
+  align-items: end;
+  justify-content: center;
+  margin-top: 10%;
+  margin-bottom: 8%;
+}
+.trait{
+  height: 2px;
+  width: 132px;
+  background-color: black;
 }
 
-.form input{
-    width: 344px;
-    height: 57Px;
-    border-radius: 10px;
-    border: none;
-    
-   
+.sinscrire {
+  color: #04BBC7;
+  margin-left: 10px;
 }
-.chp{
-    margin-bottom: 15px;
-    padding: 10px;
+//code css(font-awersome)
+.input-container {
+  position: relative;
+  margin-bottom: 15px;
 }
 
-.connect{
-    display: flex;
-    justify-content: center;
-    align-items: center;
+.input-container i {
+  position: absolute;
+  margin-top: 20px;
+  margin-left: 10px;
+  color: #04BBC7;
 }
-
-.btn-connexion{
-    width: 344px;
-    height: 57px;
-    background-color: #04BBC7;
-    color: white;
-    font-size: 20px;
-    margin-top: 40px;
-    text-align: center;
-    border-radius: 5px;
-}
-
-.sos{
-    width: 210px;
-    height: 58px;
-    margin: 40px auto;
-  
-}
-
-.sinscrire{
-    color: #04BBC7;
-    margin-left: 40%;
-}
-
- 

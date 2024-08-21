@@ -24,12 +24,12 @@ import {Vol} from "../../models/Vol";
 })
 export class ListeDesVolsPage implements OnInit{
 
-   paysDeDepart: string = '';
-   dateDepart: string = '';
-   dateDeRetour: string = '';
-   paysArrive!: string;
-   voyageur!: number;
-   selectedClass: string = '';
+  paysDeDepart: string = '';
+  dateDepart: string = '';
+  dateDeRetour: string = '';
+  paysArrive!: string;
+  voyageur!: number;
+  selectedClass: string = '';
 
   aeroportDepart: any[] = [];
   aeroportDArrivee: string = '';
@@ -68,7 +68,7 @@ export class ListeDesVolsPage implements OnInit{
     try {
       const response = await this.serviceVol.ListVol();
 
-        this.vol = response;
+      this.vol = response;
       // Log des données réelles
       console.log('Response:', this.vol);
 
@@ -117,15 +117,6 @@ export class ListeDesVolsPage implements OnInit{
     }
   }
 
-
-
-
-
-
-
-
-
-
   getFormattedTime(dateEtHeure: string): string {
     const date = new Date(dateEtHeure);
     return date.toLocaleTimeString([], { hour: '2-digit', minute: '2-digit' });
@@ -142,5 +133,12 @@ export class ListeDesVolsPage implements OnInit{
   viewVolDetail(volId: number): void {
     this.router.navigate(['/vol-selectionner', volId]);
   }
+
+
+  // retour a la page precedente
+  retour(): void {
+    window.history.back();
+  }
+
 
 }
