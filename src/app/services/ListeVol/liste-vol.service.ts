@@ -24,7 +24,9 @@ export class ListeVolService {
     }
   }
 
+
  getVolById(id: number): Observable<any> {
     return this.http.get<any>(`${this.apiUrl}/vol/afficher/tout/${id}`);
+
   }
 }

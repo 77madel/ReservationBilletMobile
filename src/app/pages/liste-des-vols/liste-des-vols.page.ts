@@ -24,32 +24,35 @@ import {Vol} from "../../models/Vol";
 })
 export class ListeDesVolsPage implements OnInit{
 
-   paysDeDepart: string = '';
-   dateDepart: string = '';
-   dateDeRetour: string = '';
-   paysArrive!: string;
-   voyageur!: number;
-   selectedClass: string = '';
 
-  aeroportDepart: any[] = [];
-  aeroportDArrivee: string = '';
-  dateEtHeureDepart: Date = new Date();
-  villeDeDepart: string = '';
-  villeDArrivee: string = '';
+  paysDeDepart: string = '';
+  searchValue: string = '';
+  dateDepart: string = '';
+  dateDeRetour: string = '';
+  paysArrive!: string;
+  voyageur!: number;
+  classes!: string[];
+
+
   vol:any[] = [];
 
-  constructor(
-    private router: Router,
-    private serviceVol:ListeVolService,
-    private route:ActivatedRoute,
-    private alertController: AlertController
-  ) {
+  constructor(private router: Router, private serviceVol:ListeVolService,private route:ActivatedRoute) {
 
+    this.route.params.subscribe(params => {
+      this.paysDeDepart = params['paysDeDepart'];
+      this.searchValue = params['searchValue'];
+      this.dateDepart = params['dateDepart'];
+      this.dateDeRetour = params['dateDeRetour'];
+      this.classes =  params['classes'];
+      this.paysArrive = params['paysArrive'];
+      this.voyageur = params['voyageur']
+    });
 
   }
 
 
   ngOnInit(): void {
+
     this.route.params.subscribe(params => {
       this.villeDeDepart = params['villeDeDepart'];
       this.villeDArrivee = params['villeDArrivee'];
@@ -61,6 +64,7 @@ export class ListeDesVolsPage implements OnInit{
       // Charger les vols en fonction des paramètres
       this.loadVol();
     });
+
   }
 
 
@@ -112,6 +116,7 @@ export class ListeDesVolsPage implements OnInit{
 
         await alert.present();
       }
+
     } catch (error: any) {
       console.error('Error loading flights:', error);
     }

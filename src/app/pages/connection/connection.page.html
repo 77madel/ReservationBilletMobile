@@ -1,41 +1,41 @@
-
-<ion-content [fullscreen]="true">
-
-   <h2>Se Connecter</h2>
-
-     <div class="sociaux">
-
-       <button class="btn-goole">GOOGLE</button>
-
-        <button class="btn-facebook">FACEBOOK</button>
-
-     </div>
-
-      <div class="separateur">
-         <span>Ou</span>
+<ion-content>
+  <div class="Body-page">
+    <h3>Se Connecter</h3>
+    <div class="logo">
+      <img src="../../../assets/icon/logoToolbar.png" alt="logo-page" class="logo-page">
+    </div>
+    <div class="form">
+        <div class="input-container">
+          <i class="fa fa-envelope"></i>
+          <input type="email" placeholder="email" [(ngModel)]="login.email" />
+        </div>
+        <div class="input-container">
+          <i class="fa fa-lock"></i>
+          <input type="password" placeholder="mot de passe" [(ngModel)]="login.password" />
       </div>
+    </div>
 
-
-     <div class="form">
-
-      <div class="chp">
-       <input type="email" placeholder="email" [(ngModel)]="login.email" required="Entre votre identifiant">
-      </div>
-
-      <div class="chap">
-       <input type="password" placeholder="mot de passe"[(ngModel)]="login.password" required="Entre votre mot de passe">
-      </div>
-     </div>
-
-
-     <div class="connect">
+    <div class="connect">
       <button class="btn-connexion" (click)="seconnecter()">Connexion</button>
-     </div>
+    </div>
 
-     <div class="sos">
-       <p>Vous n'avez pas de compte ?</p>
+    <div class="trait-ou">
+      <div class="trait"></div>
+      <h4>Ou Avec</h4>
+      <div class="trait"></div>
+    </div>
+
+    <div class="sociaux">
+      <button class="btn-facebook">
+        <img src="assets/icon/Facebook Logo.png" alt="annuler" />
+        Connexion  avec Facebook</button>
+        <button class="btn-goole">
+        <img src="assets/icon/Google Logo.png" alt="annuler" />
+        Connexion  avec Google</button>
+        <div class="sos">
+        <p>Vous n'avez pas de compte ?</p>
         <button [routerLink]="['/inscription']" class="sinscrire">S'INSCRIRE</button>
-     </div>
-
-
+      </div>
+    </div>
+  </div>
 </ion-content>

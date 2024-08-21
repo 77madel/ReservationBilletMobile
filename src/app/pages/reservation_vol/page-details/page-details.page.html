@@ -43,7 +43,7 @@
       <div class="flight-container">
         <!-- Image en tête -->
         <div class="center-image-entete">
-          <img src="assets/icon/SKYMALI 1.png" alt="Flight Header" class="header-image" />
+          <img [src]="'assets/icon/' + details?.logoUrl" alt="Flight Header" class="header-image" />
         </div>
 
         <!-- Trait sous l'image -->
@@ -66,18 +66,29 @@
           </div>
         </div>
 
+        <div class="flight-details">
+          <h6> Nombre Passagers : {{ details.passengers }}</h6>
+          <h6> Numéro Vol : {{ details.numvol }}</h6>
+        </div>
+
         <!-- Conteneurs double texte -->
         <div class="flight-details">
           <div class="text1">
             <p>Aeroport International</p>
-            <p>Modibo Keita</p>
+            <h6>{{ details?.origin }}</h6>
           </div>
           <div class="text2">
             <p>Aeroport International</p>
-            <p>de Niamey</p>
+            <h6>{{ details?.destination }}</h6>
           </div>
         </div>
         <hr class="full-width-line" />
+        <div class="list-passager">
+          <h5>La liste des passagers</h5>
+          <br>
+        </div>
+        <hr class="full-width-line" />
+
 
         <!-- Deux conteneurs côte à côte (Date et Heure) -->
         <div class="datetime-container">
