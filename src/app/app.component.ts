@@ -1,14 +1,13 @@
-
 import {AfterViewInit, Component, OnInit} from '@angular/core';
-import { IonApp, IonRouterOutlet, IonTabButton, IonTabBar, IonIcon, IonTabs, IonItem, IonLabel  } from '@ionic/angular/standalone';
+import { IonApp, IonRouterOutlet, IonTabButton, IonTabBar, IonIcon, IonTabs, IonItem, IonLabel } from '@ionic/angular/standalone';
 import { AccueilPage } from "./pages/accueil/accueil.page";
-import { airplane, home, library, notifications, person } from 'ionicons/icons';
+import { airplane, home, notifications, person } from 'ionicons/icons';
 import { addIcons } from 'ionicons';
-import { RouterLink } from '@angular/router';
-
+import { Router, RouterLink } from '@angular/router';
 import { ReservationvolPage } from './pages/reservation_vol/reservationvol/reservationvol.page';
 import { LoginServiceService } from './services/login-service.service';
 import { ConnectionPage } from './pages/connection/connection.page';
+import { NgIf } from '@angular/common';
 
 addIcons({
   'airplane': airplane,
@@ -16,6 +15,7 @@ addIcons({
   'notifications': notifications,
   'person': person
 });
+
 @Component({
   selector: 'app-root',
   templateUrl: 'app.component.html',
@@ -38,26 +38,25 @@ export class AppComponent implements AfterViewInit,OnInit {
   movingCircle: HTMLElement | null = null;
   currentUserId!:number;
 
-  constructor(private loginServiceService: LoginServiceService) {
+  constructor(private loginServiceService: LoginServiceService, private router: Router) {
   }
 
   ngOnInit() {
     this.currentUserId = this.loginServiceService.getCurrentUser().username.id;
   }
 
+
   ngAfterViewInit() {
-  this.movingCircle = document.querySelector('.moving-circle');
-  this.activeTab = document.querySelector('ion-tab-button.active'); // Sélectionner l'onglet avec la classe active
+    this.movingCircle = document.querySelector('.moving-circle');
+    this.activeTab = document.querySelector('ion-tab-button.active'); // Sélectionner l'onglet avec la classe active
 
-  if (this.activeTab && this.movingCircle) {
-    // Positionner la boule sur l'onglet "Accueil" au démarrage
-    // this.moveCircleToTab(this.activeTab, false);
+    if (this.activeTab && this.movingCircle) {
+      // Positionner la boule sur l'onglet "Accueil" au démarrage
+      // this.moveCircleToTab(this.activeTab, false);
+    }
+
+    this.addClickListeners();
   }
-
-  this.addClickListeners();
-}
-
-
 
   addClickListeners() {
     const tabButtons = document.querySelectorAll('ion-tab-button');
