@@ -16,7 +16,7 @@ import { addIcons } from 'ionicons';
 import { SiegeService } from '../../service/siege/siege.service';
 import { Siege } from '../../models/Siege';
 
-import {ActivatedRoute} from "@angular/router";
+import {ActivatedRoute, Router} from "@angular/router";
 
 import { IonicModule } from '@ionic/angular';
 
@@ -121,6 +121,6 @@ export class ClasseEconomiquePage implements OnInit {
 
   retour(): void {
     window.history.back();
-  } 
+  }
 
 }

@@ -24,35 +24,32 @@ import {Vol} from "../../models/Vol";
 })
 export class ListeDesVolsPage implements OnInit{
 
-
   paysDeDepart: string = '';
-  searchValue: string = '';
   dateDepart: string = '';
   dateDeRetour: string = '';
   paysArrive!: string;
   voyageur!: number;
-  classes!: string[];
+  selectedClass: string = '';
 
-
+  aeroportDepart: any[] = [];
+  aeroportDArrivee: string = '';
+  dateEtHeureDepart: Date = new Date();
+  villeDeDepart: string = '';
+  villeDArrivee: string = '';
   vol:any[] = [];
 
-  constructor(private router: Router, private serviceVol:ListeVolService,private route:ActivatedRoute) {
+  constructor(
+    private router: Router,
+    private serviceVol:ListeVolService,
+    private route:ActivatedRoute,
+    private alertController: AlertController
+  ) {
 
-    this.route.params.subscribe(params => {
-      this.paysDeDepart = params['paysDeDepart'];
-      this.searchValue = params['searchValue'];
-      this.dateDepart = params['dateDepart'];
-      this.dateDeRetour = params['dateDeRetour'];
-      this.classes =  params['classes'];
-      this.paysArrive = params['paysArrive'];
-      this.voyageur = params['voyageur']
-    });
 
   }
 
 
   ngOnInit(): void {
-
     this.route.params.subscribe(params => {
       this.villeDeDepart = params['villeDeDepart'];
       this.villeDArrivee = params['villeDArrivee'];
@@ -64,7 +61,6 @@ export class ListeDesVolsPage implements OnInit{
       // Charger les vols en fonction des paramètres
       this.loadVol();
     });
-
   }
 
 
@@ -72,7 +68,7 @@ export class ListeDesVolsPage implements OnInit{
     try {
       const response = await this.serviceVol.ListVol();
 
-        this.vol = response;
+      this.vol = response;
       // Log des données réelles
       console.log('Response:', this.vol);
 
@@ -116,20 +112,10 @@ export class ListeDesVolsPage implements OnInit{
 
         await alert.present();
       }
-
     } catch (error: any) {
       console.error('Error loading flights:', error);
     }
   }
-
-
-
-
-
-
-
-
-
 
   getFormattedTime(dateEtHeure: string): string {
     const date = new Date(dateEtHeure);
