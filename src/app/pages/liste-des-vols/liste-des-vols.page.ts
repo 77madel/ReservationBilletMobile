@@ -25,18 +25,11 @@ import {Vol} from "../../models/Vol";
 export class ListeDesVolsPage implements OnInit{
 
    paysDeDepart: string = '';
-  // searchValue: string = '';
    dateDepart: string = '';
    dateDeRetour: string = '';
    paysArrive!: string;
    voyageur!: number;
    selectedClass: string = '';
-  // classes!: string[];
-  // // selectedTab!: number;
-  // // listOfPays!: string[];
-  // // filteredPaysDepart: string[] = [];
-  // // filteredPaysDArrivee: string[] = [];
-  // // showRetour!: boolean;
 
   aeroportDepart: any[] = [];
   aeroportDArrivee: string = '';
@@ -51,10 +44,6 @@ export class ListeDesVolsPage implements OnInit{
     private route:ActivatedRoute,
     private alertController: AlertController
   ) {
-
-    // this.route.params.subscribe(params => {
-    //  console.log(params['villeDeDepart'])
-    // });
 
 
   }
@@ -85,11 +74,6 @@ export class ListeDesVolsPage implements OnInit{
 
       // Filtrage par ville de départ
       let filteredVol = response.filter((vol: any) => {
-        // const volDepart = vol.aeroportDepart.ville.nom.trim().toLowerCase();
-        // const depart = vol.aeroportDepart[0].nom;
-        // console.log('Filtering by Depart:', volDepart);
-        // console.log('Filtering by Depart1:', depart);
-        // return volDepart === depart;
         const volDepart = vol.aeroportDepart.ville.nom.trim().toLowerCase();
         const volArrivee = vol.aeroportDArrivee.ville.nom.trim().toLowerCase();
         const depart = this.villeDeDepart.trim().toLowerCase();
@@ -99,22 +83,6 @@ export class ListeDesVolsPage implements OnInit{
 
       console.log('Filtered by Depart:', filteredVol);
 
-      // Filtrage par ville d'arrivée
-      // filteredVol = filteredVol.filter((vol: any) => {
-      //   const volArrivee = vol.aeroportDArrivee.ville.nom.trim().toLowerCase();
-      //   const arrivee = this.paysArrive.trim().toLowerCase();
-      //   console.log('Filtering by Arrivee:', volArrivee, arrivee);
-      //   return volArrivee === arrivee;
-      // });
-      // console.log('Filtered by Depart and Arrivee:', filteredVol);
-
-      // Filtrage par date
-      // filteredVol = filteredVol.filter((vol: any) => {
-      //   const volDate = new Date(vol.dateEtHeureDepart).toDateString();
-      //   const dateDepart = new Date(this.dateDepart).toDateString();
-      //   console.log('Filtering by Date:', volDate, dateDepart);
-      //   return volDate === dateDepart;
-      // });
 
       const dateDepart = new Date(this.dateDepart).toDateString();
       let filteredByDate = filteredVol.filter((vol: any) => {

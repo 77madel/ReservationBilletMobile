@@ -51,16 +51,6 @@ export class VolSelectionnerPage implements OnInit {
     });
   }
   ngOnInit() {
-    // const volId = this.route.snapshot.paramMap.get('id');
-    // this.loadVolDetail(volId);
-    // Récupération des données passées lors de la navigation
-    // const navigation = this.router.getCurrentNavigation();
-    // this.vol = navigation?.extras?.state?.['vol'];
-    //
-    // if (!this.vol) {
-    //   // Si aucune donnée n'est trouvée, rediriger l'utilisateur vers la page de recherche de vol
-    //   this.router.navigate(['/search-vol-form']);
-    // }
     // Récupérer l'ID du vol à partir des paramètres de route
     this.volId = +this.route.snapshot.paramMap.get('id')!;
 
