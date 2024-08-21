@@ -33,8 +33,9 @@
         </div>
         <div class="btn">
           <div class="btn1">
-            <input type="button" value="Choisir Chaise">
+            <input type="button" (click)="goToClasseEconomique(1)" value="Choisir la Classe">
           </div>
+          
           <div class="btn2">
             <input type="button" value="Ajouter" (click)="ajouterFormulaire()" *ngIf="forms.length < maxForms && i === forms.length - 1">
           </div>

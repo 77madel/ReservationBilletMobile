@@ -137,6 +137,10 @@ export const routes: Routes = [
   {
     path: 'InformationPassagerPage',
     loadComponent: () => import('./pages/information-passager/information-passager.page').then( m => m.InformationPassagerPage)
+  },
+  {
+    path: 'InformationPassagerPage/:id',
+    loadComponent: () => import('./pages/information-passager/information-passager.page').then( m => m.InformationPassagerPage)
   }
 
 
