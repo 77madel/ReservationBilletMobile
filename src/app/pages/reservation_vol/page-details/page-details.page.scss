@@ -3,6 +3,17 @@
   margin: 0;
   box-sizing: border-box;
 }
+// boutton back
+.head-title{
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  width: 100%;
+  padding: 0 20px;
+  ion-icon{
+    font-size: 30px;
+  }
+}
 
 .Body-page {
   background-color: #E5E5E5;
