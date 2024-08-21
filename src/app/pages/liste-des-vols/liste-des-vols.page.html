@@ -17,20 +17,20 @@
 
   <div class="Distance">
     <div class="Yul">
-      <div class="Che" >CHE</div>
+      <div class="Che" >{{ villeDeDepart }}</div>
     </div>
     <div class="Nrt" >
-      <div class="Blr" >BLR</div>
+      <div class="Blr" >{{ villeDArrivee }}</div>
     </div>
   </div>
 
   <div class="div-btn">
     <input type="date" class="btn1" >
-    <button class="btn1" >1 passager</button>
+    <button class="btn1" >{{ voyageur }} passager</button>
   </div>
 
   <div class="Class">
-    <div class="Rectangle100"> <div class="Economique">Economique</div> </div>
+    <div class="Rectangle100"> <div class="Economique">{{ selectedClass }}</div> </div>
   </div>
 
 
@@ -39,22 +39,22 @@
          *ngFor="let r of vol"
          (click)="viewVolDetail(r.id)">
       <div class="heure-time">
-        <div>
-          <h5>{{ getFormattedTime(dateDepart) }}</h5>
-          <h6>{{ getFirstThreeLetters(paysDeDepart) }}</h6>
+        <div style="color: black">
+          <h5>{{ getFormattedTime(r.dateEtHeureDepart) }}</h5>
+          <h6 style="color: black">{{ getFirstThreeLetters(r.aeroportDepart.ville.nom) }}</h6>
         </div>
         <div>
           <h4>{{ getFormattedTime(r.dateEtHeureArrivee) }}</h4>
-          <h5>{{ getFirstThreeLetters(r.aeroportDArrivee) }}</h5>
+          <h5>{{ getFirstThreeLetters(r.aeroportDArrivee.ville.nom) }}</h5>
         </div>
       </div>
       <div class="two-box">
         <div class="cutout cutout-left"></div>
         <div class="cutout cutout-right"></div>
       </div>
-        <div class="airline">{{ r.compagnie }}</div>
-        <img src="../../../assets/Images/avionlogo.png" alt="Logo Avion" class="logoAvion">
-        <div class="prix">1000CFA</div>
+      <div class="airline">{{ r.adminCompagnie.compagnie.nom }}</div>
+      <img src="../../../assets/Images/avionlogo.png" alt="Logo Avion" class="logoAvion">
+      <div class="prix">1000CFA</div>
     </div>
   </div>
 </div>

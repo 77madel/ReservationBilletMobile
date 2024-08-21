@@ -1,0 +1,10 @@
+
+@if(isVisible) 
+{
+  <div class="popup-backdrop" >
+    <div class="popup-content">
+      <p>{{ message }}</p>
+      <button (click)="closePopup()">Fermer</button>
+    </div>
+  </div>
+}
