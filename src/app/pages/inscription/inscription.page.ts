@@ -12,7 +12,7 @@ import { InscriptionServiceService } from 'src/app/services/inscription-service.
   standalone: true,
   imports: [IonContent, IonHeader, IonTitle, IonToolbar, CommonModule, FormsModule, RouterLink]
 })
-export class InscriptionPage implements OnInit {
+export class InscriptionPage{
 
   utilisateur = {
     nom: '',
@@ -26,8 +26,7 @@ export class InscriptionPage implements OnInit {
   };
 
   constructor(private inscriServ: InscriptionServiceService,private router: Router) {}
-  ngOnInit(){
-  }
+
   public a:any;
 
   enregistrer() {

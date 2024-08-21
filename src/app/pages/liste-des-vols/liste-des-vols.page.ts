@@ -22,45 +22,45 @@ import { ListeVolService } from "../../services/ListeVol/liste-vol.service";
 })
 export class ListeDesVolsPage implements OnInit{
 
-  paysDeDepart: string = '';
-  searchValue: string = '';
-  dateDepart: string = '';
-  dateDeRetour: string = '';
-  paysArrive!: string;
-  voyageur!: number;
-  classes!: string[];
-  // selectedTab!: number;
-  // listOfPays!: string[];
-  // filteredPaysDepart: string[] = [];
-  // filteredPaysDArrivee: string[] = [];
-  // showRetour!: boolean;
+  // paysDeDepart: string = '';
+  // searchValue: string = '';
+  // dateDepart: string = '';
+  // dateDeRetour: string = '';
+  // paysArrive!: string;
+  // voyageur!: number;
+  // classes!: string[];
+  // // selectedTab!: number;
+  // // listOfPays!: string[];
+  // // filteredPaysDepart: string[] = [];
+  // // filteredPaysDArrivee: string[] = [];
+  // // showRetour!: boolean;
 
   vol:any[] = [];
 
   constructor(private router: Router, private serviceVol:ListeVolService,private route:ActivatedRoute) {
 
-    this.route.params.subscribe(params => {
-      this.paysDeDepart = params['paysDeDepart'];
-      this.searchValue = params['searchValue'];
-      this.dateDepart = params['dateDepart'];
-      this.dateDeRetour = params['dateDeRetour'];
-      this.classes =  params['classes'];
-      this.paysArrive = params['paysArrive'];
-      this.voyageur = params['voyageur']
-    });
+    // this.route.params.subscribe(params => {
+    //   this.paysDeDepart = params['paysDeDepart'];
+    //   this.searchValue = params['searchValue'];
+    //   this.dateDepart = params['dateDepart'];
+    //   this.dateDeRetour = params['dateDeRetour'];
+    //   this.classes =  params['classes'];
+    //   this.paysArrive = params['paysArrive'];
+    //   this.voyageur = params['voyageur']
+    // });
 
   }
 
 
   ngOnInit(): void {
     this.loadVol()
-    console.log("Donne Subscribe", this.route.params.subscribe())
   }
 
   async loadVol() {
     try {
       const response = await this.serviceVol.ListVol();
       this.vol = response;
+      console.log(this.vol)
     } catch (error: any) {
       throw error;
     }

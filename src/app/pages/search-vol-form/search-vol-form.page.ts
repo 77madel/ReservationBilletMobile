@@ -2,10 +2,10 @@ import { Component, OnInit } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { FormsModule } from '@angular/forms';
 import { ActivatedRoute, Router } from '@angular/router';
-import { Dateoperation } from 'src/app/Utils/dateOperation';
 import { addIcons } from 'ionicons';
-import {arrowBackOutline, arrowDownOutline, arrowUpOutline, calendarOutline} from 'ionicons/icons';
-import {IonicModule} from "@ionic/angular";
+import { arrowBackOutline, arrowDownOutline, arrowUpOutline, calendarOutline } from 'ionicons/icons';
+import { IonicModule } from "@ionic/angular";
+import { SearchFormService } from "../../services/search-form/search-form.service";
 
 @Component({
   selector: 'app-search-vol-form',
@@ -15,103 +15,95 @@ import {IonicModule} from "@ionic/angular";
   imports: [CommonModule, FormsModule, IonicModule]
 })
 export class SearchVolFormPage implements OnInit {
-  paysDeDepart!: string;
-  paysArrive!: string;
-  dateDepart!: String;
+  dateDepart!: string;
   dateDeRetour!: string;
-  voyageur!: number;
   classes!: string[];
   selectedTab!: number;
-  listOfPays!: string[];
-  filteredPaysDepart: string[] = [];
-  filteredPaysDArrivee: string[] = [];
   showRetour!: boolean;
-  searchValue='';
-  VilleDepart: any;
+  searchValue = '';
 
-
-  constructor(private route: ActivatedRoute,private router:Router) {
-
+  villeDeDepart: string = "";
+  villeDArrivee: string = "";
+  filteredVilleDepart: { nom: string }[] = [];
+  listOfVille: { nom: string }[] = [];
+  filteredVilleDArrivee: { nom: string }[] = [];
+  voyageur: number = 1;
+  selectedClass: string = '';
+  constructor(
+    private route: ActivatedRoute,
+    private router: Router,
+    private serviceSearch: SearchFormService
+  ) {
     this.route.params.subscribe(params => {
-      this.searchValue = params['searchValue'];})
-
-    this.listOfPays = ["Mali", "Namibie", "Burkina", "France"]
-
+      this.searchValue = params['searchValue'];
+    });
 
     this.selectedTab = 1;
     this.showRetour = false;
+
     addIcons({
       arrowDownOutline,
       arrowUpOutline,
       calendarOutline,
       arrowBackOutline,
-    })
+    });
   }
 
   ngOnInit() {
-    this.VilleDepart = this.route.snapshot.paramMap.get('searchValue') || '';
-    this.paysDeDepart = "";
-    this.dateDepart = Dateoperation.formatTodayDate();
-    this.dateDeRetour = Dateoperation.formatTodayDate();
-    this.voyageur = 1;
-    this.classes = ["Economique", "Affaire"]
+    this.classes = ["Economique", "Affaire"];
+    //this.villeDArrivee = "";
 
-    this.route.queryParams.subscribe(
-      params => {
-        console.log(params);
-        this.paysArrive = ""; // Assigner params
-      }
-    )
+    // Récupération des villes depuis le service
+    this.serviceSearch.ListVille().then((res: { nom: string }[]) => {
+      this.listOfVille = res;
+      console.log(this.listOfVille[1].nom);
+    });
+
+    // Assurez-vous de ne pas appeler `Listville` si vous utilisez `subscribe` pour récupérer les villes
   }
 
-  filterPaysDepart(event: any){
+  filterVilleDepart(event: any) {
     const query = event.target.value.toLowerCase();
-
-    this.filteredPaysDepart = this.listOfPays.filter(item => {
-      return item.toLowerCase().indexOf(query) > -1;
-    })
+    this.filteredVilleDepart = this.listOfVille.filter(item => {
+      return item.nom.toLowerCase().includes(query); // Accès à la propriété nom
+    });
   }
-  filterPaysDArrivee(event: any) {
+
+  filterVilleDArrivee(event: any) {
     const query = event.target.value.toLowerCase();
-    console.log(query);
-    this.filteredPaysDArrivee = this.listOfPays.filter(item => {
-      return item.toLowerCase().indexOf(query) > -1;
-    })
+    this.filteredVilleDArrivee = this.listOfVille.filter(item => {
+      return item.nom.toLowerCase().includes(query); // Accès à la propriété nom
+    });
   }
 
-  selectedItem(item: string) {
-    this.paysDeDepart = item;
-    this.filteredPaysDepart = [];
+  selectedItemVille(item: { nom: string }) {
+    this.villeDeDepart = item.nom;
+    this.filteredVilleDepart =  []  ;
+    console.log("filteredVilleDepart", this.filteredVilleDepart.length)
   }
 
-  selectedItem2(item: string) {
-    this.paysArrive = item;
-    this.filteredPaysDArrivee = [];
+  selectedItem2(item: { nom: string }) {
+    this.villeDArrivee = item.nom;
+    this.filteredVilleDArrivee = [];
   }
 
-
-
-
-
-  onTabItemClick(i: number){
+  onTabItemClick(i: number) {
     this.selectedTab = i;
-    this.showRetour = i == 2;
+    this.showRetour = i === 2;
   }
 
   switchPays() {
-    let temp = this.paysDeDepart;
-    this.paysDeDepart = this.paysArrive;
-    this.paysArrive = temp;
+    let temp = this.villeDeDepart;
+    this.villeDeDepart = this.villeDArrivee;
+    this.villeDArrivee = temp;
   }
 
   continuer() {
     this.router.navigate(['/liste-des-vols', {
-      paysDeDepart: this.paysDeDepart,
+      paysDeDepart: this.villeDeDepart,
       searchValue: this.searchValue,
       dateDepart: this.dateDepart,
       dateDeRetour: this.dateDeRetour
     }]);
-
+  }
 }
-}
-
