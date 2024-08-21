@@ -13,7 +13,7 @@ export class AccueilService {
 
   // méthode GET
   getData(): Observable<any> {
-    return this.http.get<any>(`${this.apiUrl}/ville/afficher/tout`);
+    return this.http.get<any>(`${this.apiUrl}/ville/afficher`);
   }
 
 

@@ -21,7 +21,7 @@ export const routes: Routes = [
   {
     path: 'accueil',
     loadComponent: () => import('./pages/accueil/accueil.page').then( m => m.AccueilPage),
-    canActivate:[GuardAuthentificationService]
+    //canActivate:[GuardAuthentificationService]
   },
   {
     path: '',
