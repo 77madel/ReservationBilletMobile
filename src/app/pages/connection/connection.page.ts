@@ -3,7 +3,6 @@ import { CommonModule } from '@angular/common';
 import { FormsModule } from '@angular/forms';
 import { IonContent, IonHeader, IonTitle, IonToolbar, IonText } from '@ionic/angular/standalone';
 import { LoginServiceService } from 'src/app/services/login-service.service';
-
 import {Router, RouterLink} from '@angular/router';
 import { AlertController } from '@ionic/angular';
 import { accessibility } from 'ionicons/icons';
@@ -28,7 +27,9 @@ errorMessage= '';
     this.type=!this.type;
   }
 
+
   constructor(private service:LoginServiceService,private router:Router,private alertController:AlertController) { }
+
   seconnecter() {
     this.service.login(this.login.email, this.login.password).subscribe(
       (response) => {
@@ -58,4 +59,5 @@ errorMessage= '';
     await alert.present();
 
   }
+
 }
