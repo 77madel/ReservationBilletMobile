@@ -38,7 +38,7 @@ export const routes: Routes = [
     loadComponent: () => import('./pages/inscription-reussie/inscription-reussie.page').then( m => m.InscriptionReussiePage)
   },
   {
-    path: 'notification',
+    path: 'notification/:id',
     loadComponent: () => import('./pages/notification/notification.page').then( m => m.NotificationPage)
   },
   {
@@ -125,6 +125,15 @@ export const routes: Routes = [
     path: 'vol/:id',
     loadComponent: () => import('./pages/vol-selectionner/vol-selectionner.page').then( m => m.VolSelectionnerPage),
     canActivate:[GuardAuthentificationService]
+  },
+  {
+    path: 'classe-economique/:id',
+    loadComponent: () => import('./pages/classe-economique/classe-economique.page').then( m => m.ClasseEconomiquePage)
+  },
+  {
+    path: 'classe-affaire/:id',
+    loadComponent: () => import('./pages/classe-affaire/classe-affaire.page').then( m => m.ClasseAffairePage)
   }
+
 
 ];

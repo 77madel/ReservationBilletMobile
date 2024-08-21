@@ -3,7 +3,6 @@ import { CommonModule } from '@angular/common';
 import { FormsModule } from '@angular/forms';
 import { IonContent, IonHeader, IonTitle, IonToolbar } from '@ionic/angular/standalone';
 import { LoginServiceService } from 'src/app/services/login-service.service';
-
 import {Router, RouterLink} from '@angular/router';
 
 @Component({
@@ -13,7 +12,7 @@ import {Router, RouterLink} from '@angular/router';
   standalone: true,
   imports: [IonContent, IonHeader, IonTitle, IonToolbar, CommonModule, FormsModule, RouterLink]
 })
-export class ConnectionPage implements OnInit {
+export class ConnectionPage{
 
   login={
     email:'',
@@ -27,8 +26,6 @@ export class ConnectionPage implements OnInit {
   }
 
   constructor(private service:LoginServiceService,private router:Router) { }
-  ngOnInit(){
-  }
 
   seconnecter() {
     this.service.login(this.login.email, this.login.password).subscribe(
@@ -46,5 +43,4 @@ export class ConnectionPage implements OnInit {
       }
     );
   }
-
 }

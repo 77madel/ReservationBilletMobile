@@ -26,7 +26,7 @@ export class InscriptionPage implements OnInit {
   };
 
   constructor(private inscriServ: InscriptionServiceService,private router: Router) {}
-  ngOnInit(): void {
+  ngOnInit(){
   }
   public a:any;
 
@@ -37,7 +37,7 @@ export class InscriptionPage implements OnInit {
         alert('Votre compte a été créer avec succès')
         this.router.navigate(['/login'])
       }, error => {
-        
+
         console.error('Erreur lors de l\'enregistrement:', error);
       });
   }
@@ -46,5 +46,5 @@ export class InscriptionPage implements OnInit {
     this.router.navigate(['/login'])
   }
 
-  
+
 }

@@ -5,7 +5,7 @@
 }
 
 .Body-page {
-  background-color: white;
+  background-color: #E5E5E5;
   height: 100%;
   width: 100vw;
   display: flex;
@@ -44,6 +44,10 @@
   font-weight: 800;
   transition: background-color 0.3s ease;
   overflow: hidden;
+}
+
+.list-passager{
+text-align: center;
 }
 
 .two-box {
