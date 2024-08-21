@@ -39,11 +39,12 @@
             </div>
 
             <ion-input
-              label="Ville d'Arrivée"
+              label="{{searchValue}}"
               (ionInput)="filterVilleDArrivee($event)"
               debounce="300"
               label-placement="floating"
               fill="outline"
+              [value]=""
               placeholder="Enter text"
               [(ngModel)]="villeDArrivee">
             </ion-input>
