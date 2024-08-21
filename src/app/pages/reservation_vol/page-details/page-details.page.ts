@@ -66,4 +66,9 @@ export class PageDetailsPage implements OnInit {
   closeProcessingModal() {
     this.isProcessingModalVisible = false;
   }
+
+  // boutton retour en arrire
+  retour() {
+    window.history.back();
+  }
 }

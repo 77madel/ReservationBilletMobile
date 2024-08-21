@@ -3,7 +3,7 @@ import { CommonModule } from '@angular/common';
 import { FormsModule } from '@angular/forms';
 import { IonContent, IonHeader, IonTitle, IonToolbar, IonIcon, IonAvatar, IonInput, IonItem, IonList, IonButton } from '@ionic/angular/standalone';
 import { addIcons } from 'ionicons'
-import { createOutline, eye } from 'ionicons/icons';
+import { arrowBackCircleOutline, createOutline, eye } from 'ionicons/icons';
 import { LoginServiceService } from 'src/app/services/login-service.service';
 @Component({
   selector: 'app-update-profil',
@@ -14,6 +14,7 @@ import { LoginServiceService } from 'src/app/services/login-service.service';
 })
 export class UpdateProfilPage implements OnInit {
 
+
   prenom: string | undefined;
   nom: string | undefined;
   id: string | undefined;
@@ -23,7 +24,7 @@ export class UpdateProfilPage implements OnInit {
 
   constructor(private servLogin:LoginServiceService) { 
 
-    addIcons({eye,createOutline})
+    addIcons({eye,createOutline, arrowBackCircleOutline})
   }
  
 
@@ -39,6 +40,10 @@ export class UpdateProfilPage implements OnInit {
     this.prenom=usrCnt.username.prenom;
     this.email=usrCnt.username.email;
     this.adresse=usrCnt.username.adresse;
+  }
+
+  retour():void{
+    window.history.back();
   }
 
 }

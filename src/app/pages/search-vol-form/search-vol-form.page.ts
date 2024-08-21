@@ -114,3 +114,11 @@ export class SearchVolFormPage implements OnInit {
     return this.villeDeDepart && this.villeDArrivee && this.dateDepart && this.voyageur && this.selectedClass;
   }
 }
+
+
+  retour(): void {
+    window.history.back();
+  }
+}
+
+

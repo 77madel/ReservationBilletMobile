@@ -143,4 +143,11 @@ export class ListeDesVolsPage implements OnInit{
     this.router.navigate(['/vol-selectionner', volId]);
   }
 
+
+  // retour a la page precedente
+  retour(): void {
+    window.history.back();
+  }
+
+
 }
