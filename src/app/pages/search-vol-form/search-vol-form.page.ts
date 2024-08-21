@@ -25,9 +25,9 @@ export class SearchVolFormPage implements OnInit {
   villeDeDepart: string = "";
   villeDArrivee: string = "";
   filteredVilleDepart: { nom: string }[] = [];
-  listOfVille: { nom: string }[] = [];
+  listOfVille: any[]=[] ;
   filteredVilleDArrivee: { nom: string }[] = [];
-  voyageur: number = 1;
+  voyageur: number = 0;
   selectedClass: string = '';
   constructor(
     private route: ActivatedRoute,
@@ -36,6 +36,7 @@ export class SearchVolFormPage implements OnInit {
   ) {
     this.route.params.subscribe(params => {
       this.searchValue = params['searchValue'];
+      console.log('Hello '+params['searchValue'])
     });
 
     this.selectedTab = 1;
@@ -56,7 +57,7 @@ export class SearchVolFormPage implements OnInit {
     // Récupération des villes depuis le service
     this.serviceSearch.ListVille().then((res: { nom: string }[]) => {
       this.listOfVille = res;
-      console.log(this.listOfVille[1].nom);
+      console.log(this.listOfVille[1].pays.nom);
     });
 
     // Assurez-vous de ne pas appeler `Listville` si vous utilisez `subscribe` pour récupérer les villes
@@ -100,10 +101,12 @@ export class SearchVolFormPage implements OnInit {
 
   continuer() {
     this.router.navigate(['/liste-des-vols', {
-      paysDeDepart: this.villeDeDepart,
-      searchValue: this.searchValue,
+      villeDeDepart: this.villeDeDepart,
+      villeDArrivee: this.villeDArrivee,
       dateDepart: this.dateDepart,
-      dateDeRetour: this.dateDeRetour
+      dateDeRetour: this.dateDeRetour,
+      voyageur: this.voyageur,
+      classe: this.selectedClass
     }]);
   }
 }

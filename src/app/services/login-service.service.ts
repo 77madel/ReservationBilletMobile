@@ -121,7 +121,7 @@ export class LoginServiceService {
     this.router.navigate(['/login']);
     console.log(localStorage)
     }
-    
+
     getUserId() {
       const user = localStorage.getItem('currentUser');
       if (user) {
@@ -142,4 +142,3 @@ export class LoginServiceService {
 }
   
   
-
