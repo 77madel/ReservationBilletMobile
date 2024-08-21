@@ -1,3 +1,8 @@
+<!-- Vérifiez si les propriétés existent avant d'afficher -->
+<div *ngIf="vol && vol.aeroportDepart && vol.aeroportDepart.ville">
+  {{ vol.aeroportDepart.ville.nom }}
+</div>
+
 <div class="Body-page" *ngIf="vol">
   <nav class="nav-bar">
     <div>
@@ -7,24 +12,25 @@
       <h5>Détails du Vol</h5>
     </div>
   </nav>
+
   <div class="container-wrapper">
     <div class="container">
       <div class="heure-time">
         <div>
           <h5>{{ getFormattedTime(vol.dateEtHeureDepart) }}</h5>
-          <h6>{{ getFirstThreeLetters(vol.aeroportDepart) }}</h6>
+          <h6>{{ getFirstThreeLetters(vol.aeroportDepart.ville.nom) }}</h6> <!-- Correction ici -->
         </div>
         <h4>{{ vol.compagnie }}</h4>
         <div>
           <h5>{{ getFormattedTime(vol.dateEtHeureArrivee) }}</h5>
-          <h6>{{ getFirstThreeLetters(vol.aeroportDArrivee) }}</h6>
+          <h6>{{ getFirstThreeLetters(vol.aeroportDArrivee.ville.nom) }}</h6> <!-- Correction ici -->
         </div>
       </div>
       <div class="two-box">
         <div class="cutout cutout-left"></div>
         <div class="cutout cutout-right"></div>
       </div>
-    <img src="../../../assets/Images/avionlogo.png" alt="Logo Avion" class="logoAvion">
+      <img src="../../../assets/Images/avionlogo.png" alt="Logo Avion" class="logoAvion">
       <div class="box-footer">
         <button>Annuler</button>
         <h6>Voir détails</h6>
@@ -50,21 +56,21 @@
         <!-- Conteneurs de départ et d'arrivée -->
         <div class="flight-details">
           <div class="departure">
-            <p>{{ getFirstThreeLetters(vol.aeroportDepart) }}</p>
+            <p>{{ getFirstThreeLetters(vol.aeroportDepart.ville.nom) }}</p> <!-- Correction ici -->
           </div>
           <div class="arrival">
-            <p>{{ getFirstThreeLetters(vol.aeroportDArrivee) }}</p>
+            <p>{{ getFirstThreeLetters(vol.aeroportDArrivee.ville.nom) }}</p> <!-- Correction ici -->
           </div>
         </div>
         <!-- Conteneurs double texte -->
         <div class="flight-details">
           <div class="text1">
-            <p>{{ vol.aeroportDepart }}</p>
-            <p>{{ vol.aeroportDepartNom }}</p>
+            <p>{{ vol.aeroportDepart.ville.nom }}</p> <!-- Correction ici -->
+            <p>{{ vol.aeroportDepart.ville.nom }}</p> <!-- Correction ici -->
           </div>
           <div class="text2">
-            <p>{{ vol.aeroportDArrivee }}</p>
-            <p>{{ vol.aeroportDArrivee }}</p>
+            <p>{{ vol.aeroportDArrivee.ville.nom }}</p> <!-- Correction ici -->
+            <p>{{ vol.aeroportDArrivee.ville.nom }}</p> <!-- Correction ici -->
           </div>
         </div>
         <hr class="full-width-line" />
@@ -72,7 +78,7 @@
         <div class="datetime-container">
           <ion-item>
             <ion-label>Date:</ion-label>
-            <ion-input  [value]="getFormattedDate(vol.dateEtHeureDepart)"></ion-input>
+            <ion-input [value]="getFormattedDate(vol.dateEtHeureDepart)"></ion-input>
           </ion-item>
           <ion-item>
             <ion-label>Heure:</ion-label>
