@@ -24,7 +24,8 @@
               label-placement="floating"
               fill="outline"
               placeholder="Enter text"
-              [(ngModel)]="villeDeDepart">
+              [(ngModel)]="villeDeDepart"
+              required>
             </ion-input>
 
             <ion-list *ngIf="filteredVilleDepart.length > 0">
@@ -39,13 +40,14 @@
             </div>
 
             <ion-input
-              label="{{searchValue}}"
+              label="Ville d'arrivee"
               (ionInput)="filterVilleDArrivee($event)"
               debounce="300"
               label-placement="floating"
               fill="outline"
               placeholder="Enter text"
-              [(ngModel)]="villeDArrivee">
+              [(ngModel)]="villeDArrivee"
+              required>
             </ion-input>
 
             <ion-list *ngIf="filteredVilleDArrivee.length > 0">
@@ -61,7 +63,8 @@
               label="Entrer la date de départ"
               label-placement="floating"
               fill="outline"
-              [(ngModel)]="dateDepart">
+              [(ngModel)]="dateDepart"
+              required>
             </ion-input>
 
             <ion-input
@@ -80,10 +83,11 @@
               label="Voyageurs"
               label-placement="floating"
               fill="outline"
-              [(ngModel)]="voyageur">
+              [(ngModel)]="voyageur"
+              required>
             </ion-input>
 
-            <ion-select placeholder="Classe" slot="end" [(ngModel)]="selectedClass">
+            <ion-select placeholder="Classe" slot="end" [(ngModel)]="selectedClass" required>
               <ion-select-option *ngFor="let classe of classes" [value]="classe">
                 {{ classe }}
               </ion-select-option>
@@ -94,6 +98,6 @@
     </ion-card>
 
     <div class="separer"></div>
-    <ion-button (click)="continuer()">Continuer</ion-button>
+    <ion-button [disabled]="!isValid()" (click)="continuer()">Continuer</ion-button>
   </div>
 </ion-content>
