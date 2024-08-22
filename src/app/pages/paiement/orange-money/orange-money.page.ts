@@ -71,4 +71,8 @@ export class OrangeMoneyPage implements OnInit {
     }
 
 }
+
+  retour() {
+    window.history.back();
+  }
 }
