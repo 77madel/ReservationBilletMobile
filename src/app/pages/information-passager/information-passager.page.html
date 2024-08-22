@@ -35,15 +35,17 @@
           <div class="btn1">
             <input type="button" (click)="goToClasseEconomique(1)" value="Choisir la Classe">
           </div>
-          
+
           <div class="btn2">
             <input type="button" value="Ajouter" (click)="ajouterFormulaire()" *ngIf="forms.length < maxForms && i === forms.length - 1">
           </div>
         </div>
       </form>
     </div>
+
   </ion-card>
   <div class="button">
+    {{siege?.numero}}
     <input type="button" value="Envoyer" id="button">
   </div>
 </ion-content>

@@ -45,7 +45,6 @@
                   (mouseover)="showTooltip(siege)"
                   (mouseout)="hideTooltip()">
                   {{siege.numero}}
-
                 </ion-button>
               </ion-col>
             </ion-row>
@@ -87,7 +86,7 @@
         </div>
       </div>
 
-      <div class="secour">
+      <div class="secour-sortie gauche">
       </div>
 
       <div class="bas-gauche">
@@ -198,7 +197,7 @@
         </div>
       </div>
 
-      <div class="secour">
+      <div class="secour-sortie droite">
       </div>
 
       <div class="bas-droite">
@@ -270,5 +269,5 @@
     </ion-card>
   </div>
 
-  <ion-button expand="block" class="demarer">Valider</ion-button>
+  <ion-button expand="block" class="demarer"(click)="navigateToPageInfoPassager()">Valider</ion-button>
 </div>

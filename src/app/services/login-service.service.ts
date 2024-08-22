@@ -35,7 +35,7 @@ export class LoginServiceService {
       window.addEventListener('mousemove', () => this.finInactivite());
       window.addEventListener('keydown', () => this.finInactivite());
       window.addEventListener('scroll', () => this.finInactivite());
-  
+
 
     }
 
@@ -44,14 +44,14 @@ export class LoginServiceService {
         this.dureeExpirer();
       }, this.expiration);
     }
-  
+
     finInactivite() {
       if (this.duree) {
         clearTimeout(this.duree);
       }
       this.debutInactivite();
     }
-  
+
     dureeExpirer() {
       // Déconnexion de l'utilisateur
       this.deconnection();
@@ -140,5 +140,5 @@ export class LoginServiceService {
       }
     }
 }
-  
-  
+
+

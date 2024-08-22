@@ -1,4 +1,4 @@
-import {AfterViewInit, Component} from '@angular/core';
+import {AfterViewInit, Component, OnInit} from '@angular/core';
 import { IonApp, IonRouterOutlet, IonTabButton, IonTabBar, IonIcon, IonTabs, IonItem, IonLabel } from '@ionic/angular/standalone';
 import { AccueilPage } from "./pages/accueil/accueil.page";
 import { airplane, home, notifications, person } from 'ionicons/icons';
@@ -33,11 +33,18 @@ addIcons({
     ReservationvolPage,
   ],
 })
-export class AppComponent implements AfterViewInit {
+export class AppComponent implements AfterViewInit,OnInit {
   activeTab: HTMLElement | null = null;
   movingCircle: HTMLElement | null = null;
+  currentUserId!:number;
 
-  constructor(private router: Router) {}
+  constructor(private loginServiceService: LoginServiceService, private router: Router) {
+  }
+
+  ngOnInit() {
+    this.currentUserId = this.loginServiceService.getUtilisateur().username.id;
+  }
+
 
   ngAfterViewInit() {
     this.movingCircle = document.querySelector('.moving-circle');

@@ -29,8 +29,8 @@ export class InformationPassagerPage implements OnInit {
   // formulaires
   forms= [{}];
   maxForms = 3; // Nombre maximum de formulaires à afficher
-   // Ajouter un formulaire de plus si le nombre maximum n'est pas atteint
-   ajouterFormulaire() {
+  // Ajouter un formulaire de plus si le nombre maximum n'est pas atteint
+  ajouterFormulaire() {
     if (this.forms.length < this.maxForms) {
       this.forms.push({}); // Ajoute un nouveau formulaire
     } else {
