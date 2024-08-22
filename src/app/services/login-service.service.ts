@@ -21,7 +21,7 @@ export class LoginServiceService {
         static jwtToken: any;
         public current: any;
         private duree: any;
-        private readonly expiration = 10 * 60 * 100; // 10 minutes
+        private readonly expiration = 10 * 60 * 1000; // 10 minutes
 
     constructor(private http: HttpClient,private router: Router,private platform: Platform) {
 
