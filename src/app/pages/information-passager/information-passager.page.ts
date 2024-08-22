@@ -16,21 +16,29 @@ import { Siege } from 'src/app/models/Siege';
 })
 export class InformationPassagerPage implements OnInit {
 
-  siege: Siege | null = null;
+  siege!: Siege;
+  siegeSelectionne: any;
+  classeSiege!: string;
 
   constructor(private router: Router) {addIcons({ arrowBackCircleOutline }); }
 
   ngOnInit() {
+    this.classeSiege = "AFFAIRE";
     // Récupérer les données passées via navigation
-    this.siege = history.state.siege;
-    console.log('Siège reçu:', this.siege);
+    if (this.router.getCurrentNavigation()?.extras.state) {
+      // @ts-ignore
+      this.siegeSelectionne = this.router.getCurrentNavigation().extras.state['siege'];
+      console.log('Siège reçu:', this.siegeSelectionne);
+    } else {
+      console.warn('Aucun siège reçu');
+    }
   }
 
   // formulaires
   forms= [{}];
   maxForms = 3; // Nombre maximum de formulaires à afficher
-   // Ajouter un formulaire de plus si le nombre maximum n'est pas atteint
-   ajouterFormulaire() {
+  // Ajouter un formulaire de plus si le nombre maximum n'est pas atteint
+  ajouterFormulaire() {
     if (this.forms.length < this.maxForms) {
       this.forms.push({}); // Ajoute un nouveau formulaire
     } else {
@@ -39,8 +47,16 @@ export class InformationPassagerPage implements OnInit {
   }
 
   //Ouvrir classeEconomique
-  goToClasseEconomique(avionId: number) {
-    this.router.navigate(['/classe-economique', avionId]);
+  goToClasseEconomique(avionId: number, classeSiege: string) {
+    if (classeSiege==="ECONOMIQUE") {
+      this.router.navigate(['/classe-economique', avionId]);
+    }if (classeSiege==="AFFAIRE") {
+      this.router.navigate(['/classe-affaire/',avionId]);
+    }else {
+      console.log("choisir la classe du siege");
+    }
+
+
   }
 
 }
