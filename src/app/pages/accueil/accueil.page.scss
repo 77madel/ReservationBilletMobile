@@ -1,3 +1,4 @@
+/* Réinitialisation des marges, des paddings et de la box-sizing pour tous les éléments */
 * {
   margin: 0;
   padding: 0;
@@ -5,27 +6,26 @@
   font-family: Arial, sans-serif;
 }
 
+/* Conteneur principal avec une grille pour organiser les sections */
 .container {
   display: grid;
   grid-template-rows: 55px 1fr;
 }
 
-
-
-
+/* Style pour l'en-tête */
 header {
   display: flex;
   justify-content: flex-start;
   padding: 15px;
   width: 100vw;
   
-  img{
-    width: 15vw;
-    height: auto;
+  img {
+    width: 15vw; /* Largeur de l'image du logo */
+    height: auto; /* Hauteur automatique pour conserver les proportions */
   }
-  
 }
 
+/* Section de recherche */
 .search-section {
   margin-top: 50px;
   width: 100vw;
@@ -48,7 +48,7 @@ header {
     width: 100%;  
 
     input {
-      width: 70%;
+      width: 70%; /* Largeur du champ de recherche */
       padding: 10px;
       border-radius: 25px;
       border: 1px solid #ccc;
@@ -56,7 +56,7 @@ header {
     }
 
     button {
-      background-color: #00bfa6;
+      background-color: #00bfa6; /* Couleur de fond du bouton */
       border: none;
       border-radius: 50%;
       padding: 10px;
@@ -65,15 +65,14 @@ header {
       position: relative;
 
       .search-icon {
-        color: white;
+        color: white; /* Couleur de l'icône de recherche */
         font-size: 18px;
       }
     }
   }
 }
 
-
-
+/* Filtre par catégorie (pays) */
 .category-filter {
   display: flex;
   justify-content: space-around;
@@ -90,14 +89,14 @@ header {
     cursor: pointer;
     padding: 10px 20px;
 
-    &:hover, &:active{
-      color: #00bfa6;
-      border-bottom: 2px solid #00bfa6;
+    &:hover, &:active {
+      color: #00bfa6; /* Couleur du texte au survol et à l'activation */
+      border-bottom: 2px solid #00bfa6; /* Bordure inférieure au survol et à l'activation */
     }
-
   }
 }
 
+/* Cartes de voyage */
 .travel-cards {
   display: flex;
   justify-content: center;
@@ -108,7 +107,7 @@ header {
 
   .card {
     flex: 0 0 auto; /* Empêche les cartes de se réduire en taille et leur permet de défiler horizontalement */
-    background-color: #fff;
+    background: #fff; /* Couleur de fond des cartes */
     border-radius: 15px;
     overflow: hidden;
     margin: 0 10px;
@@ -123,7 +122,7 @@ header {
     }
 
     .card-info {
-      margin-top: -40%;
+      margin-top: -40%; /* Positionne le texte sur l'image */
       padding: 15px;
       color: #ffffff;
 
@@ -139,15 +138,18 @@ header {
   }
 }
 
+/* Style pour le bouton d'onglet au survol */
 ion-tab-button:hover {
   background-color: aqua;
 }
 
+/* Style pour la barre d'onglets */
 ion-tab-bar {
   background-color: #A5A7AC; /* Couleur de fond de la barre d'onglets */
   border-top: 1px solid #e0e0e0; /* Bordure supérieure de la barre d'onglets */
 }
 
+/* Style pour les boutons d'onglet */
 ion-tab-button {
   color: #A5A7AC; /* Couleur du texte et des icônes par défaut */
   
@@ -156,10 +158,12 @@ ion-tab-button {
   }
 }
 
+/* Positionnement relatif pour la barre de recherche */
 .search-bar {
   position: relative;
 }
 
+/* Liste des suggestions */
 .suggestions-list {
   position: absolute;
   top: 100%;
@@ -172,11 +176,13 @@ ion-tab-button {
   z-index: 1000;
 }
 
+/* Style pour chaque élément de la liste des suggestions */
 .suggestions-list li {
   padding: 10px;
   cursor: pointer;
 }
 
+/* Style pour chaque élément de la liste des suggestions au survol */
 .suggestions-list li:hover {
   background-color: #f0f0f0;
 }
