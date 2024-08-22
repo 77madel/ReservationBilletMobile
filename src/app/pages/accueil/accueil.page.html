@@ -1,46 +1,63 @@
-
-
 <div class="container">
+  <!-- En-tête de la page -->
   <header>
     <div>
+      <!-- Logo de l'application -->
       <img [src]="logo" alt="logo">
     </div>
   </header>
 
   <main>
+    <!-- Section de recherche -->
     <div class="search-section">
       <h1>Où voulez-vous Aller ?</h1>
       <div class="search-bar">
+        <!-- Champ de recherche avec liaison bidirectionnelle -->
         <input type="text" placeholder="Recherchez votre voyage" [(ngModel)]="searchText" (input)="onSearch()">
-        <button (click)="aff()"><i class="search-icon">&#128269;</i></button>
+        <!-- Bouton de recherche -->
+        <button (click)="aff()"><i class="search-icon">🔍</i></button>
+        <!-- Liste des suggestions filtrées -->
         <ion-list *ngIf="filteredVilles.length > 0 && showSuggestions" class="suggestions-list">
           <ion-item *ngFor="let ville of filteredVilles | search:searchText" (click)="selectCity(ville)">{{ ville.nom }}</ion-item>
         </ion-list>
       </div>
     </div>
     
-
+    <!-- Filtre par catégorie (pays) -->
     <div *ngIf="!showSuggestions" class="category-filter">
-      <button class="active">Tout</button>
-      <button>Afrique</button>
-      <button>Europe</button>
-      <button>Asie</button>
-      <button>Océanie</button>
+      @for (item of villes; track $index) {
+        <!-- Bouton pour afficher les villes d'un pays spécifique -->
+        <button (click)="afficherville(item.pays.nom)">{{item.pays.nom}}</button>
+      }
     </div>
 
-    <div *ngIf="!showSuggestions" class="travel-cards">
+    <!-- Cartes de voyage affichées si showCards est vrai -->
+    <div *ngIf="showCards" class="travel-cards">
+      <div *ngFor="let ville of filteredVilles" (click)="aff(ville.nom)" class="card">
+        <!-- Image de la ville -->
+        <img [src]="mosque" alt="{{ville.nom}}, {{ville.pays.nom}}">
+        <div class="card-info">
+          <!-- Nom de la ville et du pays -->
+          <h2>{{ville.nom}}, {{ville.pays.nom}}</h2>
+        </div>
+      </div>
+    </div>
+
+    <!-- Cartes de voyage affichées si showSuggestions et showCards sont faux -->
+    <div *ngIf="!showSuggestions && !showCards" class="travel-cards">
       @for (item of villes; track $index) {
         <div (click)="aff(item.nom)" class="card">
+          <!-- Image de la ville -->
           <img [src]="mosque" alt="{{item.nom}}, {{item.pays.nom}}">
           <div class="card-info">
+            <!-- Nom de la ville et du pays -->
             <h2>{{item.nom}}, {{item.pays.nom}}</h2>
           </div>
         </div>
       }
-      
     </div>
   </main>
-
- 
 </div>
+
+<!-- Composant affiché si aucune ville n'est trouvée -->
 <app-ville-not-found></app-ville-not-found>

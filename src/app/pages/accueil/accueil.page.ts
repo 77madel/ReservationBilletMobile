@@ -51,6 +51,8 @@ export class AccueilPage implements OnInit {
 
   showSuggestions: boolean = false;
 
+  showCards: boolean = false;
+
   paysArrive: string | undefined;
 
   filteredPaysDArrivee: never[] | undefined;
@@ -81,6 +83,13 @@ export class AccueilPage implements OnInit {
       }
     });
   }
+  
+  //Méthode affichant une ville a rapport au pays
+  afficherville(pays: string) {
+    this.filteredVilles = this.villes.filter(ville => ville.pays.nom === pays);
+    this.showSuggestions = false; // masquer les suggestions de recherche
+    this.showCards = true; // afficher les cartes
+  }
 
   // Méthode pour la recherche dans la bar de recherche
   onSearch() {
@@ -109,7 +118,6 @@ export class AccueilPage implements OnInit {
   }
 
   // Methode permettant la redirection vers notre redirection avec l'initialisation du champ de la ville d'arrivée avec la ville selectionnéé
-  
   aff(villeNom?: string) {
     const searchValue = villeNom || this.searchText;
 
