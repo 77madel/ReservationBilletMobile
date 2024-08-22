@@ -21,7 +21,7 @@ export class LoginServiceService {
         static jwtToken: any;
         public current: any;
         private duree: any;
-        private readonly expiration = 10 * 60 * 1000; // 10 minutes
+        private readonly expiration = 10 * 60 * 100; // 10 minutes
 
     constructor(private http: HttpClient,private router: Router,private platform: Platform) {
 
@@ -105,7 +105,6 @@ export class LoginServiceService {
       const user = localStorage.getItem('currentUser');
       if (user) {
         const conversionUser = JSON.parse(user);
-        console.log("Utilisateur récupéré depuis localStorage:", conversionUser);
         return conversionUser; // Retourne l'objet utilisateur complet
       } else {
         console.log("Aucun utilisateur connecté trouvé.");
