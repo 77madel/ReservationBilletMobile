@@ -33,7 +33,7 @@
         </div>
         <div class="btn">
           <div class="btn1">
-            <input type="button" (click)="goToClasseEconomique(1)" value="Choisir la Classe">
+            <input type="button" (click)="goToClasseEconomique(1,classeSiege)" value="Choisir la Classe">
           </div>
 
           <div class="btn2">
@@ -45,7 +45,7 @@
 
   </ion-card>
   <div class="button">
-    {{siege?.numero}}
+    {{siege.numero}}
     <input type="button" value="Envoyer" id="button">
   </div>
 </ion-content>

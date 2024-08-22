@@ -15,7 +15,7 @@ import { ellipse } from 'ionicons/icons';
 import { addIcons } from 'ionicons';
 import { SiegeService } from '../../service/siege/siege.service';
 import { Siege } from '../../models/Siege';
-import {ActivatedRoute} from "@angular/router";
+import {ActivatedRoute, Router} from "@angular/router";
 
 addIcons({ ellipse });
 
@@ -37,7 +37,7 @@ export class ClasseAffairePage implements OnInit {
   siegeSelectionne: Siege | null = null;
   tooltipVisible = false;
 
-  constructor(private siegeService: SiegeService, private route: ActivatedRoute) {}
+  constructor(private siegeService: SiegeService, private route: ActivatedRoute, private router: Router) {}
 
   ngOnInit(): void {
     this.route.paramMap.subscribe(params => {
@@ -102,10 +102,10 @@ export class ClasseAffairePage implements OnInit {
     this.tooltipVisible = false;
   }
 
-  /*
-  Ouvrir classeEconomique
-  goToClasseEconomique(avionId: number) {
-    this.router.navigate(['/classe-economique', avionId]);
-  }*/
+  navigateToPageInfoPassager(): void {
+    if (this.siegeSelectionne) {
+      this.router.navigate(['/InformationPassagerPage'], {state: {siege: this.siegeSelectionne}});
+    }
+  }
 
 }
