@@ -10,6 +10,14 @@ export interface Vol {
   aeroportDepart: {
     ville: {
       nom: string;
+      pays: {
+        adminCompagnie: {
+          compagnie: {
+            nom: string;
+            numeroTelephone: string;
+          }
+        }
+      }
     };
   };
   aeroportDArrivee: {

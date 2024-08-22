@@ -17,29 +17,26 @@
           <li><strong>Numéro de réservation :</strong> {{ notification.reservation.id }}</li>
           <li><strong>Vol :</strong> {{ notification.reservation.vol.numeroDeVol }}</li>
           <li><strong>Date de départ :</strong> {{ notification.reservation.vol.dateEtHeureDepart }}</li>
-          <li><strong>Date d'arrivée :</strong> {{ notification.reservation.vol.aeroportDArrivee }}</li>
-          <li><strong>Siège :</strong> {{ notification.reservation.vol.avion.siege.positionSiege.nom }}</li>
-          <li><strong>Classe :</strong> {{ notification.reservation.vol.avion.siege.positionSiege.classeSiege }}</li>
-          <li><strong>Prix total :</strong> {{ notification.reservation.vol.avion.siege.positionSiege.tarif }}</li>
+          <li><strong>Date d'arrivée :</strong> {{ notification.reservation.vol.dateEtHeureArrivee }}</li>
         </ul>
 
         <h3>Adresse de départ :</h3>
-        <p>{{ notification.reservation.vol.aeroportDepart }}</p>
+        <p>{{ notification.reservation.vol.aeroportDepart.ville.nom }}</p>
 
         <h3>Adresse d'arrivée :</h3>
-        <p>{{ notification.reservation.vol.aeroportDArrivee }}</p>
+        <p>{{ notification.reservation.vol.aeroportDArrivee.ville.nom }}</p>
 
-        <p>Nous vous remercions d'avoir choisi <strong>[Nom de la compagnie ou du service]</strong>. Nous avons hâte de vous accueillir à bord.</p>
+        <p>Nous vous remercions d'avoir choisi <strong>{{ notification.reservation.vol.aeroportDepart.ville.pays.adminCompagnie.compagnie.nom}}</strong>
+          à travers <strong>Pankuru</strong>. Nous avons hâte de vous accueillir à bord.</p>
 
-        <p>Si vous avez des questions ou avez besoin d'assistance supplémentaire, n'hésitez pas à nous contacter à <strong>[Numéro de téléphone ou email du service client]</strong>.</p>
+        <p>Si vous avez des questions ou avez besoin d'assistance supplémentaire, n'hésitez pas à nous contacter au <strong>{{ notification.reservation.vol.aeroportDepart.ville.pays.adminCompagnie.compagnie.numeroTelephone}}</strong>.</p>
 
         <p>Nous vous souhaitons un excellent voyage!</p>
 
         <p>Cordialement,</p>
 
-        <p><strong>[Nom de la compagnie ou du service]</strong><br>
-          [Site web]<br>
-          [Coordonnées de la compagnie ou du service]</p>
+        <p><strong>Equipe Pankuru</strong><br>
+        </p>
       </div>
 
     </div>
