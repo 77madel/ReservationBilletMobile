@@ -1,3 +1,4 @@
+import { Platform } from '@ionic/angular';
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { Router } from '@angular/router';
@@ -19,8 +20,43 @@ export class LoginServiceService {
     public currentUser!: Observable<any>;
         static jwtToken: any;
         public current: any;
+        private duree: any;
+        private readonly expiration = 10 * 60 * 1000; // 10 minutes
 
-    constructor(private http: HttpClient,private router: Router) {}
+    constructor(private http: HttpClient,private router: Router,private platform: Platform) {
+
+      this.debutInactivite();
+
+      // c'est pour utiliser les evenements de user
+      this.platform.resume.subscribe(() => this.finInactivite());
+      this.platform.pause.subscribe(() => this.finInactivite());
+
+      window.addEventListener('click', () => this.finInactivite());
+      window.addEventListener('mousemove', () => this.finInactivite());
+      window.addEventListener('keydown', () => this.finInactivite());
+      window.addEventListener('scroll', () => this.finInactivite());
+
+
+    }
+
+    debutInactivite() {
+      this.duree = setTimeout(() => {
+        this.dureeExpirer();
+      }, this.expiration);
+    }
+
+    finInactivite() {
+      if (this.duree) {
+        clearTimeout(this.duree);
+      }
+      this.debutInactivite();
+    }
+
+    dureeExpirer() {
+      // Déconnexion de l'utilisateur
+      this.deconnection();
+    }
+
 
     login(username: string, password: string): Observable<any> {
       const credentials = { username, password };
@@ -69,7 +105,6 @@ export class LoginServiceService {
       const user = localStorage.getItem('currentUser');
       if (user) {
         const conversionUser = JSON.parse(user);
-        console.log("Utilisateur récupéré depuis localStorage:", conversionUser);
         return conversionUser; // Retourne l'objet utilisateur complet
       } else {
         console.log("Aucun utilisateur connecté trouvé.");
@@ -77,6 +112,14 @@ export class LoginServiceService {
       }
     }
 
+
+    deconnection(){
+      // Nettoyage de la session et redirection
+    localStorage.removeItem('authToken');
+    localStorage.removeItem('tokenExpiry');
+    this.router.navigate(['/login']);
+    console.log(localStorage)
+    }
 
     getUserId() {
       const user = localStorage.getItem('currentUser');
@@ -95,9 +138,6 @@ export class LoginServiceService {
         return null;
       }
     }
+}
 
 
-
-
-
-  }

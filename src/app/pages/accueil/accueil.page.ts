@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, ViewChild } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { FormsModule } from '@angular/forms';
 import { IonContent, IonHeader, IonTitle, IonToolbar, IonTabs, IonIcon, IonTabButton, IonTabBar, IonItem, IonLabel, IonList } from '@ionic/angular/standalone';
@@ -8,13 +8,16 @@ import { RouterLink } from '@angular/router';
 import { AccueilService } from './accueil.service'; 
 import { NavController } from '@ionic/angular';
 import { SearchPipe } from './search.pipe'; // Importez le pipe autonome ici
+import { VilleNotFoundComponent } from './ville-not-found/ville-not-found.component';
 
 @Component({
   selector: 'app-accueil',
   templateUrl: './accueil.page.html',
   styleUrls: ['./accueil.page.scss'],
   standalone: true,
-  imports: [IonList, 
+  imports: [
+    VilleNotFoundComponent,
+    IonList, 
     IonLabel, 
     IonItem, 
     IonTabBar, 
@@ -28,22 +31,32 @@ import { SearchPipe } from './search.pipe'; // Importez le pipe autonome ici
     CommonModule, 
     FormsModule, 
     RouterLink,
-    SearchPipe // Importez directement le pipe ici
+    SearchPipe, // Importez directement le pipe ici
   ]
 })
 export class AccueilPage implements OnInit {
 
-  
+  @ViewChild(VilleNotFoundComponent) popup!: VilleNotFoundComponent;
 
  
   mosque: String = "assets/Images/djenne-mosque 1.png";
+
   logo: String = "assets/Images/logo.png";
+
   villes: any[] = []; // Variable pour stocker les données récupérées
+
   searchText: string = ''; // Texte de recherche
+
   filteredVilles: any[] = [];
+
   showSuggestions: boolean = false;
+
+  showCards: boolean = false;
+
   paysArrive: string | undefined;
+
   filteredPaysDArrivee: never[] | undefined;
+
   chercheValue:string='';
   
   
@@ -61,7 +74,6 @@ export class AccueilPage implements OnInit {
     this.accueilService.getData().subscribe({
       next: data => {
         this.villes = data;
-        console.log(this.villes);
       },
       error: error => {
         console.error('Erreur lors de la récupération des données', error);
@@ -71,38 +83,66 @@ export class AccueilPage implements OnInit {
       }
     });
   }
+  
+  //Méthode affichant une ville a rapport au pays
+  afficherville(pays: string) {
+    this.filteredVilles = this.villes.filter(ville => ville.pays.nom === pays);
+    this.showSuggestions = false; // masquer les suggestions de recherche
+    this.showCards = true; // afficher les cartes
+  }
 
+  // Méthode pour la recherche dans la bar de recherche
   onSearch() {
+    // Vérifie si la barre de recherche contient du texte après avoir supprimé les espaces en début et fin
+    // Si la longueur du texte est supérieure à 0, affiche les suggestions
     this.showSuggestions = this.searchText.trim().length > 0;
+
+    // Filtre la liste des villes en fonction du texte entré dans la barre de recherche
+    // `filter` parcourt chaque ville dans `this.villes`
     this.filteredVilles = this.villes.filter(ville =>
+      
+      // Convertit le nom de chaque ville en minuscules pour une comparaison insensible à la casse
+      // Vérifie si le nom de la ville contient la chaîne de caractères entrée par l'utilisateur
       ville.nom.toLowerCase().includes(this.searchText.toLowerCase())
     );
   }
 
-  filterVille(event: any) {
-    const query = event.target.value.toLowerCase();
-    console.log(query);
-    this.filteredVilles = this.villes.filter(item => {
-      return item.toLowerCase().indexOf(query) > -1;
-    })
-  }
-
-  aff(villeNom?: string) {
-    const searchValue = villeNom || this.searchText; // Utilise villeNom s'il est fourni, sinon utilise searchText
-    console.log("Navigating with searchValue:", searchValue);
-    this.nvControle.navigateForward([`/search-vol-form`,{ 
-      searchValue: searchValue,
-  
-    }])
-  }
-  
-  
-
+  // Methode pour mettre le texte cliqué en entier dans la bar de recherche
   selectCity(ville: any) {
+
     // Met à jour le texte de la barre de recherche avec le nom de la ville sélectionnée
     this.searchText = ville.nom;
-    this.showSuggestions = false; // Masque la liste des suggestions après la sélection
+    
+     // Masque la liste des suggestions après la sélection
+    this.showSuggestions = false;
   }
 
-  
+  // Methode permettant la redirection vers notre redirection avec l'initialisation du champ de la ville d'arrivée avec la ville selectionnéé
+  aff(villeNom?: string) {
+    const searchValue = villeNom || this.searchText;
+
+    const isVillePresent = this.villes.some(ville =>
+      ville.nom.toLowerCase() === searchValue.toLowerCase()
+    );
+
+    if (isVillePresent) {
+      this.nvControle.navigateForward([`/search-vol-form`, { 
+        searchValue: searchValue,
+      }]);
+    } else {
+      // Si la ville n'est pas trouvée, affichez le popup
+      this.popup.message = 'La ville spécifiée n\'est pas dans la liste.';
+      this.popup.isVisible = true;
+      this.searchText = '';
+      this.showSuggestions = false;
+    }
+  }
 }
+
+  
+  
+
+
+
+  
+
