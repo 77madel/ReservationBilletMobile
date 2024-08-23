@@ -18,12 +18,15 @@ export class ListeVolService {
     try{
       const response =  this.http.get<any>(url).toPromise()
       return response;
+      console.log(response)
     }catch(error){
       throw error;
     }
   }
 
- async getVolById(id: string): Promise<any> {
-    return this.http.get<any>(`${this.apiUrl}/vol/afficher/tout/${id}`).toPromise();
+
+ getVolById(id: number): Observable<any> {
+    return this.http.get<any>(`${this.apiUrl}/vol/afficher/tout/${id}`);
+
   }
 }

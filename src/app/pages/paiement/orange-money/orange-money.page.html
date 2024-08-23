@@ -1,10 +1,14 @@
 <ion-app>
 <ion-header [translucent]="true">
   <ion-toolbar>
-    <ion-title >
+    <div class="head-title">
+      <ion-icon name="arrow-back-circle-outline" (click)="retour()"></ion-icon>
+      <ion-title>Orange Money</ion-title>
+    </div>
+    <!-- <ion-title >
       <ion-icon name="arrow-back"></ion-icon>
        Orange Money
-      </ion-title>
+      </ion-title> -->
   </ion-toolbar>
 </ion-header>
 <ion-content [fullscreen]="true">
@@ -16,7 +20,7 @@
   <div class="conteneur">
     <ion-img src="assets/orange-money.png"> </ion-img>
     <div class="saisie-zone">
-      <select name="" id="code-pays">
+      <select name="" id="code-pays" [ngModel]="paiement.codePays">
         <option value="+223">+223</option>
         <option value="+225">+225</option>
         <option value="+226">+226</option>
