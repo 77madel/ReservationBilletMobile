@@ -25,10 +25,10 @@ export class InformationPassagerPage implements OnInit {
   passagers={
     prenom: '',
     nom: '',
-    depart: '',
     numeroDePassPort: '',
-    
-
+    numeroDeVisa: ''
+    // siege_id: 0,
+    // reservation_id: 0,
   }
 
   constructor(private router: Router,private serv:PassageServiceService) {addIcons({ arrowBackCircleOutline }); }
@@ -69,7 +69,6 @@ export class InformationPassagerPage implements OnInit {
 
 
   }
-
 
   //test
 

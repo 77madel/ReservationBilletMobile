@@ -1,7 +1,46 @@
-<label for="" >nom</label>
-<input type="text" [(ngModel)]="passagers.nom">
-<label for="" >prenom</label>
-<input type="text" [(ngModel)]="passagers.prenom">
-<label for="" >passport</label>
-<input type="text" [(ngModel)]="passagers.numeroDePassPort">
-<input type="button" (click)="enregistrer()" value="envoyer">
+<ion-header [translucent]="true">
+    <div class="head">
+      <ion-icon name="arrow-back-circle-outline" ></ion-icon>
+      <ion-title><h1>G-Ticket</h1></ion-title>
+    </div>
+</ion-header>
+
+<ion-content>
+  <div class="corps">
+    <div class="form">
+      <div class="lab">
+          <label for="" >Nom</label>
+          <input type="text" [(ngModel)]="passagers.nom">
+      </div>
+      
+      <div class="lab">
+          <label for="" >Prenom</label>
+          <input type="text" [(ngModel)]="passagers.prenom">
+      </div>
+
+      <div class="Visa">
+          <div class="lab-visa">
+              <label for="" >Passport</label>
+              <input type="text" [(ngModel)]="passagers.numeroDePassPort">
+          </div>
+          <div class="lab-visa">
+              <label for="">Visa</label>
+              <input type="text" [(ngModel)]="passagers.numeroDeVisa">
+          </div>  
+      </div>
+
+      <div class="ajout">
+          <div class="lab-btn">
+              <span id="chaise">34</span><span> Place</span>
+          </div>
+          <div class="lab-btn">
+              <input type="button"  value="Choisir chaise">
+          </div>
+      </div>
+    </div>
+
+    <div class="foot">
+        <input type="button" (click)="enregistrer()" value="Envoyer">
+    </div>
+</div>
+</ion-content>

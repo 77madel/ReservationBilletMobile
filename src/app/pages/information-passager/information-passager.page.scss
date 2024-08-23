@@ -1,120 +1,153 @@
-.head {
-  background: #F3F5F6;
-  display: flex;
-  align-items: center;
-  width: 100%;
-  padding: 10px 20px;
 
-  ion-icon {
-    margin-right: 10px;
-    font-size: 30px;
+ion-header{
+  margin-top: 10px;
+
+  .head {
+    background-color: #fff;
+    display: flex;
+    justify-content: space-between;
+    align-items: first baseline;
+    width: 100%;
+    padding: 0 20px;
+
+    ion-icon {
+      font-size: 30px;
+      color: black;
+    }
+    ion-title{
+      h1{
+        color:black;
+        font-size: 30px;
+        font-weight: bold;
+        padding-left: 70px;
+      }
+    }
+    
   }
 }
 
-.head ion-title h1 {
-  font-size: 20px;
-  font-weight: bold;
-  color: black;
-  margin: 0;
-}
-
 ion-content {
-  --background: #F3F5F6;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  padding-top: 50px;
+  width: 100%;
+  --background: hsl(210, 17%, 98%);
 }
 
-ion-card {
-  --background: #fff;
-  margin-top: 30px;
+.corps {
+  background-color: #ffffff;
+  margin: 20px;
   border-radius: 10px;
-  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
   padding: 20px;
+  width: 90%;
+  max-width: 400px;
 }
 
 .form {
+  background-color: #ffffff;
+}
+
+.form .lab {
+  margin-bottom: 15px;
+}
+
+.form .lab label {
+  font-size: 20px;
+  font-weight: bold;
+  color: #333;
+  display: block;
+  margin-bottom: 5px;
+  margin-left: 5px;
+}
+
+.form .lab input[type="text"] {
   width: 100%;
-  margin-bottom: 20px;
+  padding: 10px;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  font-size: 14px;
 }
 
-.form-input {
-  margin-bottom: 12px;
-}
-
-ion-input {
-  --padding-start: 10px;
-  --padding-end: 10px;
-  --padding-top: 10px;
-  --padding-bottom: 10px;
-  --border-radius: 10px;
-  --background: #fff;
-  --color: black;
-  --placeholder-color: #999;
-  --label-color-focused: #04BBC7;
-}
-
-.derpart, .retour, .number, .classe {
+.lab-pas {
   width: 48%;
 }
 
-.form-input {
-  display: flex;
-  justify-content: space-between;
+.form .lab-pas + .lab-pas {
+  margin-left: 4%;
 }
 
-.form-input ion-input {
+.form .Visa {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.form .Visa .lab-visa {
+  width: 48%;
+}
+.lab-visa label {
+  font-size: 20px;
+  font-weight: bold;
+  color: #333;
+  display: block;
+  margin-bottom: 5px;
+  margin-left: 5px;
+}
+.lab-visa input[type="text"] {
   width: 100%;
+  padding: 10px;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  font-size: 14px;
 }
 
-.btn {
+.form .ajout {
   display: flex;
+  flex-direction: row;
   justify-content: space-between;
-}
-
-.btn2 input[type="button"] {
-  background-color: #04BBC7;
-  color: white;
-  border: none;
-  padding: 10px 20px;
-  border-radius: 10px;
-  cursor: pointer;
-  font-size: 20px;
-  font-weight: bold;
-}
-.btn2 input[type="button"]:hover {
-  background-color: #0699a3;
-}
-
-.btn1 input[type="button"] {
-  background-color: white;
-  color: black;
-  padding: 9px 15px;
-  border-radius: 10px;
-  border: 1px solid #04BBC7;
-  cursor: pointer;
-  font-size: 20px;
-  font-weight: bold;
-}
-.btn1 input[type="button"]:hover {
-  background-color: #d0e7e9;
-}
-
-.button {
-  display: flex;
-  justify-content: center;
+  align-items: center;
   margin-top: 20px;
 }
 
-#button {
-  width: 70%;
-  background-color: #04BBC7;
-  color: white;
-  border: none;
-  padding: 15px;
-  border-radius: 10px;
-  cursor: pointer;
+.form .ajout .lab-btn span {
+  margin-left: 10px;
   font-size: 20px;
   font-weight: bold;
+  color: #000000;
+}
+.form .ajout .lab-btn #chaise {
+  margin-left: 10px;
+  font-size: 20px;
+  font-weight: bold;
+  color: #04BBC7;
+}
+
+.form .ajout .lab-btn input[type="button"] {
+  background-color: #04BBC7;
+  color: #fff;
+  border: none;
+  padding: 10px 20px;
+  border-radius: 5px;
+  cursor: pointer;
+  font-size: 14px;
+}
+
+.foot {
+  margin-top: 30px;
+  text-align: center;
+}
+
+.foot input[type="button"] {
+  background-color: #04BBC7;
+  width: 70%;
+  color: #fff;
+  border: none;
+  padding: 12px 30px;
+  border-radius: 5px;
+  font-size: 16px;
+  cursor: pointer;
+}
+
+.foot input[type="button"]:hover,
+.form .ajout .lab-btn input[type="button"]:hover {
+  background-color: #0d9da8;
 }
