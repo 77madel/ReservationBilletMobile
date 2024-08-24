@@ -66,8 +66,6 @@ export class InformationPassagerPage implements OnInit {
     }else {
       console.log("choisir la classe du siege");
     }
-
-
   }
 
   //test
@@ -80,7 +78,7 @@ export class InformationPassagerPage implements OnInit {
         this.router.navigate(['/orange-money'])
       }, error => {
 
-        console.error('Erreur lors de l\'enregistrement:', error);
+        // console.error('Erreur lors de l\'enregistrement:', error);
       });
   }
 
