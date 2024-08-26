@@ -1,10 +1,11 @@
-import { Component, OnInit } from '@angular/core';
 import { CommonModule } from '@angular/common';
+import { Component, OnInit } from '@angular/core';
 import { FormsModule } from '@angular/forms';
 import { ActivatedRoute, Router } from '@angular/router';
+import { IonicModule } from "@ionic/angular";
 import { addIcons } from 'ionicons';
 import { arrowBackOutline, arrowDownOutline, arrowUpOutline, calendarOutline } from 'ionicons/icons';
-import { IonicModule } from "@ionic/angular";
+import { ReservationVolService } from 'src/app/services/reservationVol/reservation-vol.service';
 import { SearchFormService } from "../../services/search-form/search-form.service";
 
 @Component({
@@ -32,7 +33,8 @@ export class SearchVolFormPage implements OnInit {
   constructor(
     private route: ActivatedRoute,
     private router: Router,
-    private serviceSearch: SearchFormService
+    private serviceSearch: SearchFormService,
+    private reservationService: ReservationVolService, // Injection du service de réservation
   ) {
     this.route.params.subscribe(params => {
       this.searchValue = params['searchValue'];
@@ -117,6 +119,7 @@ export class SearchVolFormPage implements OnInit {
   retour(): void {
     window.history.back();
   }
+
 }
 
 

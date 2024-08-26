@@ -92,12 +92,14 @@
         <!-- Texte Prix -->
         <div class="price-container">
           <p>Prix: {{ vol.prix }} CFA</p>
+          <p>Prix: {{ voyageur }} CFA</p>
+
         </div>
       </div>
     </div>
     <div class="flex-btn">
       <button class="btn-annuler">Annuler</button>
-      <button class="btn-continuer">Continuer</button>
+      <button class="btn-continuer" (click)="ajouterReservation()">Réserver</button>
     </div>
   </div>
 </div>
