@@ -24,4 +24,7 @@ export class PayementRefuserPage implements OnInit {
   ngOnInit() {
   }
 
+  retour() {
+    window.history.back();
+  }
 }

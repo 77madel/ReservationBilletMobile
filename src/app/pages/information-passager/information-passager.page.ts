@@ -93,8 +93,7 @@ export class InformationPassagerPage implements OnInit {
       .subscribe(response => {
         console.log('Passager enregistré:'+response.nom+response.prenom);
         alert('Reservation effectuee')
-        //orange-money
-        this.router.navigate(['/reservationvol'])
+        this.router.navigate(['/orange-money'])
       }, error => {
 
         console.error('Erreur lors de l\'enregistrement:', error);

@@ -120,4 +120,14 @@ export class VolSelectionnerPage implements OnInit {
       console.error('Erreur lors de l\'ajout de la réservation', error);
     });
   }
+
+  detailVol() { 
+    this.router.navigate(['/reservationvol'], {
+      queryParams: {
+        volId: this.vol.id,
+        volDetails: JSON.stringify(this.vol), // Vous pouvez envoyer l'objet vol sous forme de chaîne JSON
+        nombreDepassager: this.voyageur
+      }
+    });
+    }
 }
