@@ -13,7 +13,7 @@ import { arrowBack } from 'ionicons/icons';
   standalone: true,
   imports: [IonIcon, IonImg, IonContent, IonHeader, IonTitle, IonToolbar, CommonModule, FormsModule,RouterLink,RouterOutlet]
 })
-export class PayementRefuserPage implements OnInit {
+export class PayementRefuserPage {
 
   constructor() {
     addIcons({
@@ -21,9 +21,7 @@ export class PayementRefuserPage implements OnInit {
     })
    }
 
-  ngOnInit() {
-  }
-
+ 
   retour() {
     window.history.back();
   }
