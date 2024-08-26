@@ -25,10 +25,10 @@ export class InformationPassagerPage implements OnInit {
   passagers={
     prenom: '',
     nom: '',
-    depart: '',
     numeroDePassPort: '',
-    
-
+    numeroDeVisa: ''
+    // siege_id: 0,
+    // reservation_id: 0,
   }
 
   constructor(private router: Router,private serv:PassageServiceService) {addIcons({ arrowBackCircleOutline }); }
@@ -66,10 +66,7 @@ export class InformationPassagerPage implements OnInit {
     }else {
       console.log("choisir la classe du siege");
     }
-
-
   }
-
 
   //test
 
@@ -81,7 +78,7 @@ export class InformationPassagerPage implements OnInit {
         this.router.navigate(['/orange-money'])
       }, error => {
 
-        console.error('Erreur lors de l\'enregistrement:', error);
+        // console.error('Erreur lors de l\'enregistrement:', error);
       });
   }
 

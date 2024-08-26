@@ -1,5 +1,5 @@
-import {Utilisateur} from "./Utilisateur";
-import {Reservation} from "./Reservation";
+import { Reservation } from "./Reservation";
+import { Utilisateur } from "./Utilisateur";
 
 export interface Notification {
   id: number;
