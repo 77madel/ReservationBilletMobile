@@ -51,8 +51,8 @@ export class ReservationvolPage implements OnInit {
         this.flights = this.passagerListvol.map((reservation: any) => ({
           id: reservation.id,
           time: this.getFormattedDate(reservation.vol.dateEtHeureArrivee),
-          origin: this.truncateText(reservation.vol.aeroportDepart, 8),  // Tronquer à 4 caractères
-          destination: this.truncateText(reservation.vol.aeroportDArrivee, 8),  // Tronquer à 4 caractères
+          origin: this.truncateText(reservation.vol.aeroportDepart.nom, 8),  // Tronquer à 4 caractères
+          destination: this.truncateText(reservation.vol.aeroportDArrivee.nom, 8),  // Tronquer à 4 caractères
           airline: this.truncateText(reservation.vol.adminCompagnie.compagnie.nom, 10),  // Tronquer à 4 caractères
           depart: this.getFormattedDate(reservation.vol.dateEtHeureDepart),  // Tronquer à 4 caractères
           // depart: this.truncateText(reservation.vol.numeroDeVol, 4),  // Tronquer à 4 caractères
