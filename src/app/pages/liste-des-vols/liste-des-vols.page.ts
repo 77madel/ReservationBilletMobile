@@ -13,7 +13,6 @@ import {
   IonToolbar
 } from '@ionic/angular/standalone';
 import { ListeVolService } from "../../services/ListeVol/liste-vol.service";
-import {Vol} from "../../models/Vol";
 
 @Component({
   selector: 'app-liste-des-vols',
@@ -131,7 +130,17 @@ export class ListeDesVolsPage implements OnInit{
   // }
 
   viewVolDetail(volId: number): void {
-    this.router.navigate(['/vol-selectionner', volId]);
+    // Passer les données de vol comme paramètres de navigation
+    this.router.navigate(['/vol-selectionner', volId], {
+      queryParams: {
+        villeDeDepart: this.villeDeDepart,
+        villeDArrivee: this.villeDArrivee,
+        dateDepart: this.dateDepart,
+        dateDeRetour: this.dateDeRetour,
+        voyageur: this.voyageur,
+        classe: this.selectedClass
+      }
+    });
   }
 
 

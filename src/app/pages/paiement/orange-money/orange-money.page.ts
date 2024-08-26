@@ -102,8 +102,7 @@ export class OrangeMoneyPage implements OnInit {
       console.log('enregistrement effectuer ')
     },error=>{
       console.error(error)
-    }
-    )
+    })
 
   }
 

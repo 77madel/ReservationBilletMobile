@@ -6,6 +6,8 @@ import { arrowBackCircleOutline } from 'ionicons/icons';
 import { addIcons } from 'ionicons';
 import { Router } from '@angular/router';
 import { Siege } from 'src/app/models/Siege';
+import { PassageServiceService } from 'src/app/services/passager/passage-service.service';
+import { Passager } from 'src/app/models/Passager';
 
 @Component({
   selector: 'app-information-passager',
@@ -20,7 +22,16 @@ export class InformationPassagerPage implements OnInit {
   siegeSelectionne: any;
   classeSiege!: string;
 
-  constructor(private router: Router) {addIcons({ arrowBackCircleOutline }); }
+  passagers={
+    prenom: '',
+    nom: '',
+    numeroDePassPort: '',
+    numeroDeVisa: ''
+    // siege_id: 0,
+    // reservation_id: 0,
+  }
+
+  constructor(private router: Router,private serv:PassageServiceService) {addIcons({ arrowBackCircleOutline }); }
 
   ngOnInit() {
     this.classeSiege = "AFFAIRE";
@@ -36,7 +47,7 @@ export class InformationPassagerPage implements OnInit {
 
   // formulaires
   forms= [{}];
-  maxForms = 3; // Nombre maximum de formulaires à afficher
+  maxForms = 1; // Nombre maximum de formulaires à afficher
   // Ajouter un formulaire de plus si le nombre maximum n'est pas atteint
   ajouterFormulaire() {
     if (this.forms.length < this.maxForms) {
@@ -55,8 +66,20 @@ export class InformationPassagerPage implements OnInit {
     }else {
       console.log("choisir la classe du siege");
     }
+  }
 
+  //test
 
+  enregistrer() {
+    this.serv.addPassager(this.passagers)
+      .subscribe(response => {
+        console.log('Passager enregistré:'+response.nom+response.prenom);
+        alert('Reservation effectuee')
+        this.router.navigate(['/orange-money'])
+      }, error => {
+
+        // console.error('Erreur lors de l\'enregistrement:', error);
+      });
   }
 
 }

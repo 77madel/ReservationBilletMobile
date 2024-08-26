@@ -11,7 +11,8 @@ ion-content{
   margin-left: 20px;
 }
 #container{
-  margin-top: 180px;
+  margin-top: 5%;
+  // margin-bottom: 5%;
   justify-content: center;
   display: flex;
   align-items: center;
@@ -34,7 +35,7 @@ p{
   height: 11px;
   width: 100%;
   margin-left: 33%;
-  margin-top:10%;
+  margin-top:20px;
   align-items: center;
 }
 
@@ -44,8 +45,6 @@ p{
   width: 17%;
   height: 100%;
   margin: 1%;
-
-
 }
 
 .btn2{

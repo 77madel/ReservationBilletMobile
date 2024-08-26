@@ -1,5 +1,5 @@
-import { Component, OnInit } from '@angular/core';
 import { CommonModule } from '@angular/common';
+import { Component, OnInit } from '@angular/core';
 import { FormsModule } from '@angular/forms';
 import {
   IonContent,
@@ -12,8 +12,10 @@ import {
   IonToolbar
 } from '@ionic/angular/standalone';
 
-import {ActivatedRoute, Router} from "@angular/router";
-import {ListeVolService} from "../../services/ListeVol/liste-vol.service";
+import { ActivatedRoute, Router } from "@angular/router";
+import { AuthService } from 'src/app/services/auth/auth-service/auth.service';
+import { ReservationVolService } from 'src/app/services/reservationVol/reservation-vol.service';
+import { ListeVolService } from "../../services/ListeVol/liste-vol.service";
 
 @Component({
   selector: 'app-vol-selectionner',
@@ -25,6 +27,7 @@ import {ListeVolService} from "../../services/ListeVol/liste-vol.service";
 export class VolSelectionnerPage implements OnInit {
   volId!: number;
   vol: any;
+  public details: any;
 
   paysDeDepart: string = '';
   searchValue: string = '';
@@ -33,11 +36,16 @@ export class VolSelectionnerPage implements OnInit {
   paysArrive!: string;
   voyageur!: number;
   classes!: string[];
-
+  villeDeDepart!: string;
+  villeDArrivee!: string;
+  classe!: string;
+  
   constructor(
     private route: ActivatedRoute,
     private serviceVol: ListeVolService,
-    private router: Router
+    private router: Router,
+    private authService: AuthService, // Injection du service d'authentification
+    private reservationService: ReservationVolService,
   ) {
 
     this.route.params.subscribe(params => {
@@ -50,11 +58,22 @@ export class VolSelectionnerPage implements OnInit {
       this.voyageur = params['voyageur']
     });
   }
+
   ngOnInit() {
     // Récupérer l'ID du vol à partir des paramètres de route
     this.volId = +this.route.snapshot.paramMap.get('id')!;
 
-    // Charger les détails du vol à partir du service
+    // Récupérer les autres paramètres via queryParams
+    this.route.queryParams.subscribe(params => {
+      this.villeDeDepart = params['villeDeDepart'];
+      this.villeDArrivee = params['villeDArrivee'];
+      this.dateDepart = params['dateDepart'];
+      this.dateDeRetour = params['dateDeRetour'];
+      this.voyageur = params['voyageur'];
+      this.classe = params['classe'];
+    });
+
+    // Utiliser les paramètres pour charger les détails du vol
     this.loadVolDetails();
   }
 
@@ -80,4 +99,20 @@ export class VolSelectionnerPage implements OnInit {
     return nom.substring(0, 3);
   }
 
+  ajouterReservation() {
+    const reservation = {
+      vol: this.vol,
+      nombreDepassager:this.voyageur,
+      dateReservation: new Date(),
+
+      // Ajoutez les autres champs nécessaires pour la réservation
+    };
+
+    this.reservationService.ajouterReservation(reservation).subscribe(response => {
+      console.log('Réservation ajoutée', response);
+      this.router.navigate(['/reservationvol']); // Redirigez vers une page de confirmation
+    }, error => {
+      console.error('Erreur lors de l\'ajout de la réservation', error);
+    });
+  }
 }

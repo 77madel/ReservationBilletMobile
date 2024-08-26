@@ -1,51 +1,46 @@
 <ion-header [translucent]="true">
-  <div class="head">
-    <ion-icon name="arrow-back-circle-outline" style="color: black;"></ion-icon>
-    <ion-title><h1>Information Passager</h1></ion-title>
-  </div>
+    <div class="head">
+      <ion-icon name="arrow-back-circle-outline" ></ion-icon>
+      <ion-title><h1>Information Passager</h1></ion-title>
+    </div>
 </ion-header>
 
-<ion-content [fullscreen]="true">
-  <ion-card *ngFor="let form of forms; let i = index">
+<ion-content>
+  <div class="corps">
     <div class="form">
-      <form action="" method="post">
-        <div class="form-input">
-          <ion-input label="Prenom" labelPlacement="floating" fill="outline" placeholder="Enter votre Prenom"></ion-input>
-        </div>
-        <div class="form-input">
-          <ion-input label="Nom" labelPlacement="floating" fill="outline" placeholder="Enter votre Nom"></ion-input>
-        </div>
-        <div class="form-input">
-          <div class="derpart">
-            <ion-input label="Depart" labelPlacement="floating" fill="outline" placeholder="Enter votre Nom" id="depart" type="date"></ion-input>
-          </div>
-          <div class="retour">
-            <ion-input label="Retour" labelPlacement="floating" fill="outline" placeholder="Enter votre Nom" id="retour" type="date"></ion-input>
-          </div>
-        </div>
-        <div class="form-input">
-          <div class="number">
-            <ion-input label="Numero Passager" labelPlacement="floating" fill="outline" placeholder="Enter votre Numero" id="numero"></ion-input>
-          </div>
-          <div class="classe">
-            <ion-input label="Classe" labelPlacement="floating" fill="outline" placeholder="Enter votre Classe" id="classe"></ion-input>
-          </div>
-        </div>
-        <div class="btn">
-          <div class="btn1">
-            <input type="button" (click)="goToClasseEconomique(1,classeSiege)" value="Choisir la Classe">
-          </div>
+      <div class="lab">
+          <label for="" >Nom</label>
+          <input type="text" [(ngModel)]="passagers.nom">
+      </div>
+      
+      <div class="lab">
+          <label for="" >Prenom</label>
+          <input type="text" [(ngModel)]="passagers.prenom">
+      </div>
 
-          <div class="btn2">
-            <input type="button" value="Ajouter" (click)="ajouterFormulaire()" *ngIf="forms.length < maxForms && i === forms.length - 1">
+      <div class="Visa">
+          <div class="lab-visa">
+              <label for="" >Passport</label>
+              <input type="text" [(ngModel)]="passagers.numeroDePassPort">
           </div>
-        </div>
-      </form>
+          <div class="lab-visa">
+              <label for="">Visa</label>
+              <input type="text" [(ngModel)]="passagers.numeroDeVisa">
+          </div>  
+      </div>
+
+      <div class="ajout">
+          <div class="lab-btn">
+              <span id="chaise">34</span><span> Place</span>
+          </div>
+          <div class="lab-btn">
+              <input type="button" value="Choisir chaise" (click)="goToClasseEconomique(1,'5')">
+          </div>
+      </div>
     </div>
 
-  </ion-card>
-  <div class="button">
-    {{siege.numero}}
-    <input type="button" value="Envoyer" id="button">
-  </div>
+    <div class="foot">
+        <input type="button" (click)="enregistrer()" value="Envoyer">
+    </div>
+</div>
 </ion-content>
