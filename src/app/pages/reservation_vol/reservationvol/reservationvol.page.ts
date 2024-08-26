@@ -118,4 +118,8 @@ export class ReservationvolPage implements OnInit {
   closeProcessingModal() {
     this.isProcessingModalVisible = false;
   }
+
+  retour() {
+    window.history.back();
+  }
 }

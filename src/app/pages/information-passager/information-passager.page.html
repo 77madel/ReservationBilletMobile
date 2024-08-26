@@ -1,7 +1,7 @@
 <ion-header [translucent]="true">
     <div class="head">
-      <ion-icon name="arrow-back-circle-outline" ></ion-icon>
-      <ion-title><h1>Information Passager</h1></ion-title>
+      <ion-icon name="arrow-back-circle-outline" (click)="retour()"></ion-icon>
+      <ion-title><h1>Infor Passager</h1></ion-title>
     </div>
 </ion-header>
 
@@ -29,12 +29,17 @@
           </div>  
       </div>
 
+      <ion-select placeholder="Classe" slot="end" [(ngModel)]="selectedClass" required>
+        <ion-select-option value="ECONOMIQUE">ECONOMIQUE</ion-select-option>
+        <ion-select-option value="AFFAIRE">AFFAIRE</ion-select-option>
+      </ion-select>
+
       <div class="ajout">
           <div class="lab-btn">
               <span id="chaise">34</span><span> Place</span>
           </div>
           <div class="lab-btn">
-              <input type="button" value="Choisir chaise" (click)="goToClasseEconomique(1,'5')">
+              <input type="button" value="Choisir chaise" (click)="goToChoisirChaise(volId,selectedClass)">
           </div>
       </div>
     </div>
