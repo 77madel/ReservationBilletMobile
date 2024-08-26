@@ -105,7 +105,7 @@ export class ClasseEconomiquePage implements OnInit {
 
   navigateToPageInfoPassager(): void {
     if (this.siegeSelectionne) {
-      this.router.navigate(['/InformationPassagerPage'], {state: {siege: this.siegeSelectionne}});
+      this.router.navigate(['/InformationPassagerPage'], {state: {siege: this.siegeSelectionne, avionId: this.avionId}});
      }
   }
 }

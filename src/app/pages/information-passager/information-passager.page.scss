@@ -22,7 +22,7 @@ ion-header{
         padding-left: 40px;
       }
     }
-    
+
   }
 }
 
@@ -150,4 +150,8 @@ ion-content {
 .foot input[type="button"]:hover,
 .form .ajout .lab-btn input[type="button"]:hover {
   background-color: #0d9da8;
+}
+
+ion-item {
+  margin-top: 5%;
 }

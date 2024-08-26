@@ -8,6 +8,7 @@ import { ReservationvolPage } from './pages/reservation_vol/reservationvol/reser
 import { LoginServiceService } from './services/login-service.service';
 import { ConnectionPage } from './pages/connection/connection.page';
 import { NgIf } from '@angular/common';
+import {SplashScreenPage} from "./splash-screen/splash-screen.page";
 
 addIcons({
   'airplane': airplane,
@@ -31,6 +32,7 @@ addIcons({
     AccueilPage,
     RouterLink,
     ReservationvolPage,
+    SplashScreenPage,
   ],
 })
 export class AppComponent implements AfterViewInit,OnInit {

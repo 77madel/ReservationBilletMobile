@@ -1,7 +1,18 @@
 import { Component, OnInit } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { FormsModule } from '@angular/forms';
-import { IonContent, IonHeader, IonTitle, IonToolbar, IonIcon, IonCard, IonItem, IonInput, IonSelectOption } from '@ionic/angular/standalone';
+import {
+  IonContent,
+  IonHeader,
+  IonTitle,
+  IonToolbar,
+  IonIcon,
+  IonCard,
+  IonItem,
+  IonInput,
+  IonSelectOption,
+  IonSelect, IonLabel
+} from '@ionic/angular/standalone';
 import { arrowBackCircleOutline } from 'ionicons/icons';
 import { addIcons } from 'ionicons';
 import { ActivatedRoute, Router } from '@angular/router';
@@ -14,7 +25,7 @@ import { Passager } from 'src/app/models/Passager';
   templateUrl: './information-passager.page.html',
   styleUrls: ['./information-passager.page.scss'],
   standalone: true,
-  imports: [IonContent, IonHeader, IonTitle, IonToolbar, CommonModule, FormsModule, IonIcon, IonCard, IonItem, IonInput, IonSelectOption]
+  imports: [IonContent, IonHeader, IonTitle, IonToolbar, CommonModule, FormsModule, IonIcon, IonCard, IonItem, IonInput, IonSelectOption, IonSelect, IonLabel]
 })
 export class InformationPassagerPage implements OnInit {
 
@@ -26,14 +37,17 @@ export class InformationPassagerPage implements OnInit {
   volDetails: any;
   nombreDepassager!: number;
   selectedClass!: string;
-  
+  avionId!: number;
+
 
   passagers={
     prenom: '',
     nom: '',
     numeroDePassPort: '',
     numeroDeVisa: '',
-    // siege_id: 0,
+    siege: {
+      id: ''
+    },
     // reservation_id: 0,
   }
 
@@ -45,6 +59,7 @@ export class InformationPassagerPage implements OnInit {
     if (this.router.getCurrentNavigation()?.extras.state) {
       // @ts-ignore
       this.siegeSelectionne = this.router.getCurrentNavigation().extras.state['siege'];
+      //this.avionId = this.router.getCurrentNavigation().extras.state['avionId'];
       console.log('Siège reçu:', this.siegeSelectionne);
     } else {
       console.warn('Aucun siège reçu');
@@ -55,9 +70,9 @@ export class InformationPassagerPage implements OnInit {
       this.volDetails = JSON.parse(params['volDetails']); // Convertir la chaîne JSON en objet
       this.nombreDepassager = params['nombreDepassager'];
     });
+    this.avionId = this.volDetails.avionDepart.id;
 
     this.selectedClass ="ECONOMIQUE";
-    this.volId = 1;
 
   }
 
@@ -75,20 +90,26 @@ export class InformationPassagerPage implements OnInit {
 
   // Ouvrir Choisir Chaise
   goToChoisirChaise(avionId: number, classeSiege: string) {
-    console.log("classeSiege:"+classeSiege);
+    console.log("classeSiege:"+this.classeSiege);
     console.log("avionId:"+avionId);
-    if (classeSiege==="ECONOMIQUE") {
-      this.router.navigate(['/classe-economique', avionId]);
-    }if (classeSiege==="AFFAIRE") {
-      this.router.navigate(['/classe-affaire/',avionId]);
-    }else {
-      console.log("choisir la classe du siege");
+    if (this.classeSiege) { // Vérifier si une classe a été sélectionnée
+      if (this.classeSiege === "ECONOMIQUE") {
+        this.router.navigate(['/classe-economique', avionId]);
+      } else if (this.classeSiege === "AFFAIRE") {
+        this.router.navigate(['/classe-affaire/', avionId]);
+      } else {
+        console.error("Classe de siège invalide");
+      }
+    } else {
+      console.warn("Veuillez sélectionner une classe de siège");
     }
   }
 
   //test
 
   enregistrer() {
+    this.passagers.siege.id = this.siegeSelectionne.id;
+    console.log(this.passagers);
     this.serv.addPassager(this.passagers)
       .subscribe(response => {
         console.log('Passager enregistré:'+response.nom+response.prenom);

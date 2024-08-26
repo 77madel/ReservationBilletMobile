@@ -12,7 +12,7 @@
           <label for="" >Nom</label>
           <input type="text" [(ngModel)]="passagers.nom">
       </div>
-      
+
       <div class="lab">
           <label for="" >Prenom</label>
           <input type="text" [(ngModel)]="passagers.prenom">
@@ -29,17 +29,20 @@
           </div>
       </div>
 
-      <ion-select placeholder="Classe" slot="end" [(ngModel)]="selectedClass" style="color: black;" required>
-        <ion-select-option value="ECONOMIQUE">ECONOMIQUE</ion-select-option>
-        <ion-select-option value="AFFAIRE">AFFAIRE</ion-select-option>
-      </ion-select>
+      <ion-item>
+        <ion-label>Classe</ion-label>
+        <ion-select [(ngModel)]="classeSiege" placeholder="Sélectionnez une classe">
+          <ion-select-option value="ECONOMIQUE">Économique</ion-select-option>
+          <ion-select-option value="AFFAIRE">Affaire</ion-select-option>
+        </ion-select>
+      </ion-item>
 
       <div class="ajout">
           <div class="lab-btn">
-              <span id="chaise">34</span><span> Place</span>
+              <span id="chaise">{{siegeSelectionne.numero}}</span><span> Place</span>
           </div>
           <div class="lab-btn">
-              <input type="button" value="Choisir chaise" (click)="goToChoisirChaise(volId,selectedClass)">
+              <input type="button" value="Choisir chaise" (click)="goToChoisirChaise(avionId,selectedClass)">
           </div>
       </div>
     </div>
