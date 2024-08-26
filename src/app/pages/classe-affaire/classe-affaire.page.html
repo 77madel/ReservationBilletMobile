@@ -36,7 +36,7 @@
             <ion-row>
               <ion-col>
                 <ion-button
-                  [color]="siege.disponibilite === 'OUI' ? (isSelected(siege) ? 'selected-color' : 'success') : 'danger'"
+                  [color]="siege.disponibilite === 'OUI' ? (isSelected(siege) ? 'primary' : 'success') : 'danger'"
                   (click)="selectSiege(siege)"
                   [disabled]="siege.disponibilite !== 'OUI'"
                   (mouseover)="showTooltip(siege)"
@@ -55,7 +55,7 @@
             <ion-row>
               <ion-col>
                 <ion-button
-                  [color]="siege.disponibilite === 'OUI' ? (isSelected(siege) ? 'selected-color' : 'success') : 'danger'"
+                  [color]="siege.disponibilite === 'OUI' ? (isSelected(siege) ? 'primary' : 'success') : 'danger'"
                   (click)="selectSiege(siege)"
                   [disabled]="siege.disponibilite !== 'OUI'">
                   {{siege.numero}}
@@ -80,7 +80,7 @@
             <ion-row>
               <ion-col>
                 <ion-button
-                  [color]="siege.disponibilite === 'OUI' ? (isSelected(siege) ? 'selected-color' : 'success') : 'danger'"
+                  [color]="siege.disponibilite === 'OUI' ? (isSelected(siege) ? 'primary' : 'success') : 'danger'"
                   (click)="selectSiege(siege)"
                   [disabled]="siege.disponibilite !== 'OUI'">
                   {{siege.numero}}
@@ -97,7 +97,7 @@
             <ion-row>
               <ion-col>
                 <ion-button
-                  [color]="siege.disponibilite === 'OUI' ? (isSelected(siege) ? 'selected-color' : 'success') : 'danger'"
+                  [color]="siege.disponibilite === 'OUI' ? (isSelected(siege) ? 'primary' : 'success') : 'danger'"
                   (click)="selectSiege(siege)"
                   [disabled]="siege.disponibilite !== 'OUI'">
                   {{siege.numero}}

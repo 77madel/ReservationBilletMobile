@@ -14,6 +14,8 @@ export class PassageServiceService {
   addPassager(passager:{
     nom:string;
     prenom:string;
+    numeroDePassPort:string;
+    numeroDeVisa:string;
   }):Observable<Passager> {
     return this.http.post<Passager>(`${this.apiUrl}`, passager);
   }

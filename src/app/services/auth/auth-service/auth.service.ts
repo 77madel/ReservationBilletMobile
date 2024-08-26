@@ -2,7 +2,7 @@ import { HttpClient, HttpErrorResponse } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { Router } from '@angular/router';
 import { BehaviorSubject, catchError, map, Observable, throwError } from 'rxjs';
-import { UtilFunction } from '../../../components/Utils/utils-functions';
+import { UtilFunction } from '../../../Utils/utils-functions';
 
 @Injectable({
   providedIn: 'root'
@@ -71,5 +71,9 @@ export class AuthService {
     }
     return user;
   }
-
+  getUserId(): number | null {
+    const user = this.getUserFormLocalStorage();
+    return user && user.id ? user.id : null;
+  }
+  
 }
