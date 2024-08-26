@@ -102,15 +102,20 @@ export class VolSelectionnerPage implements OnInit {
   ajouterReservation() {
     const reservation = {
       vol: this.vol,
-      nombreDepassager:this.voyageur,
+      nombreDepassager: this.voyageur,
       dateReservation: new Date(),
-
       // Ajoutez les autres champs nécessaires pour la réservation
     };
-
+  
     this.reservationService.ajouterReservation(reservation).subscribe(response => {
       console.log('Réservation ajoutée', response);
-      this.router.navigate(['/reservationvol']); // Redirigez vers une page de confirmation
+      this.router.navigate(['/InformationPassagerPage'], {
+        queryParams: {
+          volId: this.vol.id,
+          volDetails: JSON.stringify(this.vol), // Vous pouvez envoyer l'objet vol sous forme de chaîne JSON
+          nombreDepassager: this.voyageur
+        }
+      });
     }, error => {
       console.error('Erreur lors de l\'ajout de la réservation', error);
     });
