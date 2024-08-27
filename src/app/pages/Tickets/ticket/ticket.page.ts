@@ -18,6 +18,17 @@ export class TicketPage implements OnInit {
 
   constructor() { addIcons({arrowBackCircleOutline, airplaneOutline}); }
 
+  dateDepart!: string;
+  dateArrivee!: string;
+  classe!: string;
+  vol!: string;
+  nom!: string;
+  prenom!: string; 
+  chaise!: string;
+
+  filteredVilleDepart: { nom: string }[] = [];
+  filteredVilleDArrivee: { nom: string }[] = [];
+
   ngOnInit() {
   }
 

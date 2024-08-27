@@ -143,11 +143,8 @@ export class ListeDesVolsPage implements OnInit{
     });
   }
 
-
   // retour a la page precedente
   retour(): void {
     window.history.back();
   }
-
-
 }

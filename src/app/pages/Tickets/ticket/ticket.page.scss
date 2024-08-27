@@ -120,8 +120,6 @@ ion-header{
   margin-top: 1%;
 }
 
-
-
 .photo{
   
   width: 90%;
@@ -131,6 +129,7 @@ ion-header{
 .two-box {
   border-top: 3px dashed black;
   display: flex;
+  justify-content: space-between;
 }
 .cutout-left {
   margin-left: -9%;
@@ -164,11 +163,12 @@ ion-header{
   margin-bottom: 7%;
 }
 
-.button{
-  
-}
-ion-label{
-  color: black;
+.btn-print{
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-top: -40px;
+  margin-bottom: 40px;
 }
 input[type="submit"] {
   background-color: #04BBC7;
@@ -177,13 +177,14 @@ input[type="submit"] {
   padding: 10px 40px;
   border-radius: 4px;
   cursor: pointer;
-  color: #ffff;
   font-size: 30px;
   font-weight: bold;
-  margin-top: 20px;
+  margin-top: 5px;
 }
 
 input[type="submit"]:hover {
+  background-color: #0a8f99;
   border: 2px solid transparent; 
-  border-image: linear-gradient(to right, #ffffff, #04BBC7) 4;}
+  border-image: linear-gradient(to right, #ffffff, #04BBC7) 4;
+}
 
